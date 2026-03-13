@@ -1,0 +1,334 @@
+.Service2 {
+    position: relative;
+    background-color: #fefeff;
+    min-height: 115vh;
+    width: 100%;
+}
+
+/* DO NOT MODIFY YOUR .Service2 */
+
+.service2-content {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Static background */
+.main-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Chatbox styling */
+.chatbox {
+    position: absolute;
+    backdrop-filter: blur(10px);
+    padding: 18px 22px;
+    border: 0.5px solid rgb(202, 201, 201);
+    border-radius: 18px;
+    box-shadow:
+        2px 0 20px black
+        2px 0 15px black;
+    max-width: 300px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Positioning */
+.chatbox-1 {
+    top: 30%;
+    right: 10%;
+}
+
+.chatbox-2 {
+    bottom: 35%;
+    right: 15%;
+}
+
+.chatbox-3 {
+    bottom: 15%;
+    left: 20%;
+}
+
+.service2-content {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Chatbox styling */
+.chatbox {
+    position: absolute;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    width: 280px;
+    font-size: 15px;
+    background-color: white;
+}
+
+/* Positioning */
+.chatbox-1 {
+    position: absolute;
+    top: 12%;
+    right: 48%;
+    overflow: hidden;
+    width: 350px;
+    height: 90px;
+}
+
+.chatbox-2 {
+    position: absolute;
+    overflow: hidden;
+    top: 30%;
+    bottom: 35%;
+    right: 48%;
+    width: 350px;
+    height: 87px;
+}
+
+.chatbox-3 {
+    bottom: 46%;
+    left: 4.3%;
+}
+
+.chatbox-1 img {
+    top: 15%;
+    right: 47%;
+    overflow: hidden;
+    width: 350px;
+    height: 90px;
+}
+
+.chatbox-2 img {
+    object-fit: cover;
+    height: 78px;
+    width: 323px;
+    position: relative;
+    left: -15px;
+    top: -4px;
+}
+
+.mainimage img {
+    position: relative;
+    top: 35px;
+    left: 92px;
+    height: 80vh;
+    width: 38vw;
+}
+
+/* --------------------------moving everything little lower-------------------------- */
+/* Move everything 30px down */
+
+.service2-content {
+    top: 40px;
+}
+
+.mainimage img {
+    top: calc(35px + 40px);
+}
+
+/* ------------------------------------------------------------ */
+
+.righttext {
+    height: 100vh;
+    width: 550px;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    padding: 20px;
+}
+
+.righttext h1 {
+    margin-top: 60px;
+    font-size: 3em;
+    font-weight: 520;
+    animation: animate 10s ease infinite;
+    background-image: url(./images/heading.jpg);
+    background-clip: text;
+    background-size: 300%;
+    color: transparent;
+}
+@keyframes animate {
+    0%{
+        background-position: 0%;
+    }
+    30%{
+        background-position: 30%;
+    }
+    50%{
+        background-position: 50%;
+    }
+    70%{
+        background-position: 70%;
+    }
+    100%{
+        background-position: 100%;
+    }
+}
+
+
+.righttext p {
+    font-size: 19px;
+    color: #4a4d52;
+}
+
+.righttext a {
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.4s ease;
+    color: #2970ff;
+}
+
+.righttext a:hover {
+    color: #ff0000;
+}
+
+.ptags {
+    width: clamp(366px, 500px, 600px);
+    position: relative;
+    top: -5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* -------- Tablets -------- */
+@media (max-width: 1024px) {
+
+    .mainimage img {
+        width: 45vw;
+        height: 70vh;
+        left: 60px;
+    }
+
+    .righttext {
+        width: 45vw;
+        right: 10px;
+    }
+
+    .righttext h3 {
+        font-size: 2.4em;
+    }
+
+    .chatbox-1,
+    .chatbox-2 {
+        width: 300px;
+        height: 80px;
+    }
+
+    .chatbox-1 img,
+    .chatbox-2 img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* -------- Small Tablets -------- */
+@media (max-width: 900px) {
+
+    .mainimage img {
+        width: 50vw;
+        height: 65vh;
+        left: 30px;
+    }
+
+    .righttext {
+        width: 45vw;
+        padding: 15px;
+    }
+
+    .righttext h1 {
+        font-size: 2em;
+    }
+
+    .chatbox-1,
+    .chatbox-2 {
+        width: 260px;
+        height: 70px;
+    }
+}
+
+/* -------- Mobile -------- */
+@media (max-width: 600px) {
+
+    .Service2 {
+        min-height: 120vh;
+        /* allow stacking space */
+    }
+
+    .mainimage img {
+        width: 80vw;
+        height: auto;
+        left: 10%;
+        top: 80px;
+    }
+
+    .righttext {
+        position: absolute;
+        margin-top: 60vh;
+        margin-right: 30px;
+        width: 90%;
+        height: auto;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .righttext h1 {
+        position: relative;
+        font-size: 1.6em;
+        left: 15px;
+    }
+
+    .chatbox-1 {
+        width: 220px;
+        height: 65px;
+        right: 10%;
+        bottom: 10px;
+    }
+
+    .chatbox-2 {
+        width: 220px;
+        height: 65px;
+        right: 10%;
+        bottom: 10px;
+    }
+
+    .chatbox-3 {
+        left: 4%;
+        bottom: 45%;
+        height: 63px;
+        width: 230px;
+        background-color: white;
+    }
+}
+
+/* -------- Very Small Devices -------- */
+@media (max-width: 480px) {
+
+    .mainimage img {
+        width: 90vw;
+        left: 5%;
+    }
+
+    .righttext h1 {
+        font-size: 2em;
+    }
+
+    .righttext p {
+        position: relative;
+        font-size: 15px;
+        left: 15px;
+    }
+
+    .chatbox-1,
+    .chatbox-2 {
+        width: 200px;
+        height: 60px;
+    }
+
+    .ptags {
+        width: 380px;
+        margin: auto;
+    }
+}

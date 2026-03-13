@@ -1,0 +1,241 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background-image: url(./images/footer.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.container {
+    margin-top: 20px;
+    margin-right:130px ;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    color: white;
+    word-spacing: 0.5px;
+}
+
+.container span {
+    position: relative;
+    left: 10px;
+}
+
+.containerStart{
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.logo{
+    margin-top: 90px;
+    margin-left: 30px;
+    top: 0;
+}
+.logo img {
+    height: 75px;
+    width: 280px;
+}
+
+.AboutUs {
+    margin-left: 10%;
+    padding: 5px;
+    height: 200px;
+    width: 250px;
+    border-right: 1px solid white;
+    font-size: 1.35em;
+}
+
+.aboutUsFooter{
+    margin-top: 24px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 7px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.83em;
+}
+
+
+
+.address {
+    padding: 5px;
+    height: 200px;
+    width: 350px;
+    border-right: 1px solid white;
+    font-size: 1.35em;
+}
+
+.addressDetail{
+    margin: 10px -15px;
+    padding: 10px;
+    height: 150px;
+    width: 340px;
+    font-size: 0.75em;
+    overflow: hidden;
+}
+
+.ContactUs {
+    padding: 5px;
+    height: 200px;
+    width: 285px;
+    /* border-right: 1px solid white; */
+    font-size: 1.35em;
+}
+
+.contactUsDetail{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    top: 22px;
+    font-size: 0.83em;
+}
+
+.ContactUsBtn{
+    margin-top: 5px;
+    height: 40px;
+    width: 140px;
+    background-color: rgb(30, 30, 179);
+    border-radius: 30px;
+    border: none;
+    font-size: 1em;
+    transition:all 0.s ease;
+    color: white;
+}
+
+.ContactUsBtn:hover{
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.05);
+    color: black;
+}
+
+.ContactUsBtn a{
+    color: white;
+}
+
+.ContactUsBtn:hover a{
+    color: black;
+}
+
+
+.headingUnder{
+    position: relative;
+    top: 5px;
+    width: 8em;
+}
+
+.rights{
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.rights span , .rightsa{
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.sublink{
+    position: relative;
+    display: inline-block;
+}
+
+.sublink::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 1.5px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.sublink:nth-child(1):hover::after{
+    width: 38%;
+}
+.sublink:nth-child(2):hover::after{
+    width: 34%;
+}
+.sublink:nth-child(3):hover::after{
+    width: 18%;
+}
+
+.footer {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background-image: url(./images/footer.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.socials{
+    display: flex;
+    position: absolute;
+    gap: 20px;
+    top: 20%;
+    right: 25%;
+}
+
+.box{
+    height: 42px;
+    width: 42px;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.box:hover{
+    transform: scale(1.1);
+}
+
+/* .fb{
+background-image: url(./images/facebook.png);
+background-size: cover;
+background-position: center;
+}
+
+.insta{
+background-image: url(./images/instagram.png);
+} */
+
+/* Smooth merge gradient */
+
+.footer::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(
+        to bottom,
+        rgb(255, 255, 255) 0%,
+        rgb(240, 240, 240) 30%,
+        rgb(202, 202, 202) 60%,
+        rgb(4 13 58) 100%
+    );
+    pointer-events: none;
+}

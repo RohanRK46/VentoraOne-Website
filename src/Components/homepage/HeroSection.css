@@ -1,0 +1,104 @@
+.hero{
+    min-height: 100vh;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.hero img {
+    position: absolute;
+    top: 120px;
+    left: 15px;
+    height: 131px;
+    width: 426px;
+}
+
+.hero h1 {
+    position: absolute;
+    top: 260px;
+    font-size: 2.5em;
+    left: 70px;
+    color: white;
+}
+
+.hero span {
+    position: absolute;
+    font-size: 2.5em;
+    color: #45b1cc;
+    font-weight: 500;
+    top: 320px;
+    left: 69px;
+}
+
+.hero p {
+    position: absolute;
+    top: 386px;
+    left: 72px;
+    font-weight: 300;
+    color: white;
+    height: 60px;
+    width: 384px;
+}
+
+.shield img{
+    position: absolute;
+    top: 70px;
+    left: 125vh;
+    height: 490px;
+    width: 465px;
+    padding: 4px;
+    transition: transform 0.3s ease;
+}
+
+.shield img:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+/* --------------------------mobile view-------------------------- */
+@media (max-width: 768px) {
+
+    .hero {
+        position: static;
+        padding: 40px 20px;
+    }
+
+    .hero img,
+    .hero h1,
+    .hero span,
+    .hero p {
+        position: static;
+        margin: 35px 16px;
+        left: auto;
+        top: auto;
+    }
+
+    .hero img{
+        position: relative;
+        left: -30px;
+    }
+
+    .hero img {
+        width: 250px;
+        height: auto;
+        display: block;
+        margin: 33px 0 11px 17px;
+    }
+
+    .hero h1,
+    .hero span {
+        font-size: 1.6em;
+    }
+
+    .hero p {
+        width: 100%;
+        font-size: 0.95em;
+        height: auto;
+    }
+
+    .shield img{
+        position: relative;
+        left: 50px;
+    }
+}

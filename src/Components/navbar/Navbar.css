@@ -1,0 +1,340 @@
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Prevent horizontal overflow ONLY */
+body {
+    overflow-x: hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* background-color: #04184e; */
+    background-image: url(./navbarImages/navbar.png);
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* FIX */
+    padding: 0 20px;
+    position: relative;
+}
+
+/* ================= LOGO ================= */
+
+#logo {
+    height: 42px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+/* ================= NAV LINKS (DESKTOP) ================= */
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-left: auto;
+    transition: transform 0.4s ease;
+}
+
+.nav-links li {
+    position: relative;
+    color: white;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    transition: 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+
+/* Underline animation */
+
+.navbar ul .mainLi::after {
+    content: "";
+    display: block;
+    position: relative;
+    top: 22px;
+    left: -23px;
+    width: 0px;
+    height: 2px;
+    background-color: white;
+    transition: width 0.5s ease-in-out;
+}
+
+.navbar ul .mainLi:nth-child(1):hover:after {
+    width: 210%;
+}
+
+.navbar ul .mainLi:nth-child(4):hover:after {
+    width: 180%;
+}
+
+/* ------------------------------before pseduelem---------------------- */
+
+.navbar ul .mainLi {
+    position: relative;
+}
+
+/* ------------ pseduo up------------------ */
+
+.navbar ul .mainLi::before {
+    content: "";
+    position: absolute;
+    bottom: 44px;
+    right: -27px;
+    width: 0px;
+    height: 2px;
+    background-color: white;
+    transition: 0.5s ease-in-out;
+}
+
+.navbar ul .mainLi:nth-child(1):hover::before {
+    width: 200%;
+}
+
+.navbar ul .mainLi:nth-child(2):hover::before {
+    width: 174%;
+}
+
+.navbar ul .mainLi:nth-child(3):hover::before {
+    width: 147%;
+}
+
+.navbar ul .mainLi:nth-child(4):hover::before {
+    width: 180%;
+}
+
+/* --------------------------hover on a---------------------- */
+
+.navbar ul .mainLi .mainA:hover {
+    color: #3de8ff;
+    transition: 0.5s ease-in-out;
+}
+
+/* ------------------------button-------------------------- */
+
+.btn {
+    background: rgb(9, 0, 141);
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 7px;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    white-space: nowrap;
+    height: 35px;
+    width: 140px;
+}
+
+.btn:hover {
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    transform: scale(1.05);
+}
+
+/* -------------------------------dropdown--------------------------*/
+
+.services {
+    position: relative;
+}
+
+/* dropdown */
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: -23px;
+    background: white;
+    width: 255px;
+    list-style: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s;
+}
+
+.dropdown li {
+    height: 45px;
+    width: 255px;
+    box-sizing: border-box;
+}
+
+.dropdown li a {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 5px;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    height: 45px;
+    width: 255px;
+}
+
+.dropdown li a:hover {
+    color: white;
+}
+
+.dropdown li:hover {
+    background: #131b71;
+    color: white;
+}
+
+.services:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ================= HAMBURGER ================= */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1200; /* FIX */
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: 0.3s ease;
+}
+
+/* Animate to X */
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #052472;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 30px 0;
+        transform: translateY(-150%);
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+    .nav-links li{
+        text-align: center;
+    }
+
+    .nav-links li a {
+        font-size: 18px;
+    }
+
+    /* mobile dropdown */
+
+    .dropdown {
+        position: static;
+        width: 100vw;
+        box-shadow: none;
+        background: #0a103f;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: max-height 0.3s ease;
+    }
+
+    .dropdown.show {
+        max-height: 400px;
+    }
+
+    .dropdown li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .dropdown li a {
+        color: white;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+    }
+
+    .dropdown li:hover {
+        background: #0a103f;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .nav-container {
+        height: 60px;
+    }
+
+    .nav-links {
+        top: 60px;
+    }
+
+    #logo {
+        height: 36px;
+    }
+
+}

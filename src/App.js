@@ -1,24 +1,67 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from "react-router-dom";
+import React, { Suspense, lazy } from "react";
+
+import Navbar from './Components/navbar/Navbar';
+import ScrollToTop from './Components/ScrolltoTop';
+
+const HeroSection = lazy(() => import('./Components/homepage/HeroSection'));
+const Services = lazy(() => import('./Components/services/Services'));
+const Service2 = lazy(() => import('./Components/service2/Service2'));
+const Whychoseventora = lazy(() => import('./Components/why-chose-ventora/Whychoseventora'));
+const Footer = lazy(() => import('./Components/footer/Footer'));
+const CloudSecurity = lazy(() => import('./Components/01-CloudSecurty/CloudSecurity'));
+const NetworkDesign = lazy(() => import('./Components/02-Network Design/NetworkDesign'));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+
+      <ScrollToTop />
+
+      <Suspense fallback={<div style={{ textAlign: "center", padding: "40px" }}>Loading...</div>}>
+
+        <Routes>
+
+          <Route 
+            path="/" 
+            element={
+              <>
+                <HeroSection />
+                <Services />
+                <Service2 />
+                <Whychoseventora />
+              </>
+            } 
+          />
+
+          <Route path="/services" element={<Services />} />
+
+          <Route path="/contact" element={<div>Contact Page</div>} />
+
+          <Route path="/technologies" element={<div>Technologies Page</div>} />
+
+          <Route 
+            path="/AllServices" 
+            element={
+              <>
+                <CloudSecurity />
+                <NetworkDesign />
+              </>
+            } 
+          />
+
+        </Routes>
+
+        <Footer
+          ContactNo="8128183840"
+          Email="blablabla@gmail.com"
+          Address="Sunmilan Complex flat number 403 bla bla bla bla"
+        />
+
+      </Suspense>
+    </>
   );
 }
 
