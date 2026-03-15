@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./NetworkDesign.css";
 import cloudImg from "./images/Cloud.png";
 
-export default function CloudSecurity() {
+export default function NetworkDesign() {
 
   const [open, setOpen] = useState(false);
   const startScroll = useRef(0);
@@ -39,7 +39,7 @@ export default function CloudSecurity() {
 
         {!open ? (
           <div className="cloud-intro">
-            <h1 onClick={openSection}>CLOUD & HYBRID SECURITY</h1>
+            <h1 onClick={openSection}>NETWORK DESIGN</h1>
             <p>Tap to know more</p>
           </div>
         ) : (
@@ -49,7 +49,7 @@ export default function CloudSecurity() {
               ✕
             </button>
 
-            <h1>CLOUD & HYBRID SECURITY</h1>
+            <h1>NETWORK DESIGN</h1>
 
             <p>
               Cloud security protects applications, data, and infrastructure

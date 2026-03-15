@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./CloudSecurity.css";
 import cloudImg from "./images/Cloud.jpg";
+import { Link } from "react-router-dom"
 
 export default function CloudSecurity() {
 
@@ -65,9 +66,7 @@ export default function CloudSecurity() {
               Result : Secure cloud connectivity without impacting business productivity
             </p>
 
-            <button className="start-btn">
-              Get Started
-            </button>
+           <Link to="/ServiceBookingForm"> <button className="start-btn"> Get Started </button> </Link>
 
           </div>
         )}

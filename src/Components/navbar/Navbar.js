@@ -79,7 +79,7 @@ export default function Navbar() {
 
           {/* BUTTON */}
           <li>
-            <Link to="/get-started" onClick={closeMenu}>
+            <Link to="/ServiceBookingForm" onClick={closeMenu}>
               <button className="btn">Get Started</button>
             </Link>
           </li>

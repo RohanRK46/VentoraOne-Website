@@ -12,6 +12,7 @@ const Whychoseventora = lazy(() => import('./Components/why-chose-ventora/Whycho
 const Footer = lazy(() => import('./Components/footer/Footer'));
 const CloudSecurity = lazy(() => import('./Components/01-CloudSecurty/CloudSecurity'));
 const NetworkDesign = lazy(() => import('./Components/02-Network Design/NetworkDesign'));
+const ServiceBookingForm = lazy(() => import('./Components/service-booking-form/ServiceBookingForm'))
 
 function App() {
   return (
@@ -42,15 +43,9 @@ function App() {
 
           <Route path="/technologies" element={<div>Technologies Page</div>} />
 
-          <Route 
-            path="/AllServices" 
-            element={
-              <>
-                <CloudSecurity />
-                <NetworkDesign />
-              </>
-            } 
-          />
+          <Route path="/AllServices" element={ <> <CloudSecurity /> <NetworkDesign /> </> } />
+
+          <Route path="/ServiceBookingForm" element = { <ServiceBookingForm/> } />
 
         </Routes>
 

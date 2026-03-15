@@ -166,7 +166,7 @@ export default function ServiceBganimation() {
                 position: "absolute",
                 left: 0,
                 width: "100%",
-                minHeight: "170vh",
+                minHeight: "150vh",
                 zIndex: -1,
                 pointerEvents: "none",
                 maskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",

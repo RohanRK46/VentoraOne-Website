@@ -53,7 +53,9 @@ export default function HeroSection() {
         <span>Design. Secure. Scale.</span>
 
         <p>
-          Advanced cybersecurity and enterprise-grade network infrastructure built for modern global enterprises.
+          Advanced cybersecurity and enterprise-grade network <br /> <br />
+
+          infrastructure built for modern global enterprises.
         </p>
 
         <div className="shield" ref={shieldRef}>
