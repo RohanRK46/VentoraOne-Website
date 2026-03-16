@@ -1,88 +1,79 @@
 import React from "react";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
+import footerBg from "./images/footer.png";   // adjust path if needed
 import "./Footer.css";
-import { Link } from "react-router-dom";
-import Logo from "./images/logo.png";
-import Fb from "./images/facebook.png";
-import Insta from "./images/instagram.png";
-import LinkedIn from "./images/linkedIn.png";
+import {Link} from "react-router-dom"
 
-export default function Footer(props) {
+function Footer() {
   return (
-    <div className="footer">
+    <footer
+      className="footer"
+      style={{ backgroundImage: `url(${footerBg})` }}
+    >
+      <div className="footer-content">
 
-      <div className="logo">
-        <img src={Logo} alt="company logo" loading="lazy" />
-      </div>
+        {/* Top Section */}
+        <div className="footer-top">
+          <div className="footer-logo">
+            <span className="logo-v">V</span>entoraOne
+          </div>
 
-      <div className="socials">
-        <div className="fb box">
-          <Link to="/">
-            <img src={Fb} alt="facebook" loading="lazy" />
-          </Link>
-        </div>
+          <div className="footer-social">
+            <Link to="/" className="social-fb" aria-label="Facebook">
+              <Facebook size={22} color="#fff" />
+            </Link>
 
-        <div className="insta box">
-          <Link to="/">
-            <img src={Insta} alt="instagram" loading="lazy" />
-          </Link>
-        </div>
+            <Link to="/" className="social-ig" aria-label="Instagram">
+              <Instagram size={22} color="#fff" />
+            </Link>
 
-        <div className="linkedIn box">
-          <Link to="/">
-            <img src={LinkedIn} alt="linkedin" loading="lazy" />
-          </Link>
-        </div>
-      </div>
-
-      <div className="container">
-
-        <div className="AboutUs">
-          <span>About Us</span>
-          <hr className="headingUnder" />
-
-          <div className="aboutUsFooter">
-            <Link className="sublink" to="/About Us">About us</Link>
-            <Link className="sublink" to="/Careers">Careers</Link>
-            <Link className="sublink" to="/Blog">Blog</Link>
+            <Link to="/" className="social-li" aria-label="LinkedIn">
+              <Linkedin size={22} color="#fff" />
+            </Link>
           </div>
         </div>
 
-        <div className="address">
-          <span>Address</span>
-          <hr className="headingUnder" />
+        {/* Middle Columns */}
+        <div className="footer-columns">
 
-          <div className="addressDetail">
-            <span>{props.Address}</span>
+          <div className="footer-column">
+            <h3>About Us</h3>
+            <ul>
+              <li><Link to="/">About us</Link></li>
+              <li><Link to="/">Careers</Link></li>
+              <li><Link to="/">Blog</Link></li>
+            </ul>
           </div>
+
+          <div className="footer-column">
+            <h3>Address</h3>
+            <p>
+              Sunmilan Complex flat number 403 bla bla bla bla
+            </p>
+          </div>
+
+          <div className="footer-column">
+            <h3>Contact Us</h3>
+            <p>8128183840</p>
+            <p>blablabla@gmail.com</p>
+
+            <Link to="/" className="footer-contact-btn">
+              Contact Us
+            </Link>
+          </div>
+
         </div>
 
-        <div className="ContactUs">
-          <span>Contact Us</span>
-          <hr className="headingUnder" />
-
-          <div className="contactUsDetail">
-            <span>{props.ContactNo}</span>
-            <span>{props.Email}</span>
-            <button className="ContactUsBtn">
-              <Link to="/">Contact Us</Link>
-            </button>
-          </div>
+        {/* Bottom */}
+        <div className="footer-bottom">
+          © 2026 VentoraOne | All Rights Reserved |
+          <Link to="/"> Privacy Policy </Link> |
+          <Link to="/"> Terms of Services</Link>
         </div>
 
       </div>
-
-      <div className="rights">
-        <span>© 2026 VentoraOne | All Rights Reserved. |</span>
-
-        <div className="PP">
-          <Link className="rightsa">Privacy Policy |</Link>
-        </div>
-
-        <div className="tc">
-          <Link className="rightsa">Terms of Services</Link>
-        </div>
-      </div>
-
-    </div>
+    </footer>
   );
 }
+
+export default Footer;

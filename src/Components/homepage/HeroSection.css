@@ -60,6 +60,7 @@
 @media (max-width: 768px) {
 
     .hero {
+        height: 100vh;
         position: static;
         padding: 40px 20px;
     }

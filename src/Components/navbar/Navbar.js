@@ -54,8 +54,8 @@ export default function Navbar() {
 
             <ul className={`dropdown ${serviceOpen ? "show" : ""}`}>
               <li><Link to="/support" onClick={closeMenu}>24/7 Ventoraone Support</Link></li>
-              <li><Link to="/AllServices" onClick={closeMenu}>Cloud & Hybrid Security</Link></li>
-              <li><Link to="/AllServices" onClick={closeMenu}>Network Design</Link></li>
+              <li><Link to="/CloudSecurity" onClick={closeMenu}>Cloud & Hybrid Security</Link></li>
+              <li><Link to="/NetworkDesign" onClick={closeMenu}>Network Design</Link></li>
               <li><Link to="/firewall-security" onClick={closeMenu}>Firewall Security</Link></li>
               <li><Link to="/backup-recovery" onClick={closeMenu}>Backup And Recovery</Link></li>
               <li><Link to="/troubleshooting" onClick={closeMenu}>Troubleshooting</Link></li>

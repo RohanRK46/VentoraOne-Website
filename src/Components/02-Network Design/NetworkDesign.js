@@ -1,78 +1,121 @@
-import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { Shield, Network, Lock, Server } from "lucide-react";
 import "./NetworkDesign.css";
-import cloudImg from "./images/Cloud.png";
+import heroImage from "./images/Cloud.png";
+import { Link } from "react-router-dom";
+import PerformanceSection from "./PerformanceBar/PerformanceSection"
+import CheckOutServices from '../01-CloudSecurty/OtherServices/CheckOutServices'
+// import Testimony from './Testimony/Testimony'
+
+const features = [
+  {
+    icon: Network,
+    title: "Network Architecture",
+    desc: "Design scalable and resilient network infrastructures tailored to your organization’s performance and security needs.",
+  },
+  {
+    icon: Server,
+    title: "Infrastructure Planning",
+    desc: "Build optimized network topologies ensuring seamless connectivity, high availability, and efficient data flow.",
+  },
+  {
+    icon: Shield,
+    title: "Secure Network Design",
+    desc: "Implement segmentation, firewalls, and secure protocols to protect networks from unauthorized access and threats.",
+  },
+  {
+    icon: Lock,
+    title: "Performance Optimization",
+    desc: "Enhance network reliability and speed using intelligent routing, load balancing, and proactive monitoring.",
+  },
+];
 
 export default function NetworkDesign() {
-
-  const [open, setOpen] = useState(false);
-  const startScroll = useRef(0);
-
-  useEffect(() => {
-
-    const handleScroll = () => {
-      if (open && Math.abs(window.scrollY - startScroll.current) > 200) {
-        setOpen(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-
-  }, [open]);
-
-  const openSection = () => {
-    startScroll.current = window.scrollY;
-    setOpen(true);
-  };
-
   return (
-    <div className={`cloud-container ${open ? "active" : ""}`}>
+    <div className="networkdesign-page">
 
-      <div className="cloud-image">
-        <img src={cloudImg} alt="Cloud Security" />
-      </div>
+      <section className="network">
 
-      <div className="cloud-text">
+        <div className="network-glow network-glow1"></div>
+        <div className="network-glow network-glow2"></div>
 
-        {!open ? (
-          <div className="cloud-intro">
-            <h1 onClick={openSection}>NETWORK DESIGN</h1>
-            <p>Tap to know more</p>
+        <div className="network-container">
+
+          <div className="network-revealed-state">
+
+            <motion.div
+              className="network-content-left"
+              initial={{ opacity: 0, x: -80 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+            >
+
+              <p className="network-tag">
+                Enterprise Network Solutions
+              </p>
+
+              <h2 className="network-content-title">
+                Build Strong
+                <br />
+                <span>Network Infrastructure</span>
+              </h2>
+
+              <p className="network-content-desc">
+                We design scalable and secure network infrastructures that ensure
+                seamless communication, optimized performance, and reliable
+                connectivity for modern digital environments.
+              </p>
+
+              <div className="network-feature-grid">
+                {features.map((feature, i) => (
+                  <motion.div
+                    key={feature.title}
+                    className="network-feature-card"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + i * 0.1 }}
+                  >
+                    <feature.icon className="network-feature-icon" />
+                    <h3>{feature.title}</h3>
+                    <p>{feature.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="network-button-group">
+                <Link to="/ServiceBookingForm">
+                  <button className="network-primary-btn">
+                    Book a Service
+                  </button>
+                </Link>
+              </div>
+
+            </motion.div>
+
+            <motion.div
+              className="network-content-right"
+              initial={{ opacity: 0, x: 80 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+            >
+              <img
+                src={heroImage}
+                alt="Network Design"
+                className="network-hero-image-large"
+              />
+            </motion.div>
+
           </div>
-        ) : (
-          <div className="cloud-content">
 
-            <button className="close-btn" onClick={() => setOpen(false)}>
-              ✕
-            </button>
+          {/* <CheckOutServices/>
+          <Testimony/> */}
 
-            <h1>NETWORK DESIGN</h1>
+        </div>
 
-            <p>
-              Cloud security protects applications, data, and infrastructure
-              hosted in cloud environments. It includes encryption, identity
-              management, and advanced threat detection.
-            </p>
+      </section>
 
-            <p>Secure cloud access & identity controls</p>
-            <p>Firewall & VPN integration with cloud environments</p>
-            <p>Hybrid (on-prem + cloud) security design</p>
-
-            <p>
-              Result : Secure cloud connectivity without impacting business productivity
-            </p>
-
-            <button className="start-btn">
-              Get Started
-            </button>
-
-          </div>
-        )}
-
-      </div>
+      <PerformanceSection/>
+      <CheckOutServices titleColor="black" cardcolor="rgb(8 16 52)"/>
 
     </div>
   );

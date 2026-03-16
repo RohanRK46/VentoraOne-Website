@@ -43,7 +43,9 @@ function App() {
 
           <Route path="/technologies" element={<div>Technologies Page</div>} />
 
-          <Route path="/AllServices" element={ <> <CloudSecurity /> <NetworkDesign /> </> } />
+          <Route path="/CloudSecurity" element={ <CloudSecurity /> } />
+
+          <Route path="/NetworkDesign" element={ <NetworkDesign/> } />
 
           <Route path="/ServiceBookingForm" element = { <ServiceBookingForm/> } />
 

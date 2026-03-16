@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { X, ArrowUpRight } from "lucide-react";
 
@@ -76,12 +76,25 @@ export default function Services() {
   const [activeId, setActiveId] = useState(null);
 
   const gridRef = useRef(null);
+  const heroRef = useRef(null);
+
   const isInView = useInView(gridRef, { amount: 0.35 });
 
   const activeService = services.find((s) => s.id === activeId) || null;
   const sideServices = activeService
     ? services.filter((s) => s.id !== activeId)
     : [];
+
+  /* AUTO SCROLL WHEN SERVICE CHANGES */
+
+  useEffect(() => {
+    if (activeService && heroRef.current) {
+      heroRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [activeService]);
 
   return (
     <div className="services-root">
@@ -93,7 +106,9 @@ export default function Services() {
       <header className="services-header">
 
         <div>
-          <h1 className="services-header-title">Our Security & Infrastructure Services</h1>
+          <h1 className="services-header-title">
+            Our Security & Infrastructure Services
+          </h1>
         </div>
 
         <p className="services-header-meta">6 Solutions</p>
@@ -148,10 +163,6 @@ export default function Services() {
                       <span className="service-card-category">
                         {service.category}
                       </span>
-
-                      <span className="service-card-year">
-                        {service.year}
-                      </span>
                     </div>
 
                     <h2 className="service-card-title">
@@ -187,6 +198,7 @@ export default function Services() {
               {/* HERO */}
 
               <motion.div
+                ref={heroRef}
                 className="service-hero"
                 initial={{ opacity: 0, scale: 0.97 }}
                 animate={{ opacity: 1, scale: 1 }}

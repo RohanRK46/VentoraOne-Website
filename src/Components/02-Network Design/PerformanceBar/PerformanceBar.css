@@ -1,0 +1,58 @@
+.performance-bar{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+}
+
+/* SVG */
+
+.gauge-wrapper{
+  position:relative;
+}
+
+.gauge-svg{
+  transform:rotate(-90deg);
+}
+
+/* strokes */
+
+.gauge-orange{
+  stroke:#ff6a00;
+}
+
+.gauge-navy{
+  stroke:#0c1b3a;
+}
+
+/* center text */
+
+.gauge-center{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.gauge-value{
+  font-size:38px;
+  font-weight:700;
+  color:#ff6a00;
+}
+
+/* bottom text */
+
+.gauge-text{
+  text-align:center;
+}
+
+.gauge-label{
+  font-size:18px;
+  font-weight:600;
+}
+
+.gauge-subtitle{
+  font-size:14px;
+  color:#777;
+}
