@@ -7,7 +7,7 @@ const services = [
   {
     id: 1,
     icon: Monitor,
-    title: "Cloud & Hybrid Security",
+    title: "DiffrentLink",
     description:
       "Custom-built, responsive websites tailored to your business goals with modern technologies.",
     link: "/CloudSecurity",

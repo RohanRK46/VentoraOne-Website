@@ -1,0 +1,215 @@
+.sv-section {
+  position: relative;
+  padding: 6rem 1.5rem;
+  background: linear-gradient(180deg, #07101e, #060d1b 50%, #07101e);
+  overflow: hidden;
+}
+
+.sv-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(0, 212, 255, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(0, 102, 255, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.sv-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.sv-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sv-tag {
+  font-family: var(--cyber-font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--cyber-cyan);
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.sv-title {
+  font-family: var(--cyber-font-heading);
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: rgba(210, 230, 255, 0.95);
+  margin: 0 0 0.75rem;
+}
+
+.sv-subtitle {
+  font-family: var(--cyber-font-body);
+  font-size: 1rem;
+  color: rgba(210, 230, 255, 0.45);
+  font-weight: 300;
+  margin: 0;
+}
+
+/* Grid */
+.sv-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+@media (max-width: 1100px) {
+  .sv-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .sv-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .sv-grid { grid-template-columns: 1fr; }
+}
+
+/* Card */
+.sv-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(13, 29, 53, 0.7), rgba(7, 16, 30, 0.9));
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: default;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.sv-card:hover,
+.sv-card--hovered {
+  border-color: var(--svc-color, var(--cyber-cyan));
+  transform: translateY(-6px);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(var(--svc-color, 0, 212, 255), 0.1),
+    inset 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.sv-card-top-line {
+  height: 2px;
+  background: var(--svc-color, var(--cyber-cyan));
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 0 8px var(--svc-color, var(--cyber-cyan));
+}
+
+.sv-card:hover .sv-card-top-line {
+  opacity: 1;
+}
+
+.sv-card-inner {
+  padding: 1.4rem;
+}
+
+.sv-card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top left, var(--svc-color, var(--cyber-cyan)), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.sv-card:hover .sv-card-glow {
+  opacity: 0.04;
+}
+
+/* Card head */
+.sv-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.sv-icon {
+  font-size: 1.6rem;
+}
+
+.sv-badge {
+  font-family: var(--cyber-font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.15em;
+  color: var(--svc-color, var(--cyber-cyan));
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid var(--svc-color, var(--cyber-cyan));
+  border-radius: 4px;
+  padding: 2px 7px;
+  opacity: 0.7;
+}
+
+.sv-card-title {
+  font-family: var(--cyber-font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(210, 230, 255, 0.9);
+  margin: 0 0 1rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+/* Points */
+.sv-points {
+  list-style: none;
+  margin: 0 0 1.2rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.sv-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--cyber-font-body);
+  font-size: 0.75rem;
+  color: rgba(210, 230, 255, 0.5);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.sv-point-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--svc-color, var(--cyber-cyan));
+  opacity: 0.6;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* Result */
+.sv-result {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: rgba(0, 212, 255, 0.04);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  border-left: 2px solid var(--svc-color, var(--cyber-cyan));
+}
+
+.sv-result-icon {
+  color: var(--svc-color, var(--cyber-cyan));
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.sv-result-text {
+  font-family: var(--cyber-font-body);
+  font-size: 0.72rem;
+  color: rgba(210, 230, 255, 0.65);
+  line-height: 1.4;
+  font-weight: 400;
+}

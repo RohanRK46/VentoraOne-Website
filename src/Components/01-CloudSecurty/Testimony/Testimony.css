@@ -64,12 +64,12 @@
 .star-icon {
     width: 20px;
     height: 20px;
-    fill: rgb(225, 219, 219);
+    fill: rgb(255, 221, 25);
     color: white;
 }
 
 .testimonial-content {
-    color: #9ca3af;
+    color: #d1d5dc;
     font-size: 14px;
     line-height: 1.6;
     font-style: italic;

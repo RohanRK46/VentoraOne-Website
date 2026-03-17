@@ -5,6 +5,7 @@ import React, { Suspense, lazy } from "react";
 import Navbar from './Components/navbar/Navbar';
 import ScrollToTop from './Components/ScrolltoTop';
 
+const EntireAboutSection = lazy(() => import('./Components/03-AboutSection/EntireAboutSection'));
 const HeroSection = lazy(() => import('./Components/homepage/HeroSection'));
 const Services = lazy(() => import('./Components/services/Services'));
 const Service2 = lazy(() => import('./Components/service2/Service2'));
@@ -12,53 +13,55 @@ const Whychoseventora = lazy(() => import('./Components/why-chose-ventora/Whycho
 const Footer = lazy(() => import('./Components/footer/Footer'));
 const CloudSecurity = lazy(() => import('./Components/01-CloudSecurty/CloudSecurity'));
 const NetworkDesign = lazy(() => import('./Components/02-Network Design/NetworkDesign'));
-const ServiceBookingForm = lazy(() => import('./Components/service-booking-form/ServiceBookingForm'))
+const ServiceBookingForm = lazy(() => import('./Components/service-booking-form/ServiceBookingForm'));
+const VentoraOneSupport = lazy(() => import('./Components/00-VentoraOneSupport/SupportHero'))
 
 function App() {
   return (
-    <>
-      <Navbar />
+    <Suspense fallback={<div style={{ textAlign: "center", padding: "40px" }}>Loading...</div>}>
 
+      <Navbar />
       <ScrollToTop />
 
-      <Suspense fallback={<div style={{ textAlign: "center", padding: "40px" }}>Loading...</div>}>
+      <Routes>
 
-        <Routes>
-
-          <Route 
-            path="/" 
-            element={
-              <>
-                <HeroSection />
-                <Services />
-                <Service2 />
-                <Whychoseventora />
-              </>
-            } 
-          />
-
-          <Route path="/services" element={<Services />} />
-
-          <Route path="/contact" element={<div>Contact Page</div>} />
-
-          <Route path="/technologies" element={<div>Technologies Page</div>} />
-
-          <Route path="/CloudSecurity" element={ <CloudSecurity /> } />
-
-          <Route path="/NetworkDesign" element={ <NetworkDesign/> } />
-
-          <Route path="/ServiceBookingForm" element = { <ServiceBookingForm/> } />
-
-        </Routes>
-
-        <Footer
-          ContactNo="8128183840"
-          Email="blablabla@gmail.com"
-          Address="Sunmilan Complex flat number 403 bla bla bla bla"
+        <Route
+          path="/"
+          element={
+            <>
+              <HeroSection />
+              <Services />
+              <Service2 />
+              <Whychoseventora />
+            </>
+          }
         />
 
-      </Suspense>
-    </>
+        <Route path="/services" element={<Services />} />
+
+        <Route path="/contact" element={<div>Contact Page</div>} />
+
+        <Route path="/technologies" element={<div>Technologies Page</div>} />
+
+        <Route path="/CloudSecurity" element={<CloudSecurity />} />
+
+        <Route path="/NetworkDesign" element={<NetworkDesign />} />
+
+        <Route path="/ServiceBookingForm" element={<ServiceBookingForm />} />
+
+        <Route path="/VentoraOneSupport" element={<VentoraOneSupport/>} />
+
+        <Route path="/AboutSection" element={<EntireAboutSection/>} />
+
+      </Routes>
+
+      <Footer
+        ContactNo="8128183840"
+        Email="blablabla@gmail.com"
+        Address="Sunmilan Complex flat number 403 bla bla bla bla"
+      />
+
+    </Suspense>
   );
 }
 

@@ -1,0 +1,169 @@
+.tt-section {
+  width: 100%;
+  padding: 3rem 0;
+  background: linear-gradient(180deg, var(--cyber-bg) 0%, #070e1f 50%, var(--cyber-bg) 100%);
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(0, 212, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.08);
+}
+
+.tt-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+}
+
+.tt-header-line {
+  flex: 1;
+  height: 1px;
+  max-width: 200px;
+  background: linear-gradient(to right, transparent, rgba(0, 212, 255, 0.3));
+}
+
+.tt-header-line:last-child {
+  background: linear-gradient(to left, transparent, rgba(0, 212, 255, 0.3));
+}
+
+.tt-header-text {
+  font-family: var(--cyber-font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: rgba(0, 212, 255, 0.5);
+  white-space: nowrap;
+}
+
+/* Track wrapper */
+.tt-track-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tt-track {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Fade edges */
+.tt-fade-left,
+.tt-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tt-fade-left {
+  left: 0;
+  background: linear-gradient(to right, var(--cyber-bg) 0%, transparent 100%);
+}
+
+.tt-fade-right {
+  right: 0;
+  background: linear-gradient(to left, var(--cyber-bg) 0%, transparent 100%);
+}
+
+/* Scrolling rows */
+.tt-row {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  width: max-content;
+}
+
+/* Row 1: left to right (visually right to left) */
+.tt-row--ltr {
+  animation: tt-scrollLeft 35s linear infinite;
+}
+
+/* Row 2: right to left (visually left to right) */
+.tt-row--rtl {
+  animation: tt-scrollRight 40s linear infinite;
+}
+
+.tt-row--ltr:hover,
+.tt-row--rtl:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tt-scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes tt-scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Chip */
+.tt-chip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(13, 29, 53, 0.9), rgba(10, 22, 40, 0.95));
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 8px;
+  padding: 0.55rem 1.1rem;
+  white-space: nowrap;
+  cursor: default;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+.tt-chip:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.07), rgba(0, 102, 255, 0.05));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.15), inset 0 0 10px rgba(0, 212, 255, 0.05);
+}
+
+.tt-chip:hover .tt-chip-glow {
+  opacity: 1;
+}
+
+.tt-chip-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.06), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.tt-chip-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.tt-chip-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.tt-chip-name {
+  font-family: var(--cyber-font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(210, 230, 255, 0.9);
+  line-height: 1;
+}
+
+.tt-chip-cat {
+  font-family: var(--cyber-font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--cyber-cyan);
+  opacity: 0.6;
+  text-transform: uppercase;
+}

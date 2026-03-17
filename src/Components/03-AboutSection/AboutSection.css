@@ -1,0 +1,214 @@
+.ab-section {
+  position: relative;
+  padding: 6rem 1.5rem;
+  background: linear-gradient(180deg, var(--cyber-bg), #07101e);
+  overflow: hidden;
+}
+
+.ab-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+.ab-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.ab-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.ab-tag {
+  font-family: var(--cyber-font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--cyber-cyan);
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.ab-title {
+  font-family: var(--cyber-font-heading);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: rgba(210, 230, 255, 0.9);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.ab-title-accent {
+  background: linear-gradient(90deg, var(--cyber-cyan), #0066ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Body layout */
+.ab-body {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2rem;
+}
+
+@media (max-width: 960px) {
+  .ab-body { grid-template-columns: 1fr; }
+}
+
+/* Main card */
+.ab-card--main {
+  background: linear-gradient(135deg, rgba(13, 29, 53, 0.6), rgba(10, 22, 40, 0.7));
+  border: 1px solid rgba(0, 212, 255, 0.12);
+  border-radius: 12px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.ab-card--main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+}
+
+.ab-card-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+}
+
+.ab-card-corner--tl {
+  top: 12px; left: 12px;
+  border-top: 1.5px solid var(--cyber-cyan);
+  border-left: 1.5px solid var(--cyber-cyan);
+  opacity: 0.5;
+}
+
+.ab-card-corner--br {
+  bottom: 12px; right: 12px;
+  border-bottom: 1.5px solid var(--cyber-cyan);
+  border-right: 1.5px solid var(--cyber-cyan);
+  opacity: 0.5;
+}
+
+.ab-card-label {
+  font-family: var(--cyber-font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: rgba(0, 212, 255, 0.4);
+  margin-bottom: 1.5rem;
+}
+
+.ab-para {
+  font-family: var(--cyber-font-body);
+  font-size: 1rem;
+  line-height: 1.9;
+  color: rgba(210, 230, 255, 0.7);
+  margin: 0 0 1.2rem 0;
+  font-weight: 300;
+}
+
+.ab-para--last { margin-bottom: 0; }
+
+.ab-highlight-word {
+  color: var(--cyber-cyan);
+  font-weight: 600;
+}
+
+/* Highlights */
+.ab-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ab-hl-card {
+  background: linear-gradient(135deg, rgba(13, 29, 53, 0.5), rgba(10, 22, 40, 0.6));
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-left: 3px solid var(--cyber-cyan);
+  border-radius: 8px;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.ab-hl-card:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+  border-left-color: var(--cyber-cyan);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.06), rgba(0, 102, 255, 0.04));
+  transform: translateX(4px);
+}
+
+.ab-hl-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyber-cyan);
+  box-shadow: 0 0 8px var(--cyber-cyan);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.ab-hl-val {
+  font-family: var(--cyber-font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cyber-cyan);
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.ab-hl-desc {
+  font-family: var(--cyber-font-body);
+  font-size: 0.82rem;
+  color: rgba(210, 230, 255, 0.55);
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Mission box */
+.ab-mission {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.08), rgba(0, 212, 255, 0.06));
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  border-radius: 8px;
+  padding: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.ab-mission-label {
+  font-family: var(--cyber-font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: rgba(0, 102, 255, 0.7);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.ab-mission-text {
+  font-family: var(--cyber-font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(210, 230, 255, 0.85);
+  line-height: 1.5;
+  margin: 0;
+  letter-spacing: 0.03em;
+}

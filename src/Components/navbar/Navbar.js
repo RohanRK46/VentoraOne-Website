@@ -37,7 +37,7 @@ export default function Navbar() {
 
           {/* ABOUT */}
           <li className="mainLi">
-            <Link className="mainA" to="/about" onClick={closeMenu}>
+            <Link className="mainA" to="/AboutSection" onClick={closeMenu}>
               About
             </Link>
           </li>
@@ -53,7 +53,7 @@ export default function Navbar() {
             <span className="mainA">Services</span>
 
             <ul className={`dropdown ${serviceOpen ? "show" : ""}`}>
-              <li><Link to="/support" onClick={closeMenu}>24/7 Ventoraone Support</Link></li>
+              <li><Link to="/VentoraOneSupport" onClick={closeMenu}>24/7 Ventoraone Support</Link></li>
               <li><Link to="/CloudSecurity" onClick={closeMenu}>Cloud & Hybrid Security</Link></li>
               <li><Link to="/NetworkDesign" onClick={closeMenu}>Network Design</Link></li>
               <li><Link to="/firewall-security" onClick={closeMenu}>Firewall Security</Link></li>

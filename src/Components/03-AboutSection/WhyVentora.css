@@ -1,0 +1,375 @@
+.wv-section {
+  position: relative;
+  padding: 6rem 1.5rem 3rem;
+  background: linear-gradient(180deg, #07101e, #060d1b);
+  overflow: hidden;
+}
+
+.wv-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 212, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 255, 0.025) 1px, transparent 1px);
+  background-size: 70px 70px;
+  pointer-events: none;
+}
+
+.wv-bg-glow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(0, 102, 255, 0.06) 0%, rgba(0, 212, 255, 0.03) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.wv-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.wv-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.wv-tag {
+  font-family: var(--cyber-font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--cyber-cyan);
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.wv-title {
+  font-family: var(--cyber-font-heading);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 900;
+  color: rgba(210, 230, 255, 0.95);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.wv-title-accent {
+  background: linear-gradient(90deg, var(--cyber-cyan), #0066ff, var(--cyber-cyan));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: wv-shimmer 4s linear infinite;
+}
+
+@keyframes wv-shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Grid */
+.wv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 960px) {
+  .wv-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 580px) {
+  .wv-grid { grid-template-columns: 1fr; }
+}
+
+/* Card */
+.wv-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(13, 29, 53, 0.6), rgba(7, 16, 30, 0.8));
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: default;
+}
+
+.wv-card:hover {
+  border-color: var(--wv-color, var(--cyber-cyan));
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 212, 255, 0.06);
+}
+
+.wv-card-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top left, var(--wv-color, var(--cyber-cyan)), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  mix-blend-mode: screen;
+}
+
+.wv-card:hover .wv-card-bg {
+  opacity: 0.04;
+}
+
+.wv-card-inner {
+  padding: 1.8rem 1.6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.wv-card-bottom-line {
+  height: 1px;
+  background: linear-gradient(90deg, var(--wv-color, var(--cyber-cyan)), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.wv-card:hover .wv-card-bottom-line {
+  opacity: 0.4;
+}
+
+/* Icon */
+.wv-icon-wrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wv-icon {
+  font-size: 1.6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.wv-icon-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--wv-color, var(--cyber-cyan));
+  opacity: 0.2;
+  transition: opacity 0.3s;
+}
+
+.wv-card:hover .wv-icon-ring {
+  opacity: 0.5;
+  box-shadow: 0 0 10px var(--wv-color, var(--cyber-cyan));
+}
+
+.wv-card-title {
+  font-family: var(--cyber-font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(210, 230, 255, 0.9);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+.wv-card-desc {
+  font-family: var(--cyber-font-body);
+  font-size: 0.8rem;
+  color: rgba(210, 230, 255, 0.5);
+  line-height: 1.75;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Stats strip */
+.wv-stats {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  background: rgba(0, 212, 255, 0.04);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.wv-stat-item {
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-right: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.wv-stat-item:last-child {
+  border-right: none;
+}
+
+.wv-stat-val {
+  font-family: var(--cyber-font-heading);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--cyber-cyan);
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.wv-stat-lbl {
+  font-family: var(--cyber-font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: rgba(210, 230, 255, 0.4);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* CTA Card */
+.wv-cta {
+  margin-bottom: 3rem;
+}
+
+.wv-cta-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.08), rgba(0, 212, 255, 0.05));
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.wv-cta-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyber-cyan), var(--cyber-blue), transparent);
+  opacity: 0.6;
+}
+
+.wv-cta-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.wv-cta-corner--tl {
+  top: 14px; left: 14px;
+  border-top: 1.5px solid var(--cyber-cyan);
+  border-left: 1.5px solid var(--cyber-cyan);
+  opacity: 0.4;
+}
+
+.wv-cta-corner--br {
+  bottom: 14px; right: 14px;
+  border-bottom: 1.5px solid var(--cyber-cyan);
+  border-right: 1.5px solid var(--cyber-cyan);
+  opacity: 0.4;
+}
+
+.wv-cta-label {
+  font-family: var(--cyber-font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: rgba(0, 212, 255, 0.5);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.wv-cta-title {
+  font-family: var(--cyber-font-heading);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 800;
+  color: rgba(210, 230, 255, 0.95);
+  margin: 0 0 0.75rem;
+}
+
+.wv-cta-desc {
+  font-family: var(--cyber-font-body);
+  font-size: 0.9rem;
+  color: rgba(210, 230, 255, 0.45);
+  margin: 0 0 2rem;
+  font-weight: 300;
+}
+
+.wv-cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.wv-cta-btn {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 102, 255, 0.25));
+  border: 1px solid var(--cyber-cyan);
+  color: var(--cyber-cyan);
+  font-family: var(--cyber-font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 0.85rem 2.2rem;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wv-cta-btn:hover {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.35), rgba(0, 102, 255, 0.4));
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.wv-cta-btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  color: rgba(210, 230, 255, 0.6);
+  font-family: var(--cyber-font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 0.85rem 2.2rem;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wv-cta-btn-ghost:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  color: var(--cyber-cyan);
+}
+
+/* Footer bar */
+.wv-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 212, 255, 0.08);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.wv-footer-logo {
+  font-family: var(--cyber-font-heading);
+  font-size: 1rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--cyber-cyan), #0066ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.15em;
+}
+
+.wv-footer-text {
+  font-family: var(--cyber-font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: rgba(210, 230, 255, 0.25);
+}

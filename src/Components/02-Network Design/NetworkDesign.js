@@ -4,7 +4,7 @@ import "./NetworkDesign.css";
 import heroImage from "./images/Cloud.png";
 import { Link } from "react-router-dom";
 import PerformanceSection from "./PerformanceBar/PerformanceSection"
-import CheckOutServices from '../01-CloudSecurty/OtherServices/CheckOutServices'
+import CheckOutServices from './CheckOutServices/CheckOutServices'
 // import Testimony from './Testimony/Testimony'
 
 const features = [
