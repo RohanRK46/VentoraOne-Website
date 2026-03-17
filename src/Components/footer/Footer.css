@@ -125,7 +125,7 @@
 
 .footer-contact-btn {
   display: inline-block;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   padding: 0.6rem 2rem;
   background: linear-gradient(135deg, #6366f1, #8b5cf6);
   color: #ffffff;
@@ -136,6 +136,7 @@
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-decoration: none;
+  margin-top: 20px;
 }
 
 .footer-contact-btn:hover {
@@ -164,10 +165,11 @@
 /* Responsive */
 @media (max-width: 768px) {
   .footer-columns {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr
   }
 
   .footer-column {
+    margin-top:-3vh;
     border-left: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 1.5rem 0;

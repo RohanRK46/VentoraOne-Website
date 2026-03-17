@@ -123,7 +123,6 @@
 
 .feature-icon {
   color: #4e66da;
-
   margin-bottom: 8px;
   transition: transform 0.3s ease;
 }
@@ -168,35 +167,23 @@
 
 .hero-image-large {
   position: absolute;
-  width: 700px; /* increase freely */
+  width: 700px;
   max-width: none;
   object-fit: contain;
   pointer-events: none;
   scale: 1.1;
-  right: -100px;
+  overflow: hidden;
   z-index: -2;
-
-  filter: drop-shadow(0 0 25px #ff171781);
-
+  filter: drop-shadow(0 0 25px #ff00002a);
   animation: floatShield 6s ease-in-out infinite;
 }
 
 /* floating animation */
 
 @keyframes floatShield {
-
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-15px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
-
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
 }
 
 /* RESPONSIVE */
@@ -205,7 +192,9 @@
 
   .security-section {
     margin-top: 0;
+    overflow: hidden; /* FIX */
   }
+
   .revealed-state {
     flex-direction: column;
     text-align: center;
@@ -219,18 +208,28 @@
     font-size: 40px;
   }
 
-  .hero-image-large {
-    position: relative;
-    width: 320px;
+  .content-right {
+    width: 100%;
+    overflow: hidden; /* FIX */
   }
 
+  .hero-image-large {
+    position: relative;  /* FIX */
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    scale: 1;            /* FIX */
+    margin: 20px auto 0;
+    display: block;
+  }
 }
 
 @media (max-width: 450px) {
 
   .security-section {
-    min-height: 160vh;
+    min-height: auto; /* FIX */
     margin-top: 0;
+    overflow: hidden;
   }
 
   .content-title {
@@ -242,19 +241,21 @@
   }
 
   .hero-image-large {
-    width: 260px;
+    width: 100%;
+    scale: 2;
+    height: 400px;
   }
-
 }
 
 /* ---------------------section merge----------------------- */
-.security-section{
+
+.security-section {
   min-height:135vh;
   display:flex;
   align-items:center;
   justify-content:center;
   position:relative;
-  overflow:visible; /* important */
+  overflow:hidden; /* FIX: was visible */
   font-family:sans-serif;
 }
 
@@ -263,7 +264,7 @@
 .security-section::after{
   content:"";
   position:absolute;
-  bottom:-120px;   /* pushes fade outside the section */
+  bottom:-120px;
   left:0;
   width:100%;
   height:120px;
