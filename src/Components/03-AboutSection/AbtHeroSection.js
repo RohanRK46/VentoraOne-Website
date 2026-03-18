@@ -1,5 +1,5 @@
 import React from 'react';
-import './HeroSection.css';
+import './AbtHeroSection.css';
 
 const PARTICLES = Array.from({ length: 18 }, (_, i) => ({
   id: i,
@@ -10,7 +10,7 @@ const PARTICLES = Array.from({ length: 18 }, (_, i) => ({
   size: i % 3 === 0 ? 3 : i % 3 === 1 ? 2 : 1.5,
 }));
 
-const HeroSection = () => {
+const AbtHeroSection = () => {
   return (
     <section className="hs-section">
       <div className="hs-grid" />
@@ -52,7 +52,7 @@ const HeroSection = () => {
         <div className="hs-title-wrap">
           <span className="hs-label">COMPANY</span>
           <h1 className="hs-title">
-            <span className="hs-title-main">VENTORA</span>
+            <span className="hs-title-main">VENTORAONE</span>
           </h1>
           <p className="hs-title-sub">Network &amp; Cyber Security Solutions</p>
         </div>
@@ -107,4 +107,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default AbtHeroSection;

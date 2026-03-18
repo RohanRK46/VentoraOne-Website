@@ -14,9 +14,9 @@ const AboutSection = () => {
       <div className="ab-container">
         {/* Section header */}
         <div className="ab-header">
-          <span className="ab-tag">ABOUT_VENTORA</span>
+          <span className="ab-tag">ABOUT VENTORA</span>
           <h2 className="ab-title">
-            We Don't Just Deploy Products —
+           — We Don't Just Deploy Products —
             <br />
             <span className="ab-title-accent">
               We Design Secure Architectures
@@ -29,10 +29,10 @@ const AboutSection = () => {
           <div className="ab-card ab-card--main">
             <div className="ab-card-corner ab-card-corner--tl" />
             <div className="ab-card-corner ab-card-corner--br" />
-            <div className="ab-card-label">COMPANY_PROFILE</div>
+            <div className="ab-card-label">COMPANY PROFILE</div>
 
             <p className="ab-para">
-              <span className="ab-highlight-word">Ventora</span> is a
+              <span className="ab-highlight-word">Ventora One</span> is a
               technology-driven network and cyber security solutions provider
               delivering end-to-end IT security, infrastructure design, and
               implementation services.

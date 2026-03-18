@@ -1,7 +1,7 @@
 .tu-section {
   position: relative;
-  padding: 6rem 1.5rem;
-  background: linear-gradient(180deg, #060d1b, #07101e 50%, #060d1b);
+  padding: 5rem 1.5rem;
+  background:white;
   overflow: hidden;
 }
 
@@ -30,8 +30,7 @@
   font-family: var(--cyber-font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.2em;
-  color: var(--cyber-cyan);
-  opacity: 0.6;
+  color: rgb(5, 5, 5);
   display: block;
   margin-bottom: 1rem;
 }
@@ -39,8 +38,8 @@
 .tu-title {
   font-family: var(--cyber-font-heading);
   font-size: clamp(1.6rem, 4vw, 2.5rem);
-  font-weight: 800;
-  color: rgba(210, 230, 255, 0.95);
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.842);
   margin: 0 0 0.75rem;
 }
 
@@ -86,7 +85,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(13, 29, 53, 0.5);
+  background: rgba(8, 27, 56, 0.973);
   border: 1px solid rgba(0, 212, 255, 0.08);
   border-radius: 8px;
   padding: 0.85rem 1.1rem;
@@ -100,7 +99,7 @@
 }
 
 .tu-tab:hover {
-  border-color: rgba(0, 212, 255, 0.2);
+  border-color: rgb(11, 205, 222);
   color: rgba(210, 230, 255, 0.8);
   background: rgba(13, 29, 53, 0.8);
 }
@@ -108,7 +107,7 @@
 .tu-tab--active {
   border-color: var(--tab-color, var(--cyber-cyan)) !important;
   color: rgba(210, 230, 255, 0.95) !important;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.07), rgba(0, 0, 0, 0.4)) !important;
+  background: linear-gradient(135deg, rgba(0, 213, 255, 0.815), rgba(0, 0, 0, 0.4)) !important;
   box-shadow: 0 0 15px rgba(0, 212, 255, 0.08), inset 0 0 20px rgba(0, 212, 255, 0.04);
 }
 
@@ -130,6 +129,7 @@
 
 .tu-tab-label {
   font-family: var(--cyber-font-body);
+  color: rgba(255, 255, 255, 0.918);
   font-size: 0.8rem;
   font-weight: 500;
   flex: 1;
@@ -139,6 +139,7 @@
 .tu-tab-arrow {
   font-size: 1rem;
   opacity: 0.4;
+  color: white;
   transition: opacity 0.2s, transform 0.2s;
 }
 
@@ -155,8 +156,8 @@
 
 /* Panel */
 .tu-panel {
-  background: linear-gradient(145deg, rgba(13, 29, 53, 0.7), rgba(7, 16, 30, 0.9));
-  border: 1px solid rgba(0, 212, 255, 0.12);
+  background: linear-gradient(145deg, rgb(17, 56, 114), rgba(13, 32, 63, 0.975));
+  border: 1px solid rgb(14, 5, 66);
   border-top: 2px solid var(--panel-color, var(--cyber-cyan));
   border-radius: 10px;
   padding: 2rem;
@@ -201,7 +202,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.1em;
   color: var(--panel-color, var(--cyber-cyan));
-  background: rgba(0, 212, 255, 0.05);
+  background: rgba(34, 67, 73, 0.852);
   border: 1px solid var(--panel-color, var(--cyber-cyan));
   border-radius: 4px;
   padding: 2px 8px;
@@ -244,7 +245,6 @@
   font-size: 1rem;
   font-weight: 700;
   color: var(--panel-color, var(--cyber-cyan));
-  opacity: 0.4;
   flex-shrink: 0;
   min-width: 28px;
   line-height: 1;

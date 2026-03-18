@@ -130,7 +130,7 @@ const ServicesSection = () => {
       <div className="sv-bg" />
       <div className="sv-container">
         <div className="sv-header">
-          <span className="sv-tag">OUR_SERVICES</span>
+          <span className="sv-tag">OUR SERVICES</span>
           <h2 className="sv-title">Comprehensive Security Services</h2>
           <p className="sv-subtitle">
             End-to-end solutions across every layer of your IT environment

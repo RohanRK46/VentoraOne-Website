@@ -1,6 +1,7 @@
 import React from "react";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import footerBg from "./images/footer.png";   // adjust path if needed
+import logo from "./images/logo.png"
 import "./Footer.css";
 import {Link} from "react-router-dom"
 
@@ -15,17 +16,20 @@ function Footer() {
         {/* Top Section */}
         <div className="footer-top">
           <div className="footer-logo">
-            <span className="logo-v">V</span>entoraOne
+          <img src={logo} alt="companylogo"/>
           </div>
 
           <div className="footer-social">
-            <Link to="/" className="social-fb" aria-label="Facebook">
+
+          {/* In case if company have any other socials just uncomment these */}
+
+            {/* <Link to="/" className="social-fb" aria-label="Facebook">
               <Facebook size={22} color="#fff" />
             </Link>
 
             <Link to="/" className="social-ig" aria-label="Instagram">
               <Instagram size={22} color="#fff" />
-            </Link>
+            </Link> */}
 
             <Link to="/" className="social-li" aria-label="LinkedIn">
               <Linkedin size={22} color="#fff" />

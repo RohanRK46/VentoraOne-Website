@@ -1,7 +1,9 @@
+
+
 .sv-section {
   position: relative;
   padding: 6rem 1.5rem;
-  background: linear-gradient(180deg, #07101e, #060d1b 50%, #07101e);
+  background: rgba(255, 255, 255, 0.913);
   overflow: hidden;
 }
 
@@ -28,19 +30,18 @@
 
 .sv-tag {
   font-family: var(--cyber-font-mono);
-  font-size: 0.65rem;
+  font-size: 0.80rem;
   letter-spacing: 0.2em;
   color: var(--cyber-cyan);
-  opacity: 0.6;
   display: block;
   margin-bottom: 1rem;
 }
 
 .sv-title {
   font-family: var(--cyber-font-heading);
-  font-size: clamp(1.6rem, 4vw, 2.5rem);
-  font-weight: 800;
-  color: rgba(210, 230, 255, 0.95);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 600;
+  color: rgba(2, 2, 2, 0.95);
   margin: 0 0 0.75rem;
 }
 
@@ -74,7 +75,7 @@
 /* Card */
 .sv-card {
   position: relative;
-  background: linear-gradient(145deg, rgba(13, 29, 53, 0.7), rgba(7, 16, 30, 0.9));
+  background: linear-gradient(145deg, rgb(16, 36, 67), rgba(28, 81, 166, 0.998));
   border: 1px solid rgba(0, 212, 255, 0.1);
   border-radius: 10px;
   overflow: hidden;

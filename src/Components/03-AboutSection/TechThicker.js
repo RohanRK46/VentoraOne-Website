@@ -55,7 +55,7 @@ const TechTicker = () => {
     <section className="tt-section">
       <div className="tt-header">
         <span className="tt-header-line" />
-        <span className="tt-header-text">TECHNOLOGIES_WE_DEPLOY</span>
+        <span className="tt-header-text">TECHNOLOGIES WE DEPLOY</span>
         <span className="tt-header-line" />
       </div>
 

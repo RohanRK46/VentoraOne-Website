@@ -1,5 +1,6 @@
 import React from "react";
 import "./WhyVentora.css";
+import { Link } from "react-router-dom"
 
 const REASONS = [
   {
@@ -49,7 +50,7 @@ const WhyVentora = () => {
 
       <div className="wv-container">
         <div className="wv-header">
-          <span className="wv-tag">WHY_CHOOSE_VENTORA</span>
+          <span className="wv-tag">WHY CHOOSE VENTORA</span>
           <h2 className="wv-title">
             Built Different.
             <br />
@@ -98,7 +99,7 @@ const WhyVentora = () => {
             <div className="wv-cta-corner wv-cta-corner--tl" />
             <div className="wv-cta-corner wv-cta-corner--br" />
 
-            <span className="wv-cta-label">READY_TO_SECURE_YOUR_NETWORK</span>
+            <span className="wv-cta-label">READY TO SECURE YOUR NETWORK</span>
 
             <h3 className="wv-cta-title">
               Let's build a secure architecture for your business
@@ -109,8 +110,12 @@ const WhyVentora = () => {
             </p>
 
             <div className="wv-cta-actions">
-              <button className="wv-cta-btn">Get In Touch</button>
+              <Link to="/VentoraOneSupport">
+                <button className="wv-cta-btn">Get In Touch</button>
+              </Link>
+              <Link to="/">
               <button className="wv-cta-btn-ghost">View Services</button>
+              </Link>
             </div>
           </div>
         </div>

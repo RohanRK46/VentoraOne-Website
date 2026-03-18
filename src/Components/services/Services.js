@@ -3,8 +3,6 @@ import { AnimatePresence, motion, useInView } from "framer-motion";
 import { X, ArrowUpRight } from "lucide-react";
 
 import "./Services.css";
-import ServiceBganimation from "./ServiceBganimation";
-
 import brandingImg from "./imagesServices/firewall.png";
 import mobileImg from "./imagesServices/c2.png";
 import architectureImg from "./imagesServices/img3.jpg";
@@ -98,9 +96,6 @@ export default function Services() {
 
   return (
     <div className="services-root">
-
-      <ServiceBganimation />
-
       {/* HEADER */}
 
       <header className="services-header">

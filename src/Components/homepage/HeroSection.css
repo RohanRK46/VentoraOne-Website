@@ -1,4 +1,4 @@
-.hero{
+.hero {
     min-height: 100vh;
     z-index: 5;
     overflow: hidden;
@@ -7,8 +7,8 @@
 .hero img {
     position: absolute;
     top: 120px;
-    left: 15px;
-    height: 131px;
+    left: 70px;
+    height: 120px;
     width: 426px;
 }
 
@@ -20,6 +20,7 @@
     color: white;
 }
 
+
 .hero span {
     position: absolute;
     font-size: 2.5em;
@@ -30,16 +31,25 @@
 }
 
 .hero p {
-    position: absolute;
-    top: 386px;
-    left: 72px;
     font-weight: 300;
-    color: white;
+    color: rgba(255, 248, 248, 0.74);
     height: 60px;
     width: 384px;
 }
 
-.shield img{
+.p1 {
+    position: absolute;
+    top: 386px;
+    left: 72px;
+}
+
+.p2 {
+    position: absolute;
+    top: 410px;
+    left: 72px;
+}
+
+.shield img {
     position: absolute;
     top: 70px;
     left: 125vh;
@@ -53,6 +63,60 @@
     transform: scale(1.05);
 }
 
+.wv-cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.git-btn {
+    position: absolute;
+    bottom: 15%;
+    left: 6%;
+    background: linear-gradient(135deg, #0d228a4d, rgba(0, 102, 255, 0.543));
+    border: 1px solid rgba(31, 59, 183, 0.731);
+    color: white;
+    font-family: var(--cyber-font-heading);
+    font-size: 0.90rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    padding: 0.85rem 2.2rem;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.git-btn:hover {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.35), rgba(0, 102, 255, 0.4));
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.731) ;
+    transform: translateY(-2px);
+}
+
+.vs-btn {
+    position: absolute;
+    position: absolute;
+    bottom: 15%;
+    left: 21%;
+    background-color: #45b1ccd6;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.998);
+    font-size: 0.90rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    padding: 0.85rem 2.2rem;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.vs-btn:hover {
+    border-color: rgba(7, 21, 86, 0.731);
+    color: white;
+    transform: translateY(-2px);
+}
+
 
 
 
@@ -60,7 +124,7 @@
 @media (max-width: 768px) {
 
     .hero {
-        height: 100vh;
+        height: 70vh;
         position: static;
         padding: 40px 20px;
     }
@@ -75,7 +139,7 @@
         top: auto;
     }
 
-    .hero img{
+    .hero img {
         position: relative;
         left: -30px;
     }
@@ -98,8 +162,98 @@
         height: auto;
     }
 
-    .shield img{
+    .shield img {
         position: relative;
         left: 50px;
+    }
+}
+
+/* -------------------------- medium screens (tablet / small laptop) -------------------------- */
+@media (max-width: 1024px) and (min-width: 769px) {
+
+    .hero img {
+        top: 100px;
+        left: 40px;
+        width: 300px;
+        height: auto;
+    }
+
+    .hero h1 {
+        top: 220px;
+        left: 40px;
+        font-size: 2em;
+    }
+
+    .hero span {
+        top: 270px;
+        left: 40px;
+        font-size: 2em;
+    }
+
+    .hero p {
+        top: 330px;
+        left: 40px;
+        width: 300px;
+        font-size: 0.95em;
+    }
+
+    .shield img {
+        top: 100px;
+        left: 60%;
+        /* FIXED from 125vh */
+        width: 350px;
+        height: auto;
+    }
+}
+
+
+/* -------------------------- very small screens (phones <480px) -------------------------- */
+@media (max-width: 480px) {
+
+    .hero {
+        margin-top: 15%;
+        height: auto;
+        padding: 20px 15px;
+    }
+
+    .hero img,
+    .hero h1,
+    .hero span,
+    .hero p {
+        position: static;
+        left: auto;
+        top: auto;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .hero img {
+        width: 200px;
+        height: auto;
+        margin: 20px auto;
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 1.3em;
+    }
+
+    .hero span {
+        font-size: 1.2em;
+        display: block;
+    }
+
+    .hero p {
+        width: 100%;
+        font-size: 0.85em;
+        height: auto;
+    }
+
+    .shield img {
+        position: static;
+        width: 240px;
+        height: auto;
+        display: block;
+        margin: 20px auto;
     }
 }

@@ -1,7 +1,7 @@
 .wv-section {
   position: relative;
-  padding: 6rem 1.5rem 3rem;
-  background: linear-gradient(180deg, #07101e, #060d1b);
+  padding: 1rem 1.5rem 3rem;
+  background: white;
   overflow: hidden;
 }
 
@@ -52,13 +52,14 @@
   font-family: var(--cyber-font-heading);
   font-size: clamp(1.8rem, 5vw, 3rem);
   font-weight: 900;
-  color: rgba(210, 230, 255, 0.95);
+  color: rgb(173, 209, 250);
   margin: 0;
   line-height: 1.2;
 }
 
 .wv-title-accent {
-  background: linear-gradient(90deg, var(--cyber-cyan), #0066ff, var(--cyber-cyan));
+  background: black;
+  font-weight: 600;
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -90,7 +91,7 @@
 /* Card */
 .wv-card {
   position: relative;
-  background: linear-gradient(145deg, rgba(13, 29, 53, 0.6), rgba(7, 16, 30, 0.8));
+  background: linear-gradient(160deg, #072572 0%, #0e2548 40%, #073275 100%);
   border: 1px solid rgba(0, 212, 255, 0.1);
   border-radius: 10px;
   overflow: hidden;
@@ -101,7 +102,7 @@
 .wv-card:hover {
   border-color: var(--wv-color, var(--cyber-cyan));
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 212, 255, 0.06);
+  box-shadow: 0 0 14px var(--wv-color);
 }
 
 .wv-card-bg {
@@ -167,9 +168,9 @@
 
 .wv-card-title {
   font-family: var(--cyber-font-heading);
-  font-size: 0.85rem;
+  font-size: 0.90rem;
   font-weight: 700;
-  color: rgba(210, 230, 255, 0.9);
+  color: rgb(255, 255, 255);
   margin: 0 0 0.75rem;
   letter-spacing: 0.03em;
   line-height: 1.4;
@@ -178,7 +179,7 @@
 .wv-card-desc {
   font-family: var(--cyber-font-body);
   font-size: 0.8rem;
-  color: rgba(210, 230, 255, 0.5);
+  color: rgba(210, 230, 255, 0.811);
   line-height: 1.75;
   margin: 0;
   font-weight: 300;
@@ -189,7 +190,7 @@
   display: flex;
   justify-content: center;
   gap: 0;
-  background: rgba(0, 212, 255, 0.04);
+  background:rgb(5 15 30);
   border: 1px solid rgba(0, 212, 255, 0.1);
   border-radius: 10px;
   padding: 1.5rem;
@@ -215,8 +216,8 @@
   font-family: var(--cyber-font-heading);
   font-size: 1.5rem;
   font-weight: 900;
-  color: var(--cyber-cyan);
-  text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+  color: white;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.495);
   line-height: 1;
   margin-bottom: 0.4rem;
 }
@@ -225,7 +226,7 @@
   font-family: var(--cyber-font-mono);
   font-size: 0.58rem;
   letter-spacing: 0.12em;
-  color: rgba(210, 230, 255, 0.4);
+  color: rgba(243, 243, 243, 0.954);
   text-align: center;
   text-transform: uppercase;
 }
@@ -237,7 +238,7 @@
 
 .wv-cta-card {
   position: relative;
-  background: linear-gradient(135deg, rgba(0, 102, 255, 0.08), rgba(0, 212, 255, 0.05));
+  background: linear-gradient(160deg, #072572 0%, #081323 40%, #073275 100%);
   border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: 12px;
   padding: 3rem;
@@ -278,7 +279,7 @@
   font-family: var(--cyber-font-mono);
   font-size: 0.6rem;
   letter-spacing: 0.2em;
-  color: rgba(0, 212, 255, 0.5);
+  color: rgb(0, 213, 255);
   display: block;
   margin-bottom: 1rem;
 }
@@ -287,14 +288,14 @@
   font-family: var(--cyber-font-heading);
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   font-weight: 800;
-  color: rgba(210, 230, 255, 0.95);
+  color: rgb(210, 230, 255);
   margin: 0 0 0.75rem;
 }
 
 .wv-cta-desc {
   font-family: var(--cyber-font-body);
   font-size: 0.9rem;
-  color: rgba(210, 230, 255, 0.45);
+  color: rgba(210, 230, 255, 0.811);
   margin: 0 0 2rem;
   font-weight: 300;
 }
@@ -307,9 +308,9 @@
 }
 
 .wv-cta-btn {
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 102, 255, 0.25));
+  background: linear-gradient(135deg, rgba(0, 213, 255, 0.301), rgba(0, 102, 255, 0.543));
   border: 1px solid var(--cyber-cyan);
-  color: var(--cyber-cyan);
+  color: white;
   font-family: var(--cyber-font-heading);
   font-size: 0.75rem;
   font-weight: 700;
@@ -329,7 +330,7 @@
 .wv-cta-btn-ghost {
   background: transparent;
   border: 1px solid rgba(0, 212, 255, 0.25);
-  color: rgba(210, 230, 255, 0.6);
+  color: rgba(255, 255, 255, 0.998);
   font-family: var(--cyber-font-heading);
   font-size: 0.75rem;
   font-weight: 700;
@@ -341,8 +342,8 @@
 }
 
 .wv-cta-btn-ghost:hover {
-  border-color: rgba(0, 212, 255, 0.5);
-  color: var(--cyber-cyan);
+  border-color: rgba(9, 107, 168, 0.731);
+  color: white;
 }
 
 /* Footer bar */

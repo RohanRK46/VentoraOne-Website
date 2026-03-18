@@ -169,8 +169,10 @@ const TechUsageSection = () => {
 
       <div className="tu-container">
         <div className="tu-header">
-          <span className="tu-tag">HOW_WE_DEPLOY_TECHNOLOGY</span>
-          <h2 className="tu-title">Technology in Practice</h2>
+          <span className="tu-tag">HOW WE DEPLOY TECHNOLOGY</span>
+          <h2 className="tu-title">
+            Technology in Practice
+            </h2>
           <p className="tu-subtitle">
             See exactly how each technology platform is leveraged to secure your environment
           </p>

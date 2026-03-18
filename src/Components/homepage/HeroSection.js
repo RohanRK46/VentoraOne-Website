@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import {Link} from "react-router-dom"
 import logo from "./herosection-imgs/logo1.png";
 import shieldImg from "./herosection-imgs/shield.png";
 import Background from './background';
@@ -52,11 +53,21 @@ export default function HeroSection() {
 
         <span>Design. Secure. Scale.</span>
 
-        <p>
-          Advanced cybersecurity and enterprise-grade network <br /> <br />
-
+        <p className='p1'>
+          Advanced cybersecurity and enterprise-grade network
+        </p>
+        <p className='p2'>
           infrastructure built for modern global enterprises.
         </p>
+
+        <div className="wv-cta-actions">
+          <Link to="/VentoraOneSupport">
+            <button className="git-btn">Get In Touch</button>
+          </Link>
+          <Link to="/">
+            <button className="vs-btn">View Services</button>
+          </Link>
+        </div>
 
         <div className="shield" ref={shieldRef}>
           <img src={shieldImg} alt="firewall logo" loading="lazy" />
