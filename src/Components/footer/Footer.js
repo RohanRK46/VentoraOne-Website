@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import footerBg from "./images/footer.png";   // adjust path if needed
 import logo from "./images/logo.png"
 import "./Footer.css";
@@ -20,17 +20,6 @@ function Footer() {
           </div>
 
           <div className="footer-social">
-
-          {/* In case if company have any other socials just uncomment these */}
-
-            {/* <Link to="/" className="social-fb" aria-label="Facebook">
-              <Facebook size={22} color="#fff" />
-            </Link>
-
-            <Link to="/" className="social-ig" aria-label="Instagram">
-              <Instagram size={22} color="#fff" />
-            </Link> */}
-
             <Link to="/" className="social-li" aria-label="LinkedIn">
               <Linkedin size={22} color="#fff" />
             </Link>
