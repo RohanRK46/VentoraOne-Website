@@ -4,23 +4,9 @@ import "./Whychoseventora.css";
 export default function InfiniteFlow() {
   return (
     <div className="section">
-      <div className="ourProcess">
-        <p>Our Process</p>
-        <hr />
-      </div>
-
-      {/* Top Images */}
-      <div className="image-row">
-        <img src="/img1.jpg" alt="1" />
-        <img src="/img2.jpg" alt="2" />
-        <img src="/img3.jpg" alt="3" />
-        <img src="/img4.jpg" alt="4" />
-        <img src="/img5.jpg" alt="5" />
-      </div>
-
       <div className="whychoseventora">
         <p>Why Chose Ventora?</p>
-        <hr />
+        
       </div>
 
       {/* Moving Squares */}

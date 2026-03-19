@@ -1,5 +1,5 @@
 .hero {
-    min-height: 100vh;
+    height: 100vh;
     z-index: 5;
     overflow: hidden;
 }
@@ -90,7 +90,7 @@
 .git-btn:hover {
     background: linear-gradient(135deg, rgba(0, 212, 255, 0.35), rgba(0, 102, 255, 0.4));
     box-shadow: 0 0 25px rgba(0, 212, 255, 0.35);
-    border-color: rgba(255, 255, 255, 0.731) ;
+    border-color: rgba(255, 255, 255, 0.731);
     transform: translateY(-2px);
 }
 
@@ -121,27 +121,34 @@
 
 
 /* --------------------------mobile view-------------------------- */
-@media (max-width: 768px) {
+@media (max-width: 440px) {
 
     .hero {
-        height: 70vh;
+        height: 110vh;
         position: static;
         padding: 40px 20px;
     }
 
     .hero img,
     .hero h1,
-    .hero span,
-    .hero p {
+    .hero span {
         position: static;
         margin: 35px 16px;
         left: auto;
         top: auto;
     }
 
+    .hero p {
+        position: static;
+        margin: 25px 16px;
+        left: auto;
+        top: auto;
+    }
+
     .hero img {
         position: relative;
-        left: -30px;
+        left: 35px;
+        scale: 1.2;
     }
 
     .hero img {
@@ -164,7 +171,26 @@
 
     .shield img {
         position: relative;
+        top: 58px;
         left: 50px;
+    }
+
+    .vs-btn {
+        height: 50px;
+        width: 170px;
+        position: absolute;
+        top: 50%;
+        left: 200px;
+        font-size: 11px;
+    }
+
+    .git-btn {
+        position: absolute;
+        height: 50px;
+        width: 170px;
+        top: 50%;
+        left: 20px;
+        font-size: 11px;
     }
 }
 
@@ -204,19 +230,42 @@
         width: 350px;
         height: auto;
     }
+
+    .vs-btn {
+        height: 50px;
+        width: 170px;
+        position: absolute;
+        top: 48%;
+        left: 195px;
+        font-size: 11px;
+    }
+
+    .git-btn {
+        position: absolute;
+        height: 50px;
+        width: 170px;
+        top: 48%;
+        left: 20px;
+        font-size: 11px;
+    }
 }
 
 
 /* -------------------------- very small screens (phones <480px) -------------------------- */
-@media (max-width: 480px) {
+@media (max-width: 380px) {
 
     .hero {
         margin-top: 15%;
-        height: auto;
-        padding: 20px 15px;
+        height: 90vh;
+        padding: 15px 15px;
     }
 
-    .hero img,
+    .hero img {
+        left: auto;
+        top: auto;
+        scale: 1.1;
+    }
+
     .hero h1,
     .hero span,
     .hero p {
@@ -251,9 +300,29 @@
 
     .shield img {
         position: static;
+
         width: 240px;
         height: auto;
         display: block;
-        margin: 20px auto;
+        margin: 80px auto;
+    }
+
+    .vs-btn {
+        height: 50px;
+        width: 170px;
+        position: absolute;
+        top: 48%;
+        left: 195px;
+        font-size: 11px;
+    }
+
+    .git-btn {
+        position: absolute;
+        height: 50px;
+        width: 170px;
+        top: 48%;
+        left: 20px;
+        font-size: 11px;
+
     }
 }

@@ -5,14 +5,11 @@
     width: 100%;
 }
 
-/* DO NOT MODIFY YOUR .Service2 */
-
 .service2-content {
     position: relative;
     overflow: hidden;
 }
 
-/* Static background */
 .main-image {
     position: absolute;
     width: 100%;
@@ -20,7 +17,6 @@
     object-fit: cover;
 }
 
-/* Chatbox styling */
 .chatbox {
     position: absolute;
     backdrop-filter: blur(10px);
@@ -35,7 +31,6 @@
     line-height: 1.5;
 }
 
-/* Positioning */
 .chatbox-1 {
     top: 30%;
     right: 10%;
@@ -57,7 +52,6 @@
     overflow: hidden;
 }
 
-/* Chatbox styling */
 .chatbox {
     position: absolute;
     padding: 10px;
@@ -68,7 +62,6 @@
     background-color: white;
 }
 
-/* Positioning */
 .chatbox-1 {
     position: absolute;
     top: 12%;
@@ -328,7 +321,6 @@
     }
 
     .ptags {
-        width: 380px;
-        margin: auto;
+        width: 340px;
     }
 }

@@ -35,8 +35,8 @@ export default function Background() {
         width
       );
 
-      gradient.addColorStop(0, "#03061b");
-      gradient.addColorStop(1, "#000814");
+      gradient.addColorStop(0, "#00041e");
+      gradient.addColorStop(1, "#031329");
     }
 
     function createNodes() {

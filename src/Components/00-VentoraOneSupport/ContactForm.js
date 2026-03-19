@@ -4,6 +4,8 @@ import "./ContactForm.css";
 
 const ContactForm = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,23 +13,52 @@ const ContactForm = () => {
     message: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setLoading(true);
+
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+
+        setTimeout(() => setSubmitted(false), 3000);
+      } else {
+        alert(data.message || "Something went wrong");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Server error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
-  
+
   return (
     <section className="contact-section">
       <div className="contact-container">
         <div className="glass-card overflow-hidden">
           <div className="grid-layout">
-            
+
             {/* Left panel */}
             <div className="left-panel">
               <div>
@@ -73,7 +104,7 @@ const ContactForm = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="form">
-                  
+
                   <div className="row">
                     <div>
                       <label className="label">Full Name</label>
@@ -129,9 +160,9 @@ const ContactForm = () => {
                     />
                   </div>
 
-                  <button type="submit" className="button">
+                  <button type="submit" className="button" disabled={loading}>
                     <Send className="btn-icon" />
-                    Send Message
+                    {loading ? "Sending..." : "Send Message"}
                   </button>
 
                 </form>

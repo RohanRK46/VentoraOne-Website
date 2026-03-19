@@ -88,7 +88,7 @@ export default function Service2() {
         <div className="ptags">
 
           <p>
-            Ventora is a technology-driven network and cyber security solutions provider delivering end-to-end IT security, infrastructure design, and implementation services.
+            VentoraOne is a technology-driven network and cyber security solutions provider delivering end-to-end IT security, infrastructure design, and implementation services.
           </p>
 
           <br/><br />

@@ -32,7 +32,7 @@ function Footer() {
           <div className="footer-column">
             <h3>About Us</h3>
             <ul>
-              <li><Link to="/">About us</Link></li>
+              <li><Link to="/AboutSection">About us</Link></li>
               <li><Link to="/">Careers</Link></li>
               <li><Link to="/">Blog</Link></li>
             </ul>
@@ -47,10 +47,10 @@ function Footer() {
 
           <div className="footer-column">
             <h3>Contact Us</h3>
-            <p>8128183840</p>
-            <p>blablabla@gmail.com</p>
+            <p>+91 9274819212</p>
+            <p>support@ventoraone.com</p>
 
-            <Link to="/" className="footer-contact-btn">
+            <Link to="/VentoraOneSupport" className="footer-contact-btn">
               Contact Us
             </Link>
           </div>

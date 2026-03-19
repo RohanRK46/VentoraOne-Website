@@ -15,6 +15,7 @@ const CloudSecurity = lazy(() => import('./Components/01-CloudSecurty/CloudSecur
 const NetworkDesign = lazy(() => import('./Components/02-Network Design/NetworkDesign'));
 const ServiceBookingForm = lazy(() => import('./Components/service-booking-form/ServiceBookingForm'));
 const VentoraOneSupport = lazy(() => import('./Components/00-VentoraOneSupport/SupportHero'))
+const OurProcess = lazy(() => import('./Components/OurProcessSection/OurProcess'))
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               <Services />
               <Service2 />
               <Whychoseventora />
+              <OurProcess/>
             </>
           }
         />
