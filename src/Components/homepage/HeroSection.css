@@ -328,11 +328,24 @@
     }
 }
 
-@media (max-width: 390px) and (max-height:860px) {
+@media (max-width: 400px) and (max-height:600px) {
+    .hero h1 {
+        font-size: 1.3em;
+    }
 
-        .shield img {
+    .hero span {
+        font-size: 1.2em;
+        display: block;
+    }
+
+    .hero p {
+        width: 100%;
+        font-size: 0.85em;
+        height: auto;
+    }
+
+    .shield img {
         position: static;
-
         width: 240px;
         height: auto;
         display: block;
@@ -455,6 +468,140 @@
         left: 20px;
         font-size: 11px;
 
+    }
+    
+}
+
+@media (max-width: 380px) and (max-height:700px){
+
+        .vs-btn {
+        height: 50px;
+        width: 170px;
+        position: absolute;
+        top: 46%;
+        left: 195px;
+        font-size: 11px;
+    }
+
+    .git-btn {
+        position: absolute;
+        height: 50px;
+        width: 170px;
+        top: 46%;
+        left: 20px;
+        font-size: 11px;
+
+    }
+    
+}
+
+@media (max-width: 390px) and (max-height:600px){
+
+    .hero img,
+    .hero h1,
+    .hero span,
+    .hero p{
+    position: relative;
+    top: -15px;
+    }
+
+        .vs-btn {
+        height: 50px;
+        width: 170px;
+        position: absolute;
+        top: 50%;
+        left: 195px;
+        font-size: 11px;
+    }
+
+    .git-btn {
+        position: absolute;
+        height: 50px;
+        width: 170px;
+        top: 50%;
+        left: 20px;
+        font-size: 11px;
+    }
+
+    .shield img{
+        position: relative;
+        top: -10vh;
+        scale: 0.9;
+    }
+    
+}
+
+@media (max-width: 390px) and (max-height:850px){
+
+        .vs-btn {
+        height: 50px;
+        width: 170px;
+        position: absolute;
+        top: 50%;
+        left: 195px;
+        font-size: 11px;
+    }
+
+    .git-btn {
+        position: absolute;
+        height: 50px;
+        width: 170px;
+        top: 50%;
+        left: 20px;
+        font-size: 11px;
+
+    }
+    
+}
+
+@media (max-width: 380px) and (max-height:700px){
+
+        .vs-btn {
+        height: 50px;
+        width: 170px;
+        position: absolute;
+        top: 48%;
+        left: 195px;
+        font-size: 11px;
+    }
+
+    .git-btn {
+        position: absolute;
+        height: 50px;
+        width: 170px;
+        top: 48%;
+        left: 20px;
+        font-size: 11px;
+
+    }
+    
+}
+
+
+@media (max-width: 370px) and (max-height:770px){
+
+        .vs-btn {
+        height: 50px;
+        width: 170px;
+        position: absolute;
+        top: 46%;
+        left: 195px;
+        font-size: 11px;
+    }
+
+    .git-btn {
+        position: absolute;
+        height: 50px;
+        width: 170px;
+        top: 46%;
+        left: 20px;
+        font-size: 11px;
+    }
+
+    .shield img{
+        position: relative;
+        top: 6vh;
+        scale: 1.2;
     }
     
 }

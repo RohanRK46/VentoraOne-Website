@@ -60,7 +60,7 @@ function App() {
       <Footer
         ContactNo="8128183840"
         Email="blablabla@gmail.com"
-        Address="Sunmilan Complex flat number 403 bla bla bla bla"
+        Address="F1, Ankur Sarabhai society gotri road Vadodara Gujarat 390021"
       />
 
     </Suspense>
