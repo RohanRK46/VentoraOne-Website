@@ -1,83 +1,61 @@
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 90px 70px 60px;
+    position: relative;
     z-index: 5;
     overflow: hidden;
 }
 
-.hero img {
-    position: absolute;
-    top: 120px;
-    left: 70px;
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 500px;
+    flex-shrink: 0;
+}
+
+.hero-logo {
     height: 120px;
     width: 426px;
+    object-fit: contain;
 }
 
-.hero h1 {
-    position: absolute;
-    top: 260px;
+.hero-heading {
     font-size: 2.5em;
-    left: 70px;
     color: white;
+    margin: 0;
+    font-weight: 700;
 }
 
-
-.hero span {
-    position: absolute;
+.hero-tagline {
     font-size: 2.5em;
     color: #45b1cc;
     font-weight: 500;
-    top: 320px;
-    left: 69px;
+    margin: 0;
 }
 
-.hero p {
+.hero-description {
     font-weight: 300;
     color: rgba(255, 248, 248, 0.74);
-    height: 60px;
-    width: 384px;
+    margin: 8px 0 0;
+    max-width: 384px;
+    line-height: 1.6;
 }
 
-.p1 {
-    position: absolute;
-    top: 386px;
-    left: 72px;
-}
-
-.p2 {
-    position: absolute;
-    top: 410px;
-    left: 72px;
-}
-
-.shield img {
-    position: absolute;
-    top: 70px;
-    left: 125vh;
-    height: 490px;
-    width: 465px;
-    padding: 4px;
-    transition: transform 0.3s ease;
-}
-
-.shield img:hover {
-    transform: scale(1.05);
-}
-
-.wv-cta-actions {
+.hero-buttons {
     display: flex;
     gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    margin-top: 16px;
 }
 
 .git-btn {
-    position: absolute;
-    bottom: 15%;
-    left: 6%;
     background: linear-gradient(135deg, #0d228a4d, rgba(0, 102, 255, 0.543));
     border: 1px solid rgba(31, 59, 183, 0.731);
     color: white;
-    font-family: var(--cyber-font-heading);
     font-size: 0.90rem;
     font-weight: 600;
     letter-spacing: 0.15em;
@@ -85,6 +63,7 @@
     clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
     cursor: pointer;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .git-btn:hover {
@@ -95,10 +74,6 @@
 }
 
 .vs-btn {
-    position: absolute;
-    position: absolute;
-    bottom: 15%;
-    left: 21%;
     background-color: #45b1ccd6;
     border: 1px solid rgb(255, 255, 255);
     color: rgba(255, 255, 255, 0.998);
@@ -109,6 +84,7 @@
     clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
     cursor: pointer;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .vs-btn:hover {
@@ -117,491 +93,134 @@
     transform: translateY(-2px);
 }
 
-
-
-
-/* --------------------------mobile view-------------------------- */
-@media (max-width: 460px) {
-
-    .hero {
-        height: 110vh;
-        position: static;
-        padding: 40px 20px;
-    }
-
-    .hero img,
-    .hero h1,
-    .hero span {
-        position: static;
-        margin: 35px 16px;
-        left: auto;
-        top: auto;
-    }
-
-    .hero img {
-        position: relative;
-        left: 35px;
-        scale: 1.2;
-    }
-
-    .hero p {
-        position: static;
-        margin: 25px 16px;
-        left: auto;
-        top: auto;
-    }
-
-
-    .hero img {
-        width: 250px;
-        height: auto;
-        display: block;
-        margin: 33px 0 11px 17px;
-    }
-
-    .hero h1,
-    .hero span {
-        font-size: 1.6em;
-    }
-
-    .hero p {
-        width: 100%;
-        font-size: 0.95em;
-        height: auto;
-    }
-
-    .shield img {
-        position: relative;
-        top: 90px;
-        left: 50px;
-    }
-
-    .vs-btn {
-        height: 50px;
-        width: 170px;
-        position: absolute;
-        top: 46%;
-        left: 200px;
-        font-size: 11px;
-    }
-
-    .git-btn {
-        position: absolute;
-        height: 50px;
-        width: 170px;
-        top: 46%;
-        left: 20px;
-        font-size: 11px;
-    }
+.shield {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
 }
 
-/* -------------------------- medium screens (tablet / small laptop) -------------------------- */
-@media (max-width: 1024px) and (min-width: 769px) {
+.shield img {
+    height: 490px;
+    width: 465px;
+    object-fit: contain;
+    padding: 4px;
+    transition: transform 0.3s ease;
+}
 
-    .hero img {
-        top: 100px;
-        left: 40px;
+.shield img:hover {
+    transform: scale(1.05);
+}
+
+/* ---- Tablet ---- */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 100px 40px 60px;
+    }
+
+    .hero-logo {
         width: 300px;
         height: auto;
     }
 
-    .hero h1 {
-        top: 220px;
-        left: 40px;
+    .hero-heading {
         font-size: 2em;
     }
 
-    .hero span {
-        top: 270px;
-        left: 40px;
+    .hero-tagline {
         font-size: 2em;
     }
 
-    .hero p {
-        top: 330px;
-        left: 40px;
+    .hero-description {
         width: 300px;
         font-size: 0.95em;
     }
 
     .shield img {
-        top: 100px;
-        left: 60%;
-        /* FIXED from 125vh */
         width: 350px;
         height: auto;
     }
-
-    .vs-btn {
-        height: 50px;
-        width: 170px;
-        position: absolute;
-        top: 48%;
-        left: 195px;
-        font-size: 11px;
-    }
-
-    .git-btn {
-        position: absolute;
-        height: 50px;
-        width: 170px;
-        top: 48%;
-        left: 20px;
-        font-size: 11px;
-    }
 }
 
-
-/* -------------------------- very small screens (phones <480px) -------------------------- */
-@media (max-width: 390px) and (max-height:660px) {
-
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
     .hero {
-        margin-top: 15%;
-        height: 105vh;
-        padding: 15px 15px;
-    }
-
-    .hero img {
-        left: auto;
-        top: auto;
-        scale: 1.1;
-    }
-
-    .hero h1,
-    .hero span,
-    .hero p {
-        position: static;
-        left: auto;
-        top: auto;
-        margin: 10px 0;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+        padding: 80px 20px 70px;
+        gap: 24px;
     }
 
-    .hero img {
-        width: 200px;
-        height: 50px;
-        margin: 20px auto;
-        display: block;
+    .hero-content {
+        align-items: center;
+        max-width: 100%;
     }
 
-    .hero h1 {
-        font-size: 1.3em;
-    }
-
-    .hero span {
-        font-size: 1.2em;
-        display: block;
-    }
-
-    .hero p {
-        width: 100%;
-        font-size: 0.85em;
+    .hero-logo {
+        width: 250px;
         height: auto;
+    }
+
+    .hero-heading {
+        font-size: 1.6em;
+    }
+
+    .hero-tagline {
+        font-size: 1.5em;
+    }
+
+    .hero-description {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.95em;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .git-btn,
+    .vs-btn {
+        font-size: 0.75rem;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .shield {
+        order: 1;
     }
 
     .shield img {
-        position: static;
-
-        width: 240px;
+        width: 260px;
         height: auto;
-        display: block;
-        margin: 80px auto;
-    }
-
-    .vs-btn {
-        height: 50px;
-        width: 170px;
-        position: absolute;
-        top: 44%;
-        left: 195px;
-        font-size: 11px;
-    }
-
-    .git-btn {
-        position: absolute;
-        height: 50px;
-        width: 170px;
-        top: 44%;
-        left: 20px;
-        font-size: 11px;
-
+        scale: 1.3;
     }
 }
 
-@media (max-width: 400px) and (max-height:600px) {
-    .hero h1 {
-        font-size: 1.3em;
-    }
-
-    .hero span {
-        font-size: 1.2em;
-        display: block;
-    }
-
-    .hero p {
-        width: 100%;
-        font-size: 0.85em;
-        height: auto;
-    }
-
-    .shield img {
-        position: static;
-        width: 240px;
-        height: auto;
-        display: block;
-        margin: 80px auto;
-    }
-
-    .vs-btn {
-        height: 50px;
-        width: 170px;
-        position: absolute;
-        top: 49%;
-        left: 195px;
-        font-size: 11px;
-    }
-
-    .git-btn {
-        position: absolute;
-        height: 50px;
-        width: 170px;
-        top: 49%;
-        left: 20px;
-        font-size: 11px;
-
-    }
-
-}
-
-/* -------------------------- very small screens (phones <480px) -------------------------- */
-@media (max-width: 380px) {
-
+/* ---- Very small phones ---- */
+@media (max-width: 390px) {
     .hero {
-        margin-top: 15%;
-        height: 90vh;
-        padding: 15px 15px;
+        padding: 80px 18px 115px;
     }
 
-    .hero img {
-        left: auto;
-        top: auto;
-        scale: 1.1;
-    }
-
-    .hero h1,
-    .hero span,
-    .hero p {
-        position: static;
-        left: auto;
-        top: auto;
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    .hero img {
+    .hero-logo {
         width: 200px;
-        height: auto;
-        margin: 20px auto;
-        display: block;
     }
 
-    .hero h1 {
+    .hero-heading {
         font-size: 1.3em;
     }
 
-    .hero span {
+    .hero-tagline {
         font-size: 1.2em;
-        display: block;
     }
 
-    .hero p {
-        width: 100%;
+    .hero-description {
         font-size: 0.85em;
-        height: auto;
     }
 
     .shield img {
-        position: static;
-
-        width: 240px;
-        height: auto;
-        display: block;
-        margin: 80px auto;
+        width: 220px;
     }
-
-    .vs-btn {
-        height: 50px;
-        width: 170px;
-        position: absolute;
-        top: 48%;
-        left: 195px;
-        font-size: 11px;
-    }
-
-    .git-btn {
-        position: absolute;
-        height: 50px;
-        width: 170px;
-        top: 48%;
-        left: 20px;
-        font-size: 11px;
-
-    }
-}
-
-@media (max-width: 390px) and (max-height:750px){
-
-        .vs-btn {
-        height: 50px;
-        width: 170px;
-        position: absolute;
-        top: 42%;
-        left: 195px;
-        font-size: 11px;
-    }
-
-    .git-btn {
-        position: absolute;
-        height: 50px;
-        width: 170px;
-        top: 42%;
-        left: 20px;
-        font-size: 11px;
-
-    }
-    
-}
-
-@media (max-width: 380px) and (max-height:700px){
-
-        .vs-btn {
-        height: 50px;
-        width: 170px;
-        position: absolute;
-        top: 46%;
-        left: 195px;
-        font-size: 11px;
-    }
-
-    .git-btn {
-        position: absolute;
-        height: 50px;
-        width: 170px;
-        top: 46%;
-        left: 20px;
-        font-size: 11px;
-
-    }
-    
-}
-
-@media (max-width: 390px) and (max-height:600px){
-
-    .hero img,
-    .hero h1,
-    .hero span,
-    .hero p{
-    position: relative;
-    top: -15px;
-    }
-
-        .vs-btn {
-        height: 50px;
-        width: 170px;
-        position: absolute;
-        top: 50%;
-        left: 195px;
-        font-size: 11px;
-    }
-
-    .git-btn {
-        position: absolute;
-        height: 50px;
-        width: 170px;
-        top: 50%;
-        left: 20px;
-        font-size: 11px;
-    }
-
-    .shield img{
-        position: relative;
-        top: -10vh;
-        scale: 0.9;
-    }
-    
-}
-
-@media (max-width: 390px) and (max-height:850px){
-
-        .vs-btn {
-        height: 50px;
-        width: 170px;
-        position: absolute;
-        top: 50%;
-        left: 195px;
-        font-size: 11px;
-    }
-
-    .git-btn {
-        position: absolute;
-        height: 50px;
-        width: 170px;
-        top: 50%;
-        left: 20px;
-        font-size: 11px;
-
-    }
-    
-}
-
-@media (max-width: 380px) and (max-height:700px){
-
-        .vs-btn {
-        height: 50px;
-        width: 170px;
-        position: absolute;
-        top: 48%;
-        left: 195px;
-        font-size: 11px;
-    }
-
-    .git-btn {
-        position: absolute;
-        height: 50px;
-        width: 170px;
-        top: 48%;
-        left: 20px;
-        font-size: 11px;
-
-    }
-    
-}
-
-
-@media (max-width: 370px) and (max-height:770px){
-
-        .vs-btn {
-        height: 50px;
-        width: 170px;
-        position: absolute;
-        top: 46%;
-        left: 195px;
-        font-size: 11px;
-    }
-
-    .git-btn {
-        position: absolute;
-        height: 50px;
-        width: 170px;
-        top: 46%;
-        left: 20px;
-        font-size: 11px;
-    }
-
-    .shield img{
-        position: relative;
-        top: 6vh;
-        scale: 1.2;
-    }
-    
 }
