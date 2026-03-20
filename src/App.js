@@ -57,11 +57,7 @@ function App() {
 
       </Routes>
 
-      <Footer
-        ContactNo="8128183840"
-        Email="blablabla@gmail.com"
-        Address="F1, Ankur Sarabhai society gotri road Vadodara Gujarat 390021"
-      />
+      <Footer/>
 
     </Suspense>
   );

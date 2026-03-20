@@ -207,7 +207,6 @@
     }
 }
 
-/* 📱 MOBILE FIX */
 @media (max-width: 1024px) {
     .contact-section .left-panel {
         height: 50vh;
@@ -220,5 +219,11 @@
     .contact-section .textarea {
         resize: none;
         margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 400px){
+.contact-section .right-panel {
+        height: 80vh;
     }
 }

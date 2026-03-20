@@ -41,7 +41,7 @@ function Footer() {
           <div className="footer-column">
             <h3>Address</h3>
             <p>
-              Sunmilan Complex flat number 403 bla bla bla bla
+            F1, Ankur Sarabhai society gotri road Vadodara Gujarat 390021
             </p>
           </div>
 
