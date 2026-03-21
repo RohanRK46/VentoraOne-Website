@@ -90,7 +90,7 @@ const Checkout = ({ titleColor = "#fff", cardcolor = "#1a1a1a" }) => {
                 </p>
 
                 <span className="service-link">
-                  Learn More
+                  Check Out
                 </span>
 
               </div>

@@ -1,0 +1,231 @@
+/* BookingForm.css */
+.booking-form-section {
+  background: hsl(220, 25%, 96%);
+  padding: 64px 24px 80px;
+  min-height: 60vh;
+}
+
+.form-container {
+  max-width: 640px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  padding: 40px 36px;
+  box-shadow:
+    0 1px 3px hsla(220, 40%, 20%, 0.04),
+    0 8px 32px hsla(220, 40%, 20%, 0.08);
+  animation: form-enter 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+@keyframes form-enter {
+  from { opacity: 0; transform: translateY(24px); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: hsl(220, 40%, 20%);
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid hsl(220, 20%, 88%);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: hsl(220, 40%, 15%);
+  background: hsl(220, 25%, 98%);
+  transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+  outline: none;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: hsl(220, 60%, 50%);
+  box-shadow: 0 0 0 3px hsla(220, 60%, 50%, 0.12);
+  background: white;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: hsl(220, 15%, 65%);
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 500px) {
+  .form-row { grid-template-columns: 1fr; }
+  .form-container { padding: 28px 20px; }
+}
+
+/* Captcha */
+.captcha-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: hsl(220, 25%, 97%);
+  border: 1.5px solid hsl(220, 20%, 88%);
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.captcha-code {
+  font-family: 'Courier New', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: hsl(220, 55%, 25%);
+  background: linear-gradient(135deg, hsl(220, 30%, 92%), hsl(200, 30%, 90%));
+  padding: 8px 18px;
+  border-radius: 8px;
+  user-select: none;
+  position: relative;
+  text-decoration: line-through;
+  text-decoration-color: hsla(220, 40%, 50%, 0.3);
+  text-decoration-thickness: 2px;
+}
+
+.captcha-code::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg, transparent, transparent 4px, hsla(220, 40%, 50%, 0.05) 4px, hsla(220, 40%, 50%, 0.05) 5px),
+    repeating-linear-gradient(0deg, transparent, transparent 6px, hsla(220, 40%, 50%, 0.04) 6px, hsla(220, 40%, 50%, 0.04) 7px);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.captcha-input {
+  flex: 1;
+}
+
+.captcha-refresh {
+  background: none;
+  border: 1.5px solid hsl(220, 20%, 85%);
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  color: hsl(220, 40%, 40%);
+  transition: all 0.2s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.captcha-refresh:hover {
+  background: hsl(220, 25%, 95%);
+  border-color: hsl(220, 40%, 60%);
+  color: hsl(220, 55%, 35%);
+}
+
+.captcha-refresh:active {
+  transform: scale(0.95);
+}
+
+.captcha-error {
+  color: hsl(0, 70%, 50%);
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+/* Submit */
+.submit-btn {
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, hsl(220, 60%, 28%), hsl(220, 55%, 38%));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  letter-spacing: 0.01em;
+  margin-top: 8px;
+}
+
+.submit-btn:hover {
+  box-shadow: 0 4px 20px hsla(220, 60%, 30%, 0.35);
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: scale(0.98) translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Success */
+.success-overlay {
+  text-align: center;
+  padding: 48px 24px;
+  animation: form-enter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, hsl(150, 60%, 45%), hsl(160, 55%, 40%));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: white;
+}
+
+.success-overlay h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: hsl(220, 40%, 18%);
+  margin: 0 0 12px;
+}
+
+.success-overlay p {
+  color: hsl(220, 15%, 45%);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.success-overlay .response-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: hsl(220, 25%, 96%);
+  padding: 10px 20px;
+  border-radius: 100px;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: hsl(220, 50%, 35%);
+}

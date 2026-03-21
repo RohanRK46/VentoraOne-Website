@@ -11,7 +11,7 @@ const Services = lazy(() => import('./Components/services/Services'));
 const Service2 = lazy(() => import('./Components/service2/Service2'));
 const Whychoseventora = lazy(() => import('./Components/why-chose-ventora/Whychoseventora'));
 const Footer = lazy(() => import('./Components/footer/Footer'));
-const CloudSecurity = lazy(() => import('./Components/01-CloudSecurty/CloudSecurity'));
+const CloudSecurity = lazy(() => import('./Components/01-CloudAndHybridSecurity/CloudAndHybridSecurity'));
 const NetworkDesign = lazy(() => import('./Components/02-Network Design/NetworkDesign'));
 const ServiceBookingForm = lazy(() => import('./Components/service-booking-form/ServiceBookingForm'));
 const VentoraOneSupport = lazy(() => import('./Components/00-VentoraOneSupport/SupportHero'))
