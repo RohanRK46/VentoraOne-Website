@@ -235,6 +235,10 @@
     margin-top: 0;
   }
 
+  .network-tag{
+    margin-top: 10vh;
+  }
+
   .network-content-title {
     font-size: 30px;
   }
@@ -244,7 +248,10 @@
   }
 
   .network-hero-image-large {
-    width: 260px;
+    position: relative;
+    top: -100px;
+    scale: 2;
+    left: -13px
   }
 
 }

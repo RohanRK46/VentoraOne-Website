@@ -16,6 +16,8 @@ const NetworkDesign = lazy(() => import('./Components/02-Network Design/NetworkD
 const ServiceBookingForm = lazy(() => import('./Components/service-booking-form/ServiceBookingForm'));
 const VentoraOneSupport = lazy(() => import('./Components/00-VentoraOneSupport/SupportHero'))
 const OurProcess = lazy(() => import('./Components/OurProcessSection/OurProcess'))
+const FireWallSecurity = lazy(() => import('./Components/04-FireWallSecurity/FireWallSecurity'))
+const BackUpAndRecovery = lazy(() => import('./Components/05-BackUpAndRecovery/BackUpAndRecovery'))
 
 function App() {
   return (
@@ -54,6 +56,10 @@ function App() {
         <Route path="/VentoraOneSupport" element={<VentoraOneSupport/>} />
 
         <Route path="/AboutSection" element={<EntireAboutSection/>} />
+
+        <Route path="/FireWallSecurity" element={<FireWallSecurity/>} />
+
+        <Route path="/BackUpAndRecovery" element={<BackUpAndRecovery/>} />
 
       </Routes>
 

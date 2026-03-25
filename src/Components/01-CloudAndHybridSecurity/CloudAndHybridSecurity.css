@@ -5,7 +5,7 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, rgb(88 1 1), rgb(123 9 9), rgb(67 0 0));
+  background: #0d184e;
   font-family: sans-serif;
 }
 
@@ -28,7 +28,7 @@
 .cloudhybrid-glow1 {
   width: 380px;
   height: 380px;
-  background: rgb(132, 14, 14);
+  background: rgb(14, 88, 146);
   top: 20%;
   left: 20%;
 }
@@ -36,7 +36,7 @@
 .cloudhybrid-glow2 {
   width: 300px;
   height: 300px;
-  background: rgba(255, 8, 8, 0.769);
+  background: rgba(8, 74, 255, 0.769);
   bottom: 20%;
   right: 20%;
 }
@@ -60,7 +60,7 @@
   margin-top: 5vh;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: #00e0ff;
+  color: #ff8989f3;
   font-size: 13px;
   margin-bottom: 10px;
 }
@@ -72,7 +72,7 @@
 }
 
 .cloudhybrid-content-title span {
-  color: #00e0ff;
+  color: #fe2626f3;
 }
 
 .cloudhybrid-content-desc {
@@ -122,7 +122,7 @@
 }
 
 .cloudhybrid-feature-icon {
-  color: #4e66da;
+  color: #ff3838f3;
   margin-bottom: 8px;
   transition: transform 0.3s ease;
 }
@@ -167,17 +167,18 @@
 
 .cloudhybrid-hero-image-large {
   position: absolute;
-  z-index: -199;
   transform: translateX(-250px);
-  top: -190px;
+  top: -280px;
+  left: -400px;
+  z-index: -5;
   height: 500px;
   width: 800px;
   max-width: none;
   object-fit: contain;
   pointer-events: none;
-  scale: 1.3;
+  scale: 1.5;
 
-  filter: drop-shadow(0 0 25px rgba(254, 11, 11, 0.543));
+  filter: drop-shadow(0 0 25px rgba(9, 35, 164, 0.941));
 
   animation: floatCloudHybrid 6s ease-in-out infinite;
 }
@@ -235,6 +236,10 @@
     margin-top: 0;
   }
 
+  .cloudhybrid-tag{
+    margin-top: 10vh;
+  }
+
   .cloudhybrid-content-title {
     font-size: 30px;
   }
@@ -244,7 +249,10 @@
   }
 
   .cloudhybrid-hero-image-large {
-    width: 260px;
+    position: relative;
+    top: -100px;
+    scale: 2.3;
+    left: -13px
   }
 
 }

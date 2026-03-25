@@ -1,0 +1,258 @@
+.troubleshoot {
+  min-height: 140vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: #0d184e;
+  font-family: sans-serif;
+}
+
+.troubleshoot-container {
+  width: 90%;
+  max-width: 1200px;
+  position: relative;
+  z-index: 2;
+}
+
+/* glow */
+
+.troubleshoot-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+.troubleshoot-glow1 {
+  width: 380px;
+  height: 380px;
+  background: rgba(255, 200, 80, 0.35);
+  top: 20%;
+  left: 20%;
+}
+
+.troubleshoot-glow2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 150, 80, 0.35);
+  bottom: 20%;
+  right: 20%;
+}
+
+/* layout */
+
+.troubleshoot-revealed-state {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+/* LEFT */
+
+.troubleshoot-content-left {
+  flex: 1;
+}
+
+.troubleshoot-tag {
+  margin-top: 5vh;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #ffc107;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.troubleshoot-content-title {
+  font-size: 48px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.troubleshoot-content-title span {
+  color: #ffc107;
+}
+
+.troubleshoot-content-desc {
+  color: #a0a8c0;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+/* FEATURES */
+
+.troubleshoot-feature-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.troubleshoot-feature-card {
+  padding: 18px;
+  margin: auto;
+  width: 360px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+
+.troubleshoot-feature-card:hover {
+  transform: scale(1.035);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 0 20px rgba(255, 200, 80, 0.2),
+    0 0 40px rgba(255, 200, 80, 0.4);
+}
+
+.troubleshoot-feature-card h3 {
+  color: black;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.troubleshoot-feature-card p {
+  font-size: 13px;
+  color: black;
+}
+
+.troubleshoot-feature-icon {
+  color: #ffc107;
+  margin-bottom: 8px;
+  transition: transform 0.3s ease;
+}
+
+.troubleshoot-feature-card:hover .troubleshoot-feature-icon {
+  transform: scale(1.15);
+}
+
+/* BUTTON */
+
+.troubleshoot-button-group {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.troubleshoot-primary-btn {
+  padding: 16px 30px;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #ffc107, #8a5a00);
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.troubleshoot-primary-btn:hover {
+  transform: scale(1.05);
+}
+
+/* RIGHT IMAGE */
+
+.troubleshoot-content-right {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.troubleshoot-hero-image-large {
+  position: absolute;
+  z-index: -1;
+  transform: translateX(-200px);
+  top: -150px;
+  height: 500px;
+  width: 750px;
+  object-fit: contain;
+  pointer-events: none;
+  scale: 1.2;
+
+  filter: drop-shadow(0 0 25px rgba(255, 200, 80, 0.6));
+
+  animation: floatTrouble 6s ease-in-out infinite;
+}
+
+/* animation */
+
+@keyframes floatTrouble {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+  .troubleshoot-revealed-state {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .troubleshoot-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .troubleshoot-content-title {
+    font-size: 40px;
+  }
+
+  .troubleshoot-hero-image-large {
+    position: relative;
+    width: 320px;
+    transform: none;
+    top: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .troubleshoot-content-title {
+    font-size: 30px;
+  }
+
+  .troubleshoot-content-desc {
+    font-size: 15px;
+  }
+
+  .troubleshoot-hero-image-large {
+    width: 260px;
+  }
+}
+
+/* section merge */
+
+.troubleshoot-section {
+  min-height: 135vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+}
+
+.troubleshoot-section::after {
+  content: "";
+  position: absolute;
+  bottom: -120px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+
+  background: linear-gradient(
+    to bottom,
+    #5a3a00 0%,
+    rgba(90, 58, 0, 0.4) 40%,
+    rgba(255, 255, 255, 0.8) 80%,
+    white 100%
+  );
+
+  pointer-events: none;
+}

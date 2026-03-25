@@ -55,8 +55,8 @@ export default function Navbar() {
             <ul className={`dropdown ${serviceOpen ? "show" : ""}`}>
               <li><Link to="/CloudSecurity" onClick={closeMenu}>Cloud & Hybrid Security</Link></li>
               <li><Link to="/NetworkDesign" onClick={closeMenu}>Network Design</Link></li>
-              <li><Link to="/firewall-security" onClick={closeMenu}>Firewall Security</Link></li>
-              <li><Link to="/backup-recovery" onClick={closeMenu}>Backup And Recovery</Link></li>
+              <li><Link to="/FireWallSecurity" onClick={closeMenu}>Firewall Security</Link></li>
+              <li><Link to="/BackUpAndRecovery" onClick={closeMenu}>Backup And Recovery</Link></li>
               <li><Link to="/troubleshooting" onClick={closeMenu}>Troubleshooting</Link></li>
             </ul>
 
