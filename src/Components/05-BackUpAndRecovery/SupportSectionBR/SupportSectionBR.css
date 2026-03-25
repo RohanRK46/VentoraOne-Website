@@ -56,6 +56,8 @@
 
 .br-hero h1 span {
   background: linear-gradient(90deg, #64b4ff, #00e676);
+  background-clip: text; 
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
