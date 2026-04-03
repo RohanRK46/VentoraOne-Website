@@ -25,8 +25,8 @@
 }
 
 .footer-logo img {
-  height: 100px;
-  width: 350px;
+  height: 90px;
+  width: 410px;
 }
 
 .footer-social {
@@ -163,7 +163,7 @@
   .footer-logo img {
     margin-top: 4.2vh;
         height: 55px;
-        width: 215px;
+        width: 250px;
   }
 
   .footer-columns {
@@ -210,7 +210,7 @@
 
   .footer-logo img {
     height: 45px;
-    width: 180px;
+    width: 210px;
     margin-top: 10px;
   }
 

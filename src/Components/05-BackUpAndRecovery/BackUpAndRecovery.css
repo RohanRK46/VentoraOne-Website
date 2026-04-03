@@ -208,9 +208,9 @@
 
   .backup-hero-image-large {
     position: relative;
-    width: 320px;
-    transform: none;
-    top: 0;
+    top: -60px;
+    scale: 3;
+    left: -13px
   }
 }
 

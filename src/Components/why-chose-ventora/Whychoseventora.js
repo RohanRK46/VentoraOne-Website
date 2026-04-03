@@ -5,7 +5,7 @@ export default function InfiniteFlow() {
   return (
     <div className="section">
       <div className="whychoseventora">
-        <p>Why Chose Ventora?</p>
+        <p>Why Chose VentoraOne?</p>
         
       </div>
 

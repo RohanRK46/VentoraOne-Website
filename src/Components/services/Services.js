@@ -1,299 +1,140 @@
-import { useState, useRef, useEffect } from "react";
-import { AnimatePresence, motion, useInView } from "framer-motion";
-import { X, ArrowUpRight } from "lucide-react";
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Services.css";
-import brandingImg from "./imagesServices/firewall.png";
-import mobileImg from "./imagesServices/c2.png";
-import architectureImg from "./imagesServices/img3.jpg";
-import webImg from "./imagesServices/network.png";
-import motionImg from "./imagesServices/c2.png";
-import productImg from "./imagesServices/c2.png";
+
+import imgCyber from "./imagesServices/card-cybersecurity.jpg";
+import imgIT from "./imagesServices/card-it-integration.jpg";
+import imgTender from "./imagesServices/card-tender.jpg";
+import imgSaas from "./imagesServices/card-saas.jpg";
+import imgDigital from "./imagesServices/card-digital.jpg";
+import imgProject from "./imagesServices/card-project.jpg";
+
 
 const services = [
   {
-    id: 1,
-    title: "Cloud Security",
+    id: "cybersecurity",
     category: "Security",
-    image: brandingImg,
-    description:
-      "Advanced cloud security solutions protecting enterprise infrastructure.",
-    tags: ["Cloud", "Security", "Protection"],
+    title: "Cybersecurity & Physical Security",
+    image: imgCyber,
+    expandable: true,
   },
   {
-    id: 2,
-    title: "Firewall Protection",
-    category: "Network",
-    image: mobileImg,
-    description:
-      "Enterprise-grade firewall systems to monitor and protect your network.",
-    tags: ["Firewall", "Security", "Network"],
+    id: "it-integration",
+    category: "Integration",
+    title: "IT Systems Integration",
+    image: imgIT,
+    route: "/it-integration",
   },
   {
-    id: 3,
-    title: "Infrastructure Design",
-    category: "Architecture",
-    image: architectureImg,
-    description:
-      "Secure infrastructure architecture designed for scalability.",
-    tags: ["Infrastructure", "Servers", "Architecture"],
+    id: "tender",
+    category: "Advisory",
+    title: "Tender & Bid Advisory",
+    image: imgTender,
+    route: "/tender-advisory",
   },
   {
-    id: 4,
-    title: "Network Monitoring",
-    category: "Networking",
-    image: webImg,
-    description:
-      "Continuous network monitoring ensuring high availability and uptime.",
-    tags: ["Monitoring", "Network", "Security"],
+    id: "saas",
+    category: "Software",
+    title: "SaaS & Custom Software",
+    image: imgSaas,
+    route: "/saas-software",
   },
   {
-    id: 5,
-    title: "System Automation",
-    category: "Automation",
-    image: motionImg,
-    description:
-      "Automated infrastructure management and deployment systems.",
-    tags: ["Automation", "DevOps", "Infrastructure"],
+    id: "digital",
+    category: "Transformation",
+    title: "Digital Transformation",
+    image: imgDigital,
+    route: "/digital-transformation",
   },
   {
-    id: 6,
-    title: "Enterprise Security",
-    category: "Security",
-    image: productImg,
-    description:
-      "Comprehensive enterprise-grade cybersecurity protection.",
-    tags: ["Security", "Enterprise", "Protection"],
+    id: "project",
+    category: "Management",
+    title: "Project & Vendor Management",
+    image: imgProject,
+    route: "/project-management",
   },
 ];
 
-const easing = [0.77, 0, 0.175, 1];
+const cyberSubServices = [
+  { category: "Network", title: "Firewall Protection", image: imgIT, route: "/cyber/firewall" },
+  { category: "Architecture", title: "Infrastructure Design", image: imgTender, route: "/cyber/infrastructure" },
+  { category: "Networking", title: "Network Monitoring", image: imgDigital, route: "/cyber/monitoring" },
+  { category: "Automation", title: "System Automation", image: imgSaas, route: "/cyber/automation" },
+  { category: "Security", title: "Enterprise Security", image: imgProject, route: "/cyber/enterprise" },
+];
 
-export default function Services() {
+function ServiceCards() {
+  const [expanded, setExpanded] = useState(false);
+  const navigate = useNavigate();
 
-  const [activeId, setActiveId] = useState(null);
-
-  const gridRef = useRef(null);
-  const heroRef = useRef(null);
-
-  const isInView = useInView(gridRef, { amount: 0.35 });
-
-  const activeService = services.find((s) => s.id === activeId) || null;
-  const sideServices = activeService
-    ? services.filter((s) => s.id !== activeId)
-    : [];
-
-  /* AUTO SCROLL WHEN SERVICE CHANGES */
-
-  useEffect(() => {
-    if (activeService && heroRef.current) {
-      heroRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+  const handleCardClick = (service) => {
+    if (service.expandable) {
+      setExpanded(true);
+    } else {
+      navigate(service.route);
     }
-  }, [activeService]);
+  };
 
   return (
-    <div className="services-root">
-      {/* HEADER */}
+    <section className="services-section">
+      <div className="title">
+        <span>Our Security & Infrastructure Services</span>
+      </div>
+      <div className="services-grid">
+        {services.map((service) => (
+          <div
+            key={service.id}
+            className="service-card"
+            onClick={() => handleCardClick(service)}
+          >
+            <img className="service-card-bg" src={service.image} alt={service.title} loading="lazy" width={800} height={512} />
+            <div className="service-card-overlay" />
+            <div className="service-card-content">
+              <span className="service-card-category">{service.category}</span>
+              <h3 className="service-card-title">{service.title}</h3>
+              <span className="service-card-link">
+                {service.expandable ? "View Services" : "View Service"}{" "}
+                <span className="service-card-link-arrow">↗</span>
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
 
-      <header className="services-header">
-
-        <div>
-          <h1 className="services-header-title">
-            Our Security & Infrastructure Services
-          </h1>
-        </div>
-
-        <p className="services-header-meta">6 Solutions</p>
-
-      </header>
-
-      {/* MAIN */}
-
-      <main className="services-main">
-
-        <AnimatePresence>
-
-          {/* SERVICES GRID */}
-
-          {!activeService && (
-
-            <motion.div
-              ref={gridRef}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isInView ? 1 : 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.35, ease: easing }}
-              className="services-grid"
-            >
-
-              {services.map((service, i) => (
-
-                <motion.div
-                  key={service.id}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={
-                    isInView
-                      ? { opacity: 1, y: 0 }
-                      : { opacity: 0, y: 40 }
-                  }
-                  transition={{
-                    delay: Math.floor(i / 3) * 0.35 + (i % 3) * 0.08,
-                    duration: 0.5,
-                    ease: easing
-                  }}
-                  onClick={() => setActiveId(service.id)}
-                  className="service-card"
-                >
-
-                  <div className="service-card-image">
-                    <img src={service.image} alt={service.title} />
-                  </div>
-
-                  <div className="service-card-body">
-
-                    <div className="service-card-meta">
-                      <span className="service-card-category">
-                        {service.category}
-                      </span>
-                    </div>
-
-                    <h2 className="service-card-title">
-                      {service.title}
-                    </h2>
-
-                    <div className="service-card-cta">
-                      <span>View Service</span>
-                      <ArrowUpRight size={12} />
-                    </div>
-
-                  </div>
-
-                </motion.div>
-
-              ))}
-
-            </motion.div>
-
-          )}
-
-          {/* EXPANDED SERVICE */}
-
-          {activeService && (
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="services-expanded"
-            >
-
-              {/* HERO */}
-
-              <motion.div
-                ref={heroRef}
-                className="service-hero"
-                initial={{ opacity: 0, scale: 0.97 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.55, ease: easing }}
-              >
-
-                <div className="service-hero-image">
-
-                  <img
-                    src={activeService.image}
-                    alt={activeService.title}
-                  />
-
-                  <button
-                    className="service-hero-close"
-                    onClick={() => setActiveId(null)}
-                  >
-                    <X size={16} />
-                  </button>
-
+      {expanded && (
+        <div className="cyber-modal-backdrop" onClick={() => setExpanded(false)}>
+          <div className="cyber-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="cyber-main">
+              <button className="cyber-close-btn" onClick={() => setExpanded(false)}>✕</button>
+              <img className="cyber-main-img" src={imgCyber} alt="Cloud Security" />
+              <div className="cyber-main-body">
+                <h2>Cybersecurity & Physical Security</h2>
+                <p>Advanced cloud security solutions protecting enterprise infrastructure with cutting-edge threat detection and prevention systems.</p>
+                <div className="cyber-tags">
+                  <span className="cyber-tag">Cloud</span>
+                  <span className="cyber-tag">Security</span>
+                  <span className="cyber-tag">Protection</span>
+                  <span className="cyber-tag">Physical</span>
                 </div>
-
-                <div className="service-hero-body">
-
-                  <h2 className="service-hero-title">
-                    {activeService.title}
-                  </h2>
-
-                  <p className="service-hero-description">
-                    {activeService.description}
-                  </p>
-
-                  <div className="service-hero-tags">
-
-                    {activeService.tags.map((tag) => (
-
-                      <span
-                        key={tag}
-                        className="service-tag"
-                      >
-                        {tag}
-                      </span>
-
-                    ))}
-
-                  </div>
-
-                </div>
-
-              </motion.div>
-
-              {/* SIDEBAR */}
-
-              <div className="services-sidebar">
-
-                {sideServices.map((service, i) => (
-
-                  <motion.div
-                    key={service.id}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      delay: 0.1 + i * 0.06,
-                      duration: 0.4,
-                      ease: easing
-                    }}
-                    onClick={() => setActiveId(service.id)}
-                    className="services-sidebar-card"
-                  >
-
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="sidebar-thumb"
-                    />
-
-                    <div className="sidebar-info">
-
-                      <span>{service.category}</span>
-
-                      <p>{service.title}</p>
-
-                    </div>
-
-                    <ArrowUpRight size={14} />
-
-                  </motion.div>
-
-                ))}
-
               </div>
-
-            </motion.div>
-
-          )}
-
-        </AnimatePresence>
-
-      </main>
-
-    </div>
+            </div>
+            <div className="cyber-sidebar">
+              {cyberSubServices.map((sub, i) => (
+                <div key={i} className="cyber-sub-card" onClick={() => navigate(sub.route)}>
+                  <img className="cyber-sub-card-img" src={sub.image} alt={sub.title} loading="lazy" />
+                  <div className="cyber-sub-card-text">
+                    <p className="cyber-sub-card-category">{sub.category}</p>
+                    <p className="cyber-sub-card-title">{sub.title}</p>
+                  </div>
+                  <span className="cyber-sub-card-arrow">↗</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
   );
 }
+
+export default ServiceCards;

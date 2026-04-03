@@ -45,8 +45,8 @@ export default function HeroSection() {
         {/* Replace src with your logo import */}
         <img className="hero-logo" src={logo} alt="VentoraOne logo" loading="lazy" />
 
-        <h1 className="hero-heading">Network & Cyber Security Solutions</h1>
-        <span className="hero-tagline">Design. Secure. Scale.</span>
+        <h1 className="hero-heading">Powering Modern Enterprise Systems</h1>
+        <span className="hero-tagline">Integrate. Automate. Transform.</span>
 
         <p className="hero-description">
           Advanced cybersecurity and enterprise-grade network infrastructure built for modern global enterprises.
