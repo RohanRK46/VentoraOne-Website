@@ -195,7 +195,7 @@
     .shield img {
         width: 260px;
         height: auto;
-        transform: scaleX(1.3) scaleY(1.7);
+        scale: 1.4;
     }
 }
 

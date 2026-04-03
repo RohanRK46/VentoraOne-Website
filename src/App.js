@@ -47,15 +47,15 @@ function App() {
 
         <Route path="/technologies" element={<div>Technologies Page</div>} />
 
-        <Route path="/CloudSecurity" element={<CloudSecurity />} />
-
-        <Route path="/NetworkDesign" element={<NetworkDesign />} />
-
         <Route path="/ServiceBookingForm" element={<ServiceBookingForm />} />
 
         <Route path="/VentoraOneSupport" element={<VentoraOneSupport/>} />
 
         <Route path="/AboutSection" element={<EntireAboutSection/>} />
+
+        <Route path="/CloudSecurity" element={<CloudSecurity />} />
+
+        <Route path="/NetworkDesign" element={<NetworkDesign />} />
 
         <Route path="/FireWallSecurity" element={<FireWallSecurity/>} />
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Services.css";
 
@@ -8,7 +8,6 @@ import imgTender from "./imagesServices/card-tender.jpg";
 import imgSaas from "./imagesServices/card-saas.jpg";
 import imgDigital from "./imagesServices/card-digital.jpg";
 import imgProject from "./imagesServices/card-project.jpg";
-
 
 const services = [
   {
@@ -56,16 +55,39 @@ const services = [
 ];
 
 const cyberSubServices = [
-  { category: "Network", title: "Firewall Protection", image: imgIT, route: "/cyber/firewall" },
-  { category: "Architecture", title: "Infrastructure Design", image: imgTender, route: "/cyber/infrastructure" },
-  { category: "Networking", title: "Network Monitoring", image: imgDigital, route: "/cyber/monitoring" },
-  { category: "Automation", title: "System Automation", image: imgSaas, route: "/cyber/automation" },
+  { category: "Cloud", title: "Cloud & Hybrid Security", image: imgIT, route: "/CloudSecurity" },
+  { category: "Networking", title: "Network Design", image: imgTender, route: "/NetworkDesign" },
+  { category: "Firewall", title: "Firewall Security", image: imgDigital, route: "/FireWallSecurity" },
+  { category: "Backup", title: "Backup & Recovery", image: imgSaas, route: "/BackUpAndRecovery" },
   { category: "Security", title: "Enterprise Security", image: imgProject, route: "/cyber/enterprise" },
 ];
 
 function ServiceCards() {
   const [expanded, setExpanded] = useState(false);
+  const [visibleCards, setVisibleCards] = useState(new Set());
+  const cardRefs = useRef([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.dataset.index);
+            setVisibleCards((prev) => new Set(prev).add(index));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    cardRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleCardClick = (service) => {
     if (service.expandable) {
@@ -77,14 +99,14 @@ function ServiceCards() {
 
   return (
     <section className="services-section">
-      <div className="title">
-        <span>Our Security & Infrastructure Services</span>
-      </div>
       <div className="services-grid">
-        {services.map((service) => (
+        {services.map((service, index) => (
           <div
             key={service.id}
-            className="service-card"
+            ref={(el) => (cardRefs.current[index] = el)}
+            data-index={index}
+            className={`service-card ${visibleCards.has(index) ? "service-card-visible" : "service-card-hidden"}`}
+            style={{ transitionDelay: `${(index % 3) * 0.12}s` }}
             onClick={() => handleCardClick(service)}
           >
             <img className="service-card-bg" src={service.image} alt={service.title} loading="lazy" width={800} height={512} />
