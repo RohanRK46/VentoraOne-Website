@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import './DigitalTransformationHero.css';
 import heroBg from './images/dt-hero-bg.jpg';
 import DigitalTransformationSupport from './DigitalTransformationSupport';
+import CheckOutOtherServices from "../CheckOutOtherServices/CheckOutOtherServices";
 
 const services = [
   'Current-state IT assessment',
@@ -36,6 +37,11 @@ function useScrollReveal() {
 
 const DigitalTransformationHero = () => {
   const sectionRef = useScrollReveal();
+  const supportRef = useRef(null);
+
+  const handleLearnMore = () => {
+    supportRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -69,7 +75,9 @@ const DigitalTransformationHero = () => {
               <button className="dt-hero__btn-primary">
                 <span>Get Started</span>
               </button>
-              <button className="dt-hero__btn-ghost">Learn More</button>
+              <button className="dt-hero__btn-ghost" onClick={handleLearnMore}>
+                Learn More
+              </button>
             </div>
           </div>
 
@@ -98,7 +106,8 @@ const DigitalTransformationHero = () => {
         </div>
       </section>
 
-      <DigitalTransformationSupport />
+      <DigitalTransformationSupport ref={supportRef} />
+      <CheckOutOtherServices/>
     </>
   );
 };

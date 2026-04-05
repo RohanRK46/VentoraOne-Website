@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import './ProjectVendorManagementHero.css';
 import heroBg from './images/Pv-v1.png';
 import ProjectVendorManagementSupport from './ProjectVendorManagementSupport';
+import CheckOutOtherServices from "../CheckOutOtherServices/CheckOutOtherServices";
 
 const services = [
   'Technical project management',
@@ -36,6 +37,11 @@ function useScrollReveal() {
 
 const ProjectVendorManagementHero = () => {
   const sectionRef = useScrollReveal();
+  const supportRef = useRef(null);
+
+  const handleLearnMore = () => {
+    supportRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -69,7 +75,9 @@ const ProjectVendorManagementHero = () => {
               <button className="pvm-hero__btn-primary">
                 <span>Get Started</span>
               </button>
-              <button className="pvm-hero__btn-ghost">Learn More</button>
+              <button className="pvm-hero__btn-ghost" onClick={handleLearnMore}>
+                Learn More
+              </button>
             </div>
           </div>
 
@@ -98,7 +106,8 @@ const ProjectVendorManagementHero = () => {
         </div>
       </section>
 
-      <ProjectVendorManagementSupport />
+      <ProjectVendorManagementSupport ref={supportRef} />
+      <CheckOutOtherServices/>
     </>
   );
 };

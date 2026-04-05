@@ -1,0 +1,339 @@
+/* ============================================================
+   CHECK OUT OTHER SERVICES
+   Theme: Dark tech — navy base, per-card accent glows
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --cos-bg: #080c14;
+  --cos-bg-card: #0d1220;
+  --cos-bg-card-hover: #111827;
+  --cos-border: rgba(255, 255, 255, 0.06);
+  --cos-border-hover: rgba(255, 255, 255, 0.12);
+  --cos-white: #f0f4ff;
+  --cos-muted: #6b7a99;
+  --cos-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ff-display: 'Syne', sans-serif;
+  --ff-body: 'DM Sans', sans-serif;
+}
+
+/* ---- Scroll reveal ---- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s var(--cos-ease), transform 0.7s var(--cos-ease);
+}
+
+[data-reveal].cos-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Root ---- */
+.cos-root {
+  background: rgba(255, 255, 255, 0.822);
+  padding: 80px 5% 120px;
+  position: relative;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+/* Background grid */
+.cos-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+/* Orbs */
+.cos-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.cos-orb-1 {
+  width: 500px;
+  height: 500px;
+  background: rgba(0, 198, 255, 0.05);
+  top: -100px;
+  left: -100px;
+}
+
+.cos-orb-2 {
+  width: 400px;
+  height: 400px;
+  background: rgba(120, 80, 255, 0.04);
+  bottom: -80px;
+  right: -80px;
+}
+
+/* ---- Inner ---- */
+.cos-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ---- Header ---- */
+.cos-header {
+  text-align: center;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.cos-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #00c6ff;
+  font-weight: 500;
+  font-family: sans-serif;
+}
+
+.cos-eyebrow-line {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: #00c6ff;
+}
+
+.cos-heading {
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.cos-heading-accent {
+  background: linear-gradient(135deg, #00c6ff, #7850ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cos-subtext {
+  font-size: 0.95rem;
+  color: var(--cos-muted);
+  max-width: 480px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ---- Grid ---- */
+.cos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* ---- Card ---- */
+.cos-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--cos-bg-card);
+  border: 1px solid var(--cos-border);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.4s var(--cos-ease),
+    border-color 0.35s,
+    box-shadow 0.4s var(--cos-ease),
+    background 0.35s;
+  outline: none;
+}
+
+.cos-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--accent);
+  background: var(--cos-bg-card-hover);
+  box-shadow:
+    0 0 0 1px var(--accent),
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 40px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+.cos-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Thumbnail */
+.cos-card-thumb {
+  flex-shrink: 0;
+  width: 96px;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cos-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--cos-ease), filter 0.4s;
+  filter: brightness(0.7) saturate(0.8);
+}
+
+.cos-card:hover .cos-card-thumb img {
+  transform: scale(1.1);
+  filter: brightness(0.85) saturate(1.1);
+}
+
+.cos-card-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 40%, var(--cos-bg-card) 100%);
+  transition: background 0.35s;
+}
+
+.cos-card:hover .cos-card-thumb-overlay {
+  background: linear-gradient(90deg, transparent 40%, var(--cos-bg-card-hover) 100%);
+}
+
+/* Body */
+.cos-card-body {
+  flex: 1;
+  padding: 18px 12px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.cos-card-category {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  font-family: var(--ff-body);
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.cos-card:hover .cos-card-category {
+  opacity: 1;
+}
+
+.cos-card-title {
+  font-family: var(--ff-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--cos-white);
+  margin: 0;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s;
+}
+
+.cos-card:hover .cos-card-title {
+  color: #fff;
+}
+
+/* Arrow */
+.cos-card-arrow {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--cos-border);
+  color: var(--cos-muted);
+  transition: all 0.35s var(--cos-ease);
+}
+
+.cos-card-arrow svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.35s var(--cos-ease);
+}
+
+.cos-card:hover .cos-card-arrow {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+  box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.cos-card:hover .cos-card-arrow svg {
+  transform: translateX(2px);
+}
+
+/* Left accent bar */
+.cos-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.35s;
+  border-radius: 3px 0 0 3px;
+}
+
+.cos-card:hover::before {
+  opacity: 1;
+}
+
+/* Glow layer */
+.cos-card-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: radial-gradient(ellipse at 20% 50%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.cos-card:hover .cos-card-glow {
+  opacity: 1;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1100px) {
+  .cos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .cos-root {
+    padding: 72px 5% 80px;
+  }
+
+  .cos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cos-card-title {
+    white-space: normal;
+  }
+}

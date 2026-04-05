@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 import './ItSystemIntegrationHero.css';
-import heroBg from './images/it-v2.png';
+import heroBg from './images/it-hero-bg.jpg';
 import ItSystemIntegrationSupport from './ItSystemIntegrationSupport';
+import CheckOutOtherServices from "../CheckOutOtherServices/CheckOutOtherServices";
 
 const services = [
   'Online ticketing system design & deployment',
@@ -36,6 +37,11 @@ function useScrollReveal() {
 
 const ItSystemIntegrationHero = () => {
   const sectionRef = useScrollReveal();
+  const supportRef = useRef(null);
+
+  const handleLearnMore = () => {
+    supportRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -68,7 +74,9 @@ const ItSystemIntegrationHero = () => {
               <button className="it-hero__btn-primary">
                 <span>Get Started</span>
               </button>
-              <button className="it-hero__btn-ghost">Learn More</button>
+              <button className="it-hero__btn-ghost" onClick={handleLearnMore}>
+                Learn More
+              </button>
             </div>
           </div>
 
@@ -98,7 +106,8 @@ const ItSystemIntegrationHero = () => {
         </div>
       </section>
 
-      <ItSystemIntegrationSupport />
+      <ItSystemIntegrationSupport ref={supportRef} />
+      <CheckOutOtherServices/>
     </>
   );
 };

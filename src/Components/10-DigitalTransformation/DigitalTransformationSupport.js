@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, forwardRef } from 'react';
 import './DigitalTransformationSupport.css';
 
 const cards = [
@@ -45,11 +45,18 @@ function useScrollReveal() {
   return ref;
 }
 
-const DigitalTransformationSupport = () => {
+const DigitalTransformationSupport = forwardRef((props, ref) => {
   const sectionRef = useScrollReveal();
 
   return (
-    <section className="dt-support" ref={sectionRef}>
+    <section
+      className="dt-support"
+      ref={(el) => {
+        sectionRef.current = el;
+        if (typeof ref === 'function') ref(el);
+        else if (ref) ref.current = el;
+      }}
+    >
       <div className="dt-support__inner">
         <div className="dt-support__header">
           <span className="dt-support__label" data-reveal>Why Choose Us</span>
@@ -97,6 +104,6 @@ const DigitalTransformationSupport = () => {
       </div>
     </section>
   );
-};
+});
 
 export default DigitalTransformationSupport;

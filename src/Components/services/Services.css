@@ -17,7 +17,7 @@
 
 .title {
   margin-bottom: 40px;
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 4vw, 3rem);
   animation: animate 10s ease infinite;
   background-image: linear-gradient(90deg, hsl(210, 100%, 60%), hsl(280, 80%, 60%), hsl(210, 100%, 60%));
   background-clip: text;
@@ -96,7 +96,7 @@
 
 .heading h2{
   text-align: center;
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 4vw, 3rem);
   margin-bottom: 50px;
   font-weight: 500;
   animation: animate 10s ease infinite;

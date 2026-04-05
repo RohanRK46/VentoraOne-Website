@@ -1,115 +1,109 @@
-import React, { useEffect, useRef } from "react";
-import "./SaasAndCustomSoftwareSupport.css";
+import { useEffect, useRef, forwardRef } from 'react';
+import './SaasAndCustomSoftwareSupport.css';
 
-const capabilities = [
+const cards = [
   {
-    icon: "📱",
-    title: "Cross-Platform Apps",
-    desc: "Flutter-powered mobile experiences that work everywhere, even in low-bandwidth environments.",
-    tag: "FLUTTER",
+    icon: '📱',
+    title: 'Mobile-First Development',
+    text: 'We build cross-platform mobile apps using Flutter — delivering native performance for citizen-facing and enterprise applications across iOS and Android from a single codebase.',
   },
   {
-    icon: "⚙️",
-    title: "Microservices",
-    desc: "Scalable Java architectures with Docker containerization and cloud-agnostic deployment.",
-    tag: "JAVA",
+    icon: '🤖',
+    title: 'AI-Powered Automation',
+    text: 'From duplicate detection to intelligent claims processing, we embed AI automation layers that reduce manual workload and improve accuracy across your operations.',
   },
   {
-    icon: "🤖",
-    title: "AI Automation",
-    desc: "Intelligent duplicate detection, claims processing, and automation layers built to learn.",
-    tag: "AI",
-  },
-  {
-    icon: "🔗",
-    title: "API & Integration",
-    desc: "REST API design, member management platforms, and seamless third-party integrations.",
-    tag: "API",
+    icon: '☁️',
+    title: 'Cloud-Agnostic Infrastructure',
+    text: 'We design and deploy containerized, cloud-agnostic infrastructure using Docker and Java microservices — built for low-bandwidth environments and long-term maintainability.',
   },
 ];
 
 const stats = [
-  { value: "50+", label: "Projects Delivered" },
-  { value: "99.9%", label: "Uptime SLA" },
-  { value: "12+", label: "Industries Served" },
+  { number: '60+', label: 'Platforms Built' },
+  { number: '12+', label: 'AI Integrations' },
+  { number: '99.9%', label: 'Uptime SLA' },
 ];
 
 function useScrollReveal() {
   const ref = useRef(null);
-
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const targets = el.querySelectorAll('[data-reveal]');
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("revealed");
-          }
+          if (entry.isIntersecting) entry.target.classList.add('visible');
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.1 }
     );
-
-    const el = ref.current;
-    if (el) {
-      const children = el.querySelectorAll(".scroll-reveal");
-      children.forEach((child) => observer.observe(child));
-    }
-
+    targets.forEach((t) => observer.observe(t));
     return () => observer.disconnect();
   }, []);
-
   return ref;
 }
 
-const SaasAndCustomSoftwareSupport = () => {
+const SaasAndCustomSoftwareSupport = forwardRef((props, ref) => {
   const sectionRef = useScrollReveal();
 
   return (
-    <section className="saas-section" ref={sectionRef}>
-      <div className="saas-glow saas-glow-1" />
-      <div className="saas-glow saas-glow-2" />
-
-      <div className="saas-container">
-        <div className="saas-header scroll-reveal">
-          <span className="saas-eyebrow">What We Build</span>
-          <h2 className="saas-heading">
-            SaaS & Custom <span className="saas-heading-accent">Software</span>
+    <section
+      className="saas-support"
+      ref={(el) => {
+        sectionRef.current = el;
+        if (typeof ref === 'function') ref(el);
+        else if (ref) ref.current = el;
+      }}
+    >
+      <div className="saas-support__inner">
+        <div className="saas-support__header">
+          <span className="saas-support__label" data-reveal>Why Choose Us</span>
+          <h2 className="saas-support__heading" data-reveal>
+            Your <span className="saas-support__heading-accent">Software</span> Partner
           </h2>
-          <p className="saas-subtext">
-            We design and build bespoke software platforms — member management
-            systems, claims processing platforms, mobile-first citizen apps, and
-            AI-powered automation layers. Built for reliability. Designed for
-            scale.
+          <p className="saas-support__desc" data-reveal>
+            We don't just write code — we build platforms that last. Every solution
+            is designed for maintainability, scalability, and the real-world constraints
+            of government and enterprise environments.
           </p>
         </div>
 
-        <div className="saas-cards">
-          {capabilities.map((cap, i) => (
+        <div className="saas-support__grid">
+          {cards.map((card, i) => (
             <div
+              className="saas-support__card"
+              data-reveal
               key={i}
-              className="saas-card scroll-reveal"
-              style={{ transitionDelay: `${i * 0.12}s` }}
+              style={{ transitionDelay: `${0.15 + i * 0.12}s` }}
             >
-              <div className="saas-card-icon">{cap.icon}</div>
-              <span className="saas-card-tag">{cap.tag}</span>
-              <h3 className="saas-card-title">{cap.title}</h3>
-              <p className="saas-card-desc">{cap.desc}</p>
-              <div className="saas-card-shine" />
+              <div className="saas-support__card-glow" />
+              <div className="saas-support__icon-wrap">
+                <span className="saas-support__icon">{card.icon}</span>
+              </div>
+              <h3 className="saas-support__card-title">{card.title}</h3>
+              <p className="saas-support__card-text">{card.text}</p>
             </div>
           ))}
         </div>
 
-        <div className="saas-stats scroll-reveal">
+        <div className="saas-support__stats">
           {stats.map((stat, i) => (
-            <div key={i} className="saas-stat">
-              <span className="saas-stat-value">{stat.value}</span>
-              <span className="saas-stat-label">{stat.label}</span>
+            <div
+              className="saas-support__stat"
+              data-reveal
+              key={i}
+              style={{ transitionDelay: `${0.4 + i * 0.1}s` }}
+            >
+              <div className="saas-support__stat-number">{stat.number}</div>
+              <div className="saas-support__stat-label">{stat.label}</div>
             </div>
           ))}
         </div>
       </div>
     </section>
   );
-};
+});
 
 export default SaasAndCustomSoftwareSupport;

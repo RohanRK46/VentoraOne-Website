@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, forwardRef } from 'react';
 import './ItSystemIntegrationSupport.css';
 
 const cards = [
@@ -45,11 +45,18 @@ function useScrollReveal() {
   return ref;
 }
 
-const ItSystemIntegrationSupport = () => {
+const ItSystemIntegrationSupport = forwardRef((props, ref) => {
   const sectionRef = useScrollReveal();
 
   return (
-    <section className="it-support" ref={sectionRef}>
+    <section
+      className="it-support"
+      ref={(el) => {
+        sectionRef.current = el;
+        if (typeof ref === 'function') ref(el);
+        else if (ref) ref.current = el;
+      }}
+    >
       <div className="it-support__inner">
         <div className="it-support__header">
           <span className="it-support__label" data-reveal>Why Choose Us</span>
@@ -96,6 +103,6 @@ const ItSystemIntegrationSupport = () => {
       </div>
     </section>
   );
-};
+});
 
 export default ItSystemIntegrationSupport;

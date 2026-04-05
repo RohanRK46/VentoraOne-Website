@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './HeroSection.module.css'; // <-- changed
+import styles from './HeroSection.module.css';
 import Background from "./background";
 
 import logo from './herosection-imgs/logo1.png';
@@ -36,6 +36,13 @@ export default function HeroSection() {
     };
   }, []);
 
+  const handleViewServices = () => {
+    window.scrollTo({
+      top: window.innerHeight * 1.01,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <>
       <Background />
@@ -54,9 +61,7 @@ export default function HeroSection() {
             <Link to="/VentoraOneSupport">
               <button className={styles['git-btn']}>Get In Touch</button>
             </Link>
-            <Link to="/">
-              <button className={styles['vs-btn']}>View Services</button>
-            </Link>
+            <button className={styles['vs-btn']} onClick={handleViewServices}>View Services</button>
           </div>
         </div>
 

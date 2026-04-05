@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, forwardRef } from 'react';
 import './ProjectVendorManagementSupport.css';
 
 const cards = [
@@ -45,11 +45,18 @@ function useScrollReveal() {
   return ref;
 }
 
-const ProjectVendorManagementSupport = () => {
+const ProjectVendorManagementSupport = forwardRef((props, ref) => {
   const sectionRef = useScrollReveal();
 
   return (
-    <section className="pvm-support" ref={sectionRef}>
+    <section
+      className="pvm-support"
+      ref={(el) => {
+        sectionRef.current = el;
+        if (typeof ref === 'function') ref(el);
+        else if (ref) ref.current = el;
+      }}
+    >
       <div className="pvm-support__inner">
         <div className="pvm-support__header">
           <span className="pvm-support__label" data-reveal>Why Choose Us</span>
@@ -97,6 +104,6 @@ const ProjectVendorManagementSupport = () => {
       </div>
     </section>
   );
-};
+});
 
 export default ProjectVendorManagementSupport;

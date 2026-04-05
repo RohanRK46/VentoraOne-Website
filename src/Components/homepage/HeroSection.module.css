@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root {
+  --ff-display: 'Syne', sans-serif;
+}
+
 .hero {
     min-height: 100vh;
     display: flex;
@@ -19,8 +24,8 @@
 }
 
 .hero-logo {
-    height: 120px;
-    width: 426px;
+    height: 130px;
+    width: 400px;
     object-fit: contain;
 }
 
@@ -29,6 +34,7 @@
     color: rgb(255, 255, 255);
     margin: 0;
     font-weight: 700;
+    font-family: var(--ff-display);
 }
 
 .hero-tagline {
@@ -195,7 +201,7 @@
     .shield img {
         width: 260px;
         height: auto;
-        scale: 1.5;
+        scale: 3;
     }
 }
 
@@ -224,7 +230,7 @@
 
     .shield img {
         width: 220px;
-        scale: 1.3;
+        scale: 3;
     }
 }
 
@@ -254,6 +260,6 @@
 
     .shield img {
         width: 220px;
-        scale: 1.4;
+        scale: 3;
     }
 }

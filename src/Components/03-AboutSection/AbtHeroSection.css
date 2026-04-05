@@ -389,8 +389,16 @@
 
 @media (max-width: 640px) {
   .hs-stat { padding: 0.4rem 1rem; }
+  .hs-badge{ margin-top: 0; }
+
   .hs-stat-div { display: none; }
   .hs-stats-bar { gap: 0.5rem; }
   .hs-corner { width: 25px; height: 25px; }
   .hs-scroll-indicator { display: none; }
+}
+
+@media (max-width: 380px) {
+  .hs-section{
+    height: 145vh;
+  }
 }

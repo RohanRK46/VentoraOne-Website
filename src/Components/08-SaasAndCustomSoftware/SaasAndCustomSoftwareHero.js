@@ -1,67 +1,117 @@
-import React from "react";
-import heroBg from "./images/hero-bg.png";
-import "./SaasAndCustomSoftwareHero.css";
-import SaasAndCustomSoftwareSupport from "./SaasAndCustomSoftwareSupport"
+import { useEffect, useRef } from 'react';
+import './SaasAndCustomSoftwareHero.css';
+import heroBg from './images/hero-bg.png';
+import SaasAndCustomSoftwareSupport from './SaasAndCustomSoftwareSupport';
+import CheckOutOtherServices from "../CheckOutOtherServices/CheckOutOtherServices";
 
 const services = [
-    "Tender response architecture & writing",
-    "Technical scoring strategy",
-    "Pricing and margin structure modelling",
-    "Consortium and JV formation",
-    "Subcontractor evaluation and management",
-    "Vendor negotiation and SLA structuring",
-    "Public procurement regulation advisory",
-    "Post-award contract management",
+  'Cross-platform mobile apps (Flutter)',
+  'Java microservices architecture',
+  'AI-powered duplicate detection & automation',
+  'Member/beneficiary management platforms',
+  'Claims processing systems',
+  'REST API design and integration',
+  'Docker-based containerized deployment',
+  'Cloud-agnostic infrastructure design',
 ];
 
-const SaasAndCustomSoftwareHero = () => {
-    return (
-        <>
-            <section className="hero-section">
-                <div className="hero-bg">
-                    <img src={heroBg} alt="" width={1920} height={1080} />
-                </div>
-                <div className="hero-overlay" />
-                <div className="hero-content">
-                    <div className="hero-left">
-                        <div className="hero-label">
-                            <span className="hero-label-line" />
-                            Advisory Services
-                        </div>
-                        <h1 className="hero-title">
-                            Tender &<br />
-                            <span className="hero-title-accent">Bid Advisory</span>
-                        </h1>
-                        <p className="hero-description">
-                            We understand the anatomy of a winning tender — not just the
-                            compliance, but the technical scoring, pricing psychology, and vendor
-                            positioning that separates successful bids from also-rans.
-                        </p>
-                        <div className="hero-buttons">
-                            <button className="hero-btn-primary">Get Started</button>
-                            <button className="hero-btn-secondary">Learn More</button>
-                        </div>
-                    </div>
-                    <div className="hero-right">
-                        {services.map((service, i) => (
-                            <div
-                                key={i}
-                                className="hero-service-item"
-                                style={{ animationDelay: `${0.15 * (i + 1)}s` }}
-                            >
-                                <span className="hero-service-num">
-                                    {String(i + 1).padStart(2, "0")}
-                                </span>
-                                <span className="hero-service-text">{service}</span>
-                                <span className="hero-service-dot" />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-            <SaasAndCustomSoftwareSupport />
-        </>
+function useScrollReveal() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const targets = el.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.1 }
     );
+    targets.forEach((t) => observer.observe(t));
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
+
+const SaasAndCustomSoftwareHero = () => {
+  const sectionRef = useScrollReveal();
+  const supportRef = useRef(null);
+
+  const handleLearnMore = () => {
+    supportRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <>
+      <section className="saas-hero" ref={sectionRef}>
+        <img src={heroBg} alt="" className="saas-hero__bg-img" width={1920} height={1080} />
+        <div className="saas-hero__grid-bg" />
+        <div className="saas-hero__orb saas-hero__orb--1" />
+        <div className="saas-hero__orb saas-hero__orb--2" />
+        <div className="saas-hero__orb saas-hero__orb--3" />
+
+        <div className="saas-hero__inner">
+          <div>
+            <div className="saas-hero__eyebrow" data-reveal>
+              <span className="saas-hero__eyebrow-line" />
+              Software Development
+            </div>
+
+            <h1 className="saas-hero__title" data-reveal>
+              SaaS &amp; Custom <br />
+              <span className="saas-hero__title-accent">Software</span>
+            </h1>
+
+            <p className="saas-hero__desc" data-reveal>
+              We design and build bespoke software platforms for clients who need something
+              custom-built — member management systems, claims processing platforms,
+              mobile-first citizen apps, and AI-powered automation layers. Our stack is
+              chosen to work in low-bandwidth, high-reliability environments, and we build
+              with maintainability as a first-class requirement.
+            </p>
+
+            <div className="saas-hero__actions" data-reveal>
+              <button className="saas-hero__btn-primary">
+                <span>Get Started</span>
+              </button>
+              <button className="saas-hero__btn-ghost" onClick={handleLearnMore}>
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <div className="saas-hero__services">
+              {services.map((item, i) => (
+                <div
+                  className="saas-hero__service"
+                  data-reveal
+                  key={i}
+                  style={{ transitionDelay: `${0.2 + i * 0.07}s` }}
+                >
+                  <span className="saas-hero__service-index">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="saas-hero__service-text">{item}</span>
+                  <span className="saas-hero__service-dot" />
+                </div>
+              ))}
+            </div>
+            <div className="saas-hero__tags" data-reveal>
+              <span className="saas-hero__tag">Flutter</span>
+              <span className="saas-hero__tag">Java</span>
+              <span className="saas-hero__tag">AI</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SaasAndCustomSoftwareSupport ref={supportRef} />
+      <CheckOutOtherServices/>
+    </>
+  );
 };
 
 export default SaasAndCustomSoftwareHero;

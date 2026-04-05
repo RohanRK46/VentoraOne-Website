@@ -4,7 +4,7 @@ import "./BackUpAndRecovery.css";
 import heroImage from "./image/cloud.png";
 import { Link } from "react-router-dom";
 import SupportSectionBR from "./SupportSectionBR/SupportSectionBR";
-// import CheckOutServices from "./CheckOutServices/CheckOutServices";
+import CheckOutOtherServices from "../CheckOutOtherServices/CheckOutOtherServices";
 
 const features = [
   {
@@ -112,7 +112,7 @@ export default function BackUpAndRecovery() {
       </section>
 
       <SupportSectionBR/>
-      {/* <CheckOutServices titleColor="black" cardcolor="rgb(8 16 52)" /> */}
+      <CheckOutOtherServices/>
 
     </div>
   );

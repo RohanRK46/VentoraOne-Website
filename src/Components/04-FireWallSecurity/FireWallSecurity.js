@@ -4,7 +4,7 @@ import "./FireWallSecurity.css";
 import heroImage from "./images/firewall.png";
 import { Link } from "react-router-dom";
 import SupportSectionFW from "./SupportSectionFW/SupportSectionFW";
-// import CheckOutServices from "./CheckOutServices/CheckOutServices";
+import CheckOutOtherServices from "../CheckOutOtherServices/CheckOutOtherServices";
 
 const features = [
   {
@@ -112,7 +112,7 @@ export default function FirewallSecurity() {
       </section>
 
       <SupportSectionFW/>
-      {/* <CheckOutServices titleColor="black" cardcolor="rgb(8 16 52)" /> */}
+      <CheckOutOtherServices/>
 
     </div>
   );

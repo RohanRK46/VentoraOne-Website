@@ -1,5 +1,4 @@
-
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, forwardRef } from 'react';
 import './TenderAndBidAdvisorySupport.css';
 
 const cards = [
@@ -46,11 +45,18 @@ function useScrollReveal() {
   return ref;
 }
 
-const TenderAndBidAdvisorySupport = () => {
+const TenderAndBidAdvisorySupport = forwardRef((props, ref) => {
   const sectionRef = useScrollReveal();
 
   return (
-    <section className="tender-support" ref={sectionRef}>
+    <section
+      className="tender-support"
+      ref={(el) => {
+        sectionRef.current = el;
+        if (typeof ref === 'function') ref(el);
+        else if (ref) ref.current = el;
+      }}
+    >
       <div className="tender-support__inner">
         <div className="tender-support__header">
           <span className="tender-support__label" data-reveal>Why Choose Us</span>
@@ -97,6 +103,6 @@ const TenderAndBidAdvisorySupport = () => {
       </div>
     </section>
   );
-};
+});
 
 export default TenderAndBidAdvisorySupport;

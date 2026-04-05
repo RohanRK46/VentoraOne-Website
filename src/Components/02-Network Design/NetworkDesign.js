@@ -4,8 +4,7 @@ import "./NetworkDesign.css";
 import heroImage from "./images/Cloud.png";
 import { Link } from "react-router-dom";
 import PerformanceSection from "./PerformanceBar/PerformanceSection"
-import CheckOutServices from './CheckOutServices/CheckOutServices'
-// import Testimony from './Testimony/Testimony'
+import CheckOutOtherServices from "../CheckOutOtherServices/CheckOutOtherServices";
 
 const features = [
   {
@@ -115,7 +114,7 @@ export default function NetworkDesign() {
       </section>
 
       <PerformanceSection/>
-      <CheckOutServices titleColor="black" cardcolor="rgb(8 16 52)"/>
+      <CheckOutOtherServices/>
 
     </div>
   );

@@ -4,7 +4,7 @@ import "./CloudAndHybridSecurity.css";
 import heroImage from "./images/Cloud.png";
 import { Link } from "react-router-dom";
 import Testimony from "./Testimony/Testimony";
-import CheckOutServices from "./OtherServices/CheckOutServices";
+import CheckOutOtherServices from "../CheckOutOtherServices/CheckOutOtherServices";
 
 const features = [
   {
@@ -113,7 +113,7 @@ export default function CloudAndHybridSecurity() {
       </section>
 
       <Testimony/>
-      <CheckOutServices titleColor="black" cardcolor="rgb(8 16 52)" />
+      <CheckOutOtherServices/>
 
     </div>
   );
