@@ -147,6 +147,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  margin-top: 3rem;
   background: rgba(0, 213, 255, 0.413);
   border: 1px solid rgba(11, 174, 206, 0.374);
   border-radius: 100px;

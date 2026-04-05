@@ -18,6 +18,13 @@ const VentoraOneSupport = lazy(() => import('./Components/00-VentoraOneSupport/S
 const OurProcess = lazy(() => import('./Components/OurProcessSection/OurProcess'))
 const FireWallSecurity = lazy(() => import('./Components/04-FireWallSecurity/FireWallSecurity'))
 const BackUpAndRecovery = lazy(() => import('./Components/05-BackUpAndRecovery/BackUpAndRecovery'))
+const TenderAndBidAdvisoryHero = lazy(() => import('./Components/07-TenderAndBidAdvisory/TenderAndBidAdvisoryHero'))
+const SaasAndCustomSoftwareHero = lazy(() => import('./Components/08-SaasAndCustomSoftware/SaasAndCustomSoftwareHero'))
+const ItSystemIntegrationHero = lazy(() => import('./Components/09-ItSystemAndIntegration/ItSystemIntegrationHero'))
+const DigitalTransformationHero = lazy(() => import('./Components/10-DigitalTransformation/DigitalTransformationHero'))
+const ProjectVendorManagementHero = lazy(() => import('./Components/11-ProjectAndVendorManagement/ProjectVendorManagementHero'))
+
+
 
 function App() {
   return (
@@ -60,6 +67,18 @@ function App() {
         <Route path="/FireWallSecurity" element={<FireWallSecurity/>} />
 
         <Route path="/BackUpAndRecovery" element={<BackUpAndRecovery/>} />
+
+        <Route path="/tenderAndBidding" element={<TenderAndBidAdvisoryHero/>} />
+
+        <Route path="/SaasAndCustomSoftware" element={<SaasAndCustomSoftwareHero/>} />
+
+        <Route path="/ItSystemIntegration" element={<ItSystemIntegrationHero/>} />
+
+        <Route path="/DigitalTransformation" element={<DigitalTransformationHero/>} />
+
+        <Route path="/ProjectVendorManagement" element={<ProjectVendorManagementHero/>} />
+
+
 
       </Routes>
 

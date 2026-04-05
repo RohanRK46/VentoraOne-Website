@@ -32,20 +32,18 @@ const AbtHeroSection = () => {
         />
       ))}
 
-      {/* Corner Brackets */}
       <div className="hs-corner hs-corner--tl" />
       <div className="hs-corner hs-corner--tr" />
       <div className="hs-corner hs-corner--bl" />
       <div className="hs-corner hs-corner--br" />
 
-      {/* Vertical Line */}
       <div className="hs-vline hs-vline--left" />
       <div className="hs-vline hs-vline--right" />
 
       <div className="hs-content">
         <div className="hs-badge">
           <span className="hs-badge-dot" />
-          <span className="hs-badge-text">ACTIVE DEFENSE SYSTEMS ONLINE</span>
+          <span className="hs-badge-text">DELIVERY SYSTEMS ACTIVE</span>
           <span className="hs-badge-dot" />
         </div>
 
@@ -54,12 +52,13 @@ const AbtHeroSection = () => {
           <h1 className="hs-title">
             <span className="hs-title-main">VENTORAONE</span>
           </h1>
-          <p className="hs-title-sub">Network &amp; Cyber Security Solutions</p>
+          <p className="hs-title-sub">Systems Integration, Security & Execution</p>
         </div>
 
         <p className="hs-desc">
-          Technology-driven security provider delivering end-to-end IT security,
-          infrastructure design, and implementation services for modern enterprises.
+          We design, secure, and deliver complex IT systems across multi-vendor environments. 
+          From cybersecurity and infrastructure to custom software and large-scale execution, 
+          we take ownership from strategy to deployment.
         </p>
 
         <div className="hs-cta">
@@ -67,34 +66,34 @@ const AbtHeroSection = () => {
             <span className="hs-btn-glow" />
             Explore Services
           </button>
-          <button className="hs-btn-outline">Our Technologies</button>
+          <button className="hs-btn-outline">Our Capabilities</button>
         </div>
       </div>
 
       <div className="hs-stats-bar">
         <div className="hs-stat">
-          <span className="hs-stat-val">7+</span>
-          <span className="hs-stat-lbl">Service Domains</span>
-        </div>
-        <div className="hs-stat-div" />
-        <div className="hs-stat">
-          <span className="hs-stat-val">4</span>
-          <span className="hs-stat-lbl">Firewall Vendors</span>
-        </div>
-        <div className="hs-stat-div" />
-        <div className="hs-stat">
-          <span className="hs-stat-val">360°</span>
-          <span className="hs-stat-lbl">Security Coverage</span>
+          <span className="hs-stat-val">6+</span>
+          <span className="hs-stat-lbl">Core Services</span>
         </div>
         <div className="hs-stat-div" />
         <div className="hs-stat">
           <span className="hs-stat-val">E2E</span>
-          <span className="hs-stat-lbl">Project Delivery</span>
+          <span className="hs-stat-lbl">Delivery Ownership</span>
         </div>
         <div className="hs-stat-div" />
         <div className="hs-stat">
-          <span className="hs-stat-val">HA</span>
-          <span className="hs-stat-lbl">High Availability</span>
+          <span className="hs-stat-val">Multi</span>
+          <span className="hs-stat-lbl">Vendor Integration</span>
+        </div>
+        <div className="hs-stat-div" />
+        <div className="hs-stat">
+          <span className="hs-stat-val">360°</span>
+          <span className="hs-stat-lbl">Security & Systems</span>
+        </div>
+        <div className="hs-stat-div" />
+        <div className="hs-stat">
+          <span className="hs-stat-val">Real</span>
+          <span className="hs-stat-lbl">World Deployment</span>
         </div>
       </div>
 

@@ -2,9 +2,9 @@ import React from "react";
 import "./AboutSection.css";
 
 const highlights = [
-  { val: "Vendor-Neutral", desc: "We recommend what fits best, not what we sell." },
-  { val: "Real-World", desc: "Hands-on deployment expertise across SMB & enterprise." },
-  { val: "Scalable", desc: "Architectures built to grow with your business." },
+  { val: "Vendor-Neutral", desc: "We recommend what fits your requirements, not what we resell." },
+  { val: "Execution-Focused", desc: "We take full ownership from planning to deployment." },
+  { val: "Built for Real-World", desc: "Designed for complex environments, legacy systems, and constraints." },
 ];
 
 const AboutSection = () => {
@@ -14,12 +14,12 @@ const AboutSection = () => {
       <div className="ab-container">
         {/* Section header */}
         <div className="ab-header">
-          <span className="ab-tag">ABOUT VENTORA</span>
+          <span className="ab-tag">ABOUT VENTORAONE</span>
           <h2 className="ab-title">
-           — We Don't Just Deploy Products —
+            We Deliver Systems That Work
             <br />
             <span className="ab-title-accent">
-              We Design Secure Architectures
+              Built for Real-World Environments
             </span>
           </h2>
         </div>
@@ -32,30 +32,24 @@ const AboutSection = () => {
             <div className="ab-card-label">COMPANY PROFILE</div>
 
             <p className="ab-para">
-              <span className="ab-highlight-word">Ventora One</span> is a
-              technology-driven network and cyber security solutions provider
-              delivering end-to-end IT security, infrastructure design, and
-              implementation services.
+              <span className="ab-highlight-word">Ventora One</span> is a systems integrator and delivery partner
+              specializing in complex IT, security, and infrastructure projects.
             </p>
 
             <p className="ab-para">
               We help organizations{" "}
               <span className="ab-highlight-word">
-                design, secure, and manage
+                design, implement, and manage
               </span>{" "}
-              their IT environments by combining strong networking fundamentals
-              with modern security practices. Our approach focuses on real-world
-              security, performance, scalability, and cost-effective solutions
-              tailored to business needs.
+              end-to-end solutions across multi-vendor environments. From IT systems integration and cybersecurity to custom software and digital transformation, our work is built for real-world conditions, not ideal scenarios.
             </p>
 
             <p className="ab-para ab-para--last">
-              At Ventora, we design{" "}
+              We operate as a{" "}
               <span className="ab-highlight-word">
-                secure architectures
+                vendor-neutral partner
               </span>{" "}
-              that grow with your business — backed by clear documentation and
-              professional project handover.
+              and take full ownership of execution from architecture and procurement strategy to deployment, integration, and final handover.
             </p>
           </div>
 
@@ -72,10 +66,8 @@ const AboutSection = () => {
             ))}
 
             <div className="ab-mission">
-              <span className="ab-mission-label">OUR MISSION</span>
               <p className="ab-mission-text">
-                Secure every network. Protect every endpoint. Enable every
-                business.
+                Build secure, scalable systems. Deliver outcomes businesses can depend on.
               </p>
             </div>
           </div>

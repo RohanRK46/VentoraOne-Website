@@ -88,10 +88,15 @@ body {
     height: 2px;
     background-color: white;
     transition: width 0.5s ease-in-out;
+    z-index: -4;
 }
 
 .navbar ul .mainLi:nth-child(1):hover:after {
     width: 210%;
+}
+
+.navbar ul .mainLi:nth-child(3):hover:after {
+    width: 147%;
 }
 
 .navbar ul .mainLi:nth-child(4):hover:after {

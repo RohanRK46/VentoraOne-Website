@@ -22,35 +22,35 @@ const services = [
     category: "Integration",
     title: "IT Systems Integration",
     image: imgIT,
-    route: "/it-integration",
+    route: "/ItSystemIntegration",
   },
   {
     id: "tender",
     category: "Advisory",
     title: "Tender & Bid Advisory",
     image: imgTender,
-    route: "/tender-advisory",
+    route: "/tenderAndBidding",
   },
   {
     id: "saas",
     category: "Software",
     title: "SaaS & Custom Software",
     image: imgSaas,
-    route: "/saas-software",
+    route: "/SaasAndCustomSoftware",
   },
   {
     id: "digital",
     category: "Transformation",
     title: "Digital Transformation",
     image: imgDigital,
-    route: "/digital-transformation",
+    route: "/DigitalTransformation",
   },
   {
     id: "project",
     category: "Management",
     title: "Project & Vendor Management",
     image: imgProject,
-    route: "/project-management",
+    route: "/ProjectVendorManagement",
   },
 ];
 
@@ -99,6 +99,13 @@ function ServiceCards() {
 
   return (
     <section className="services-section">
+      <div className="subheading">
+        <span>— What We do — </span>
+      </div>
+      <div className="heading">
+        <h2>End-to-end delivery,
+          not just advice.</h2>
+      </div>
       <div className="services-grid">
         {services.map((service, index) => (
           <div

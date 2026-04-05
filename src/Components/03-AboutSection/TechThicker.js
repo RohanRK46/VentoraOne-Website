@@ -2,37 +2,37 @@ import React from "react";
 import "./TechTicker.css";
 
 const ROW1 = [
-  { name: "SonicWall", cat: "Firewall", icon: "🔥" },
-  { name: "Fortinet", cat: "Firewall", icon: "🛡️" },
-  { name: "Sophos", cat: "Firewall", icon: "🔐" },
-  { name: "Palo Alto", cat: "Firewall", icon: "🧱" },
-  { name: "VLANs", cat: "Networking", icon: "🔀" },
-  { name: "Switching", cat: "Networking", icon: "🌐" },
-  { name: "BGP / OSPF", cat: "Routing", icon: "📡" },
-  { name: "IPSec VPN", cat: "VPN", icon: "🔒" },
-  { name: "SSL-VPN", cat: "VPN", icon: "🔑" },
-  { name: "Site-to-Site VPN", cat: "Connectivity", icon: "📶" },
-  { name: "MX Email Security", cat: "Email", icon: "📧" },
-  { name: "API Email Guard", cat: "Email", icon: "✉️" },
-  { name: "EDR Solutions", cat: "Endpoint", icon: "🖥️" },
-  { name: "AV Policies", cat: "Endpoint", icon: "🦠" },
+  { name: "ERP Integration", cat: "Systems", icon: "🧩" },
+  { name: "POS Systems", cat: "Systems", icon: "💳" },
+  { name: "Ticketing Platforms", cat: "Systems", icon: "🎫" },
+  { name: "Access Control", cat: "Security", icon: "🚪" },
+  { name: "CCTV Systems", cat: "Security", icon: "📹" },
+  { name: "Time & Attendance", cat: "Security", icon: "⏱️" },
+  { name: "Firewall Deployment", cat: "Cybersecurity", icon: "🛡️" },
+  { name: "Network Design", cat: "Infrastructure", icon: "🌐" },
+  { name: "VLAN Segmentation", cat: "Networking", icon: "🔀" },
+  { name: "Site-to-Site VPN", cat: "Connectivity", icon: "🔗" },
+  { name: "Endpoint Security", cat: "Security", icon: "💻" },
+  { name: "Email Security", cat: "Security", icon: "📧" },
+  { name: "Backup & Recovery", cat: "Data", icon: "💾" },
+  { name: "Disaster Recovery", cat: "Data", icon: "🔄" },
 ];
 
 const ROW2 = [
-  { name: "Image Backups", cat: "Backup", icon: "💾" },
-  { name: "Disaster Recovery", cat: "DR", icon: "🔄" },
-  { name: "Hybrid Cloud", cat: "Cloud", icon: "☁️" },
-  { name: "Zero Trust", cat: "Architecture", icon: "🚫" },
-  { name: "HA Deployment", cat: "Availability", icon: "⚡" },
-  { name: "Network Segmentation", cat: "Design", icon: "🗂️" },
-  { name: "DLP Policies", cat: "Email", icon: "🛑" },
-  { name: "BEC Prevention", cat: "Email", icon: "🎣" },
-  { name: "Ransomware Defense", cat: "Endpoint", icon: "🛡️" },
-  { name: "Threat Detection", cat: "Security", icon: "🔍" },
-  { name: "LAN / WAN Design", cat: "Network", icon: "🏗️" },
-  { name: "HLD / LLD Diagrams", cat: "Docs", icon: "📐" },
-  { name: "Firewall Migration", cat: "Firewall", icon: "🔃" },
-  { name: "Capacity Planning", cat: "Planning", icon: "📊" },
+  { name: "Custom SaaS Platforms", cat: "Software", icon: "🧠" },
+  { name: "Flutter Apps", cat: "Development", icon: "📱" },
+  { name: "Java Systems", cat: "Backend", icon: "☕" },
+  { name: "AI Integrations", cat: "Advanced", icon: "🤖" },
+  { name: "Digital Transformation", cat: "Strategy", icon: "📈" },
+  { name: "Workflow Automation", cat: "Operations", icon: "⚙️" },
+  { name: "Vendor Management", cat: "Execution", icon: "📦" },
+  { name: "Project Delivery", cat: "Execution", icon: "🚀" },
+  { name: "Procurement Strategy", cat: "Planning", icon: "📊" },
+  { name: "HLD / LLD Design", cat: "Architecture", icon: "📐" },
+  { name: "Multi-Vendor Integration", cat: "Integration", icon: "🔌" },
+  { name: "Scalable Architecture", cat: "Design", icon: "🏗️" },
+  { name: "High Availability", cat: "Reliability", icon: "⚡" },
+  { name: "System Deployment", cat: "Delivery", icon: "🛠️" },
 ];
 
 const Chip = ({ name, cat, icon }) => {
@@ -55,7 +55,7 @@ const TechTicker = () => {
     <section className="tt-section">
       <div className="tt-header">
         <span className="tt-header-line" />
-        <span className="tt-header-text">TECHNOLOGIES WE DEPLOY</span>
+        <span className="tt-header-text">CAPABILITIES & TECHNOLOGIES</span>
         <span className="tt-header-line" />
       </div>
 

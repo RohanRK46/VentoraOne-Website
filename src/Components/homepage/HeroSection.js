@@ -1,9 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import './HeroSection.css';
-import Background from "./background"
+import styles from './HeroSection.module.css'; // <-- changed
+import Background from "./background";
 
-// TODO: Replace these with your actual image imports
 import logo from './herosection-imgs/logo1.png';
 import shieldImg from './herosection-imgs/shield.png';
 
@@ -39,34 +38,32 @@ export default function HeroSection() {
 
   return (
     <>
-    <Background/>
-    <div className="hero">
-      <div className="hero-content">
-        {/* Replace src with your logo import */}
-        <img className="hero-logo" src={logo} alt="VentoraOne logo" loading="lazy" />
+      <Background />
+      <div className={styles.hero}>
+        <div className={styles['hero-content']}>
+          <img className={styles['hero-logo']} src={logo} alt="VentoraOne logo" loading="lazy" />
 
-        <h1 className="hero-heading">Powering Modern Enterprise Systems</h1>
-        <span className="hero-tagline">Integrate. Automate. Transform.</span>
+          <h1 className={styles['hero-heading']}>Powering Modern Enterprise Systems</h1>
+          <span className={styles['hero-tagline']}>Integrate. Automate. Transform.</span>
 
-        <p className="hero-description">
-          Advanced cybersecurity and enterprise-grade network infrastructure built for modern global enterprises.
-        </p>
+          <p className={styles['hero-description']}>
+            Advanced cybersecurity and enterprise-grade network infrastructure built for modern global enterprises.
+          </p>
 
-        <div className="hero-buttons">
-          <Link to="/VentoraOneSupport">
-            <button className="git-btn">Get In Touch</button>
-          </Link>
-          <Link to="/">
-            <button className="vs-btn">View Services</button>
-          </Link>
+          <div className={styles['hero-buttons']}>
+            <Link to="/VentoraOneSupport">
+              <button className={styles['git-btn']}>Get In Touch</button>
+            </Link>
+            <Link to="/">
+              <button className={styles['vs-btn']}>View Services</button>
+            </Link>
+          </div>
+        </div>
+
+        <div className={styles.shield} ref={shieldRef}>
+          <img src={shieldImg} alt="firewall logo" loading="lazy" />
         </div>
       </div>
-
-      <div className="shield" ref={shieldRef}>
-        {/* Replace src with your shield import */}
-        <img src={shieldImg} alt="firewall logo" loading="lazy" />
-      </div>
-    </div>
     </>
   );
 }

@@ -2,8 +2,8 @@ import React from 'react'
 import AboutSection from './AboutSection'
 import AbtHeroSection from '../03-AboutSection/AbtHeroSection'
 import TechTicker from './TechThicker'
-import TechUsageSection from './TechUsageSection'
 import WhyVentora from './WhyVentora'
+import SupportSection from './SupportSection'
 
 
 
@@ -13,7 +13,7 @@ export default function EntireAboutSection() {
       <AbtHeroSection/>
       <AboutSection/>
       <TechTicker/>
-      <TechUsageSection/>
+      <SupportSection/>
       <WhyVentora/>
     </div>
   )
