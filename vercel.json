@@ -6,6 +6,10 @@
         "Content-Type": "application/xml"
       },
       "dest": "/sitemap.xml"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
