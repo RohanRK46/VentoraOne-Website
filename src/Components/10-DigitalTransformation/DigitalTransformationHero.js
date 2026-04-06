@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './DigitalTransformationHero.css';
 import heroBg from './images/dt-hero-bg.jpg';
 import DigitalTransformationSupport from './DigitalTransformationSupport';
@@ -72,9 +73,11 @@ const DigitalTransformationHero = () => {
             </p>
 
             <div className="dt-hero__actions" data-reveal>
+              <Link to="/ServiceBookingForm">
               <button className="dt-hero__btn-primary">
                 <span>Get Started</span>
               </button>
+              </Link>
               <button className="dt-hero__btn-ghost" onClick={handleLearnMore}>
                 Learn More
               </button>

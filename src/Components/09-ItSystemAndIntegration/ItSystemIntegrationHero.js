@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './ItSystemIntegrationHero.css';
 import heroBg from './images/it-v2.png';
 import ItSystemIntegrationSupport from './ItSystemIntegrationSupport';
@@ -71,9 +72,11 @@ const ItSystemIntegrationHero = () => {
             </p>
 
             <div className="it-hero__actions" data-reveal>
+              <Link to="/ServiceBookingForm">
               <button className="it-hero__btn-primary">
                 <span>Get Started</span>
               </button>
+              </Link>
               <button className="it-hero__btn-ghost" onClick={handleLearnMore}>
                 Learn More
               </button>

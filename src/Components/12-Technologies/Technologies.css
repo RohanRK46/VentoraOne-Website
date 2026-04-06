@@ -3,7 +3,7 @@
 /* ===== SECTION ===== */
 .tech-section {
   position: relative;
-  background: #030712;
+  background: whitesmoke;
   padding: 100px 0;
   overflow: hidden;
   font-family: 'DM Sans', sans-serif;
@@ -52,15 +52,15 @@
   color: #00c8ff;
   padding: 5px 14px;
   border: 1px solid rgba(0, 200, 255, 0.3);
-  border-radius: 2px;
+  border-radius: 18px;
   margin-bottom: 16px;
 }
 
 .tech-title {
-  font-family: 'Syne', sans-serif;
+  font-family: sans-serif;
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 800;
-  color: #ffffff;
+  color: #000000;
   margin: 0 0 12px;
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -74,7 +74,7 @@
 }
 
 .tech-subtitle {
-  color: #64748b;
+  color: #a4abb4;
   font-size: 1rem;
   font-weight: 300;
   max-width: 460px;
@@ -94,9 +94,9 @@
 .tech-filter-btn {
   padding: 8px 20px;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.644);
   background: transparent;
-  color: #64748b;
+  color: #526074;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.82rem;
   font-weight: 500;
@@ -105,8 +105,8 @@
 }
 
 .tech-filter-btn:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #e2e8f0;
+  border-color: rgb(8, 10, 78);
+  color: #000000;
   background: rgba(255, 255, 255, 0.05);
 }
 
@@ -181,7 +181,7 @@
   letter-spacing: 0.2em;
   color: var(--accent);
   margin: 0 0 3px;
-  font-family: 'Syne', sans-serif;
+  font-family: sans-serif;
 }
 
 .tech-card-title {

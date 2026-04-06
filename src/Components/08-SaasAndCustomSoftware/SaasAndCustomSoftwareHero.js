@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './SaasAndCustomSoftwareHero.css';
 import heroBg from './images/hero-bg.png';
 import SaasAndCustomSoftwareSupport from './SaasAndCustomSoftwareSupport';
@@ -73,9 +74,11 @@ const SaasAndCustomSoftwareHero = () => {
             </p>
 
             <div className="saas-hero__actions" data-reveal>
+                <Link to="/ServiceBookingForm">
               <button className="saas-hero__btn-primary">
                 <span>Get Started</span>
               </button>
+                </Link>
               <button className="saas-hero__btn-ghost" onClick={handleLearnMore}>
                 Learn More
               </button>

@@ -7,10 +7,12 @@ export default function Navbar() {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
+  const [cyberOpen, setCyberOpen] = useState(false);
 
   const closeMenu = () => {
     setMenuOpen(false);
     setServiceOpen(false);
+    setCyberOpen(false);
   };
 
   return (
@@ -50,16 +52,56 @@ export default function Navbar() {
               setServiceOpen(prev => !prev);
             }}
           >
-            <span className="mainA">Services</span>
+            <span className="mainA services-label">
+              Services <span className="arrow-down">▾</span>
+            </span>
 
             <ul className={`dropdown ${serviceOpen ? "show" : ""}`}>
-              <li><Link to="/CloudSecurity" onClick={closeMenu}>Cloud & Hybrid Security</Link></li>
-              <li><Link to="/NetworkDesign" onClick={closeMenu}>Network Design</Link></li>
-              <li><Link to="/FireWallSecurity" onClick={closeMenu}>Firewall Security</Link></li>
-              <li><Link to="/BackUpAndRecovery" onClick={closeMenu}>Backup And Recovery</Link></li>
-              <li><Link to="/troubleshooting" onClick={closeMenu}>Troubleshooting</Link></li>
-            </ul>
 
+              <li><Link to="/ITSystems" onClick={closeMenu}>IT Systems Integration</Link></li>
+              <li><Link to="/TenderBid" onClick={closeMenu}>Tender &amp; Bid Advisory</Link></li>
+              <li><Link to="/SaaSSoftware" onClick={closeMenu}>SaaS &amp; Custom Software</Link></li>
+
+              {/* 4th — Cybersecurity */}
+              <li className="has-submenu">
+
+                {/* Entire row is clickable on mobile to expand; on desktop hover works via CSS */}
+                <div
+                  className="cyber-row"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCyberOpen(prev => !prev);
+                  }}
+                >
+                  {/* Text — no navigation, just expand */}
+                  <span className="cyber-main-link">
+                    Cybersecurity &amp; Physical Security
+                  </span>
+
+                  {/* Desktop: right arrow */}
+                  <span className="arrow-right desktop-only">›</span>
+
+                  {/* Mobile: rotating down arrow */}
+                  <span className="mobile-only">
+                    <span className={`arrow-toggle-icon ${cyberOpen ? "rotated" : ""}`}>▾</span>
+                  </span>
+                </div>
+
+                {/* Submenu */}
+                <ul className={`submenu ${cyberOpen ? "show" : ""}`}>
+                  <li><Link to="/CloudSecurity" onClick={closeMenu}>Cloud &amp; Hybrid Security</Link></li>
+                  <li><Link to="/NetworkDesign" onClick={closeMenu}>Network Design</Link></li>
+                  <li><Link to="/FireWallSecurity" onClick={closeMenu}>Firewall Security</Link></li>
+                  <li><Link to="/BackUpAndRecovery" onClick={closeMenu}>Backup And Recovery</Link></li>
+                  <li><Link to="/troubleshooting" onClick={closeMenu}>Troubleshooting</Link></li>
+                </ul>
+
+              </li>
+
+              <li><Link to="/DigitalTransformation" onClick={closeMenu}>Digital Transformation</Link></li>
+              <li><Link to="/ProjectVendor" onClick={closeMenu}>Project &amp; Vendor Management</Link></li>
+
+            </ul>
           </li>
 
           {/* TECHNOLOGIES */}
@@ -84,7 +126,6 @@ export default function Navbar() {
           </li>
 
         </ul>
-
       </div>
     </nav>
   );

@@ -1,5 +1,5 @@
 /* ============================================================
-   CHECK OUT OTHER SERVICES
+   CHECK OUT OTHER SERVICES  ·  v2  (trigger → overlay popup)
    Theme: Dark tech — navy base, per-card accent glows
    ============================================================ */
 
@@ -18,88 +18,236 @@
   --ff-body: 'DM Sans', sans-serif;
 }
 
-/* ---- Scroll reveal ---- */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s var(--cos-ease), transform 0.7s var(--cos-ease);
+/* ============================================================
+   TRIGGER BUTTON
+   ============================================================ */
+
+.cos-trigger-wrap {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem;
 }
 
-[data-reveal].cos-visible {
+.cos-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 30px;
+  background: #0d1220;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  color: var(--cos-white);
+  font-family: var(--ff-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.35s var(--cos-ease),
+    border-color 0.35s,
+    box-shadow 0.35s var(--cos-ease);
+}
+
+.cos-trigger-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 198, 255, 0.12), rgba(120, 80, 255, 0.12));
+  opacity: 0;
+  transition: opacity 0.35s;
+  border-radius: 100px;
+}
+
+.cos-trigger-btn:hover::before {
   opacity: 1;
+}
+
+.cos-trigger-btn:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 198, 255, 0.5);
+  box-shadow:
+    0 0 28px rgba(0, 198, 255, 0.15),
+    0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.cos-trigger-btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Dot grid icon */
+.cos-dot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 4px);
+  gap: 3.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.cos-dot-grid span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #00c6ff;
+  display: block;
+  transition: background 0.25s, transform 0.35s var(--cos-ease);
+}
+
+.cos-trigger-btn:hover .cos-dot-grid span {
+  background: #fff;
+}
+
+.cos-trigger-btn:hover .cos-dot-grid span:nth-child(1) { transform: translate(-1px,-1px); }
+.cos-trigger-btn:hover .cos-dot-grid span:nth-child(3) { transform: translate(1px,-1px); }
+.cos-trigger-btn:hover .cos-dot-grid span:nth-child(7) { transform: translate(-1px,1px); }
+.cos-trigger-btn:hover .cos-dot-grid span:nth-child(9) { transform: translate(1px,1px); }
+
+/* Chevron */
+.cos-trigger-chevron {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.35s var(--cos-ease);
+}
+
+.cos-trigger-btn:hover .cos-trigger-chevron {
+  transform: rotate(45deg);
+}
+
+/* ============================================================
+   OVERLAY + PANEL
+   ============================================================ */
+
+.cos-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.cos-overlay--open {
+  pointer-events: all;
+  opacity: 1;
+}
+
+/* Frosted backdrop */
+.cos-overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 8, 20, 0.80);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Slide-up panel */
+.cos-overlay-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--cos-bg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: none;
+  border-radius: 24px 24px 0 0;
+  padding: 0 40px 56px;
+  transform: translateY(64px);
+  transition: transform 0.55s var(--cos-ease);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+}
+
+.cos-overlay--open .cos-overlay-panel {
   transform: translateY(0);
 }
 
-/* ---- Root ---- */
-.cos-root {
-  background: rgba(255, 255, 255, 0.822);
-  padding: 80px 5% 120px;
-  position: relative;
-  overflow: hidden;
-  font-family: sans-serif;
-}
-
-/* Background grid */
-.cos-bg-grid {
+/* Background grid inside panel */
+.cos-overlay-panel::before {
+  content: '';
   position: absolute;
   inset: 0;
+  border-radius: 24px 24px 0 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
   background-size: 48px 48px;
   pointer-events: none;
 }
 
-/* Orbs */
-.cos-bg-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  pointer-events: none;
+/* Drag pill */
+.cos-drag-pill {
+  width: 40px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  margin: 20px auto 28px;
 }
 
-.cos-orb-1 {
-  width: 500px;
-  height: 500px;
-  background: rgba(0, 198, 255, 0.05);
-  top: -100px;
-  left: -100px;
+/* Panel header */
+.cos-overlay-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 32px;
 }
 
-.cos-orb-2 {
-  width: 400px;
-  height: 400px;
-  background: rgba(120, 80, 255, 0.04);
-  bottom: -80px;
-  right: -80px;
-}
-
-/* ---- Inner ---- */
-.cos-inner {
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-/* ---- Header ---- */
-.cos-header {
-  text-align: center;
-  margin-bottom: 40px;
+.cos-overlay-title {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  gap: 10px;
 }
+
+/* Close button */
+.cos-close-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--cos-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
+}
+
+.cos-close-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.cos-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--cos-white);
+  transform: rotate(90deg);
+}
+
+/* ============================================================
+   SHARED HEADER ELEMENTS
+   ============================================================ */
 
 .cos-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #00c6ff;
-  font-weight: 500;
-  font-family: sans-serif;
+  font-weight: 600;
+  font-family: var(--ff-body);
 }
 
 .cos-eyebrow-line {
@@ -111,9 +259,9 @@
 
 .cos-heading {
   font-family: var(--ff-display);
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
   font-weight: 700;
-  color: #000000;
+  color: var(--cos-white);
   margin: 0;
   line-height: 1.15;
 }
@@ -125,53 +273,78 @@
   background-clip: text;
 }
 
-.cos-subtext {
-  font-size: 0.95rem;
-  color: var(--cos-muted);
-  max-width: 480px;
-  line-height: 1.7;
-  margin: 0;
-}
+/* ============================================================
+   GRID
+   ============================================================ */
 
-/* ---- Grid ---- */
 .cos-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 14px;
 }
 
-/* ---- Card ---- */
+/* ============================================================
+   CARD
+   ============================================================ */
+
 .cos-card {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 0;
   background: var(--cos-bg-card);
   border: 1px solid var(--cos-border);
   border-radius: 14px;
   overflow: hidden;
   cursor: pointer;
+  /* Entry animation */
+  opacity: 0;
+  transform: translateY(22px) scale(0.97);
   transition:
-    transform 0.4s var(--cos-ease),
+    opacity 0.5s var(--cos-ease),
+    transform 0.5s var(--cos-ease),
     border-color 0.35s,
     box-shadow 0.4s var(--cos-ease),
     background 0.35s;
   outline: none;
 }
 
+.cos-card--revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Hover lift */
 .cos-card:hover {
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-5px) scale(1.02);
   border-color: var(--accent);
   background: var(--cos-bg-card-hover);
   box-shadow:
     0 0 0 1px var(--accent),
     0 20px 60px rgba(0, 0, 0, 0.4),
-    0 0 40px color-mix(in srgb, var(--accent) 15%, transparent);
+    0 0 40px color-mix(in srgb, var(--accent) 14%, transparent);
 }
 
 .cos-card:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+/* Left accent bar */
+.cos-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.35s;
+  border-radius: 3px 0 0 3px;
+}
+
+.cos-card:hover::before {
+  opacity: 1;
 }
 
 /* Thumbnail */
@@ -193,7 +366,7 @@
 
 .cos-card:hover .cos-card-thumb img {
   transform: scale(1.1);
-  filter: brightness(0.85) saturate(1.1);
+  filter: brightness(0.88) saturate(1.1);
 }
 
 .cos-card-thumb-overlay {
@@ -218,13 +391,13 @@
 }
 
 .cos-card-category {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
-  font-weight: 500;
+  font-weight: 600;
   font-family: var(--ff-body);
-  opacity: 0.8;
+  opacity: 0.75;
   transition: opacity 0.3s;
 }
 
@@ -234,7 +407,7 @@
 
 .cos-card-title {
   font-family: var(--ff-display);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: var(--cos-white);
   margin: 0;
@@ -282,24 +455,6 @@
   transform: translateX(2px);
 }
 
-/* Left accent bar */
-.cos-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--accent);
-  opacity: 0;
-  transition: opacity 0.35s;
-  border-radius: 3px 0 0 3px;
-}
-
-.cos-card:hover::before {
-  opacity: 1;
-}
-
 /* Glow layer */
 .cos-card-glow {
   position: absolute;
@@ -318,22 +473,16 @@
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+
 @media (max-width: 1100px) {
-  .cos-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .cos-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 720px) {
+  .cos-overlay-panel { padding: 0 20px 48px; }
 }
 
 @media (max-width: 640px) {
-  .cos-root {
-    padding: 72px 5% 80px;
-  }
-
-  .cos-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cos-card-title {
-    white-space: normal;
-  }
+  .cos-grid { grid-template-columns: 1fr; }
+  .cos-card-title { white-space: normal; }
 }

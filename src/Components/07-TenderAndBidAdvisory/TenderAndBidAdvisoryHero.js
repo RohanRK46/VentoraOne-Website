@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from "react-router-dom";
 import './TenderAndBidAdvisoryHero.css';
 import heroBg from './images/tender-hero-bg.jpg';
 import TenderAndBidAdvisorySupport from './TenderAndBidAdvisorySupport';
@@ -71,9 +72,11 @@ const TenderAndBidAdvisoryHero = () => {
             </p>
 
             <div className="tender-hero__actions" data-reveal>
+              <Link to="/ServiceBookingForm">
               <button className="tender-hero__btn-primary">
                 <span>Get Started</span>
               </button>
+              </Link>
               <button className="tender-hero__btn-ghost" onClick={handleLearnMore}>
                 Learn More
               </button>

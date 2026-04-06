@@ -173,6 +173,7 @@ export default function Technologies() {
       : techData.filter((t) => t.category === activeCategory);
 
   return (
+    <>
     <section className="tech-section">
       <div className="tech-bg-grid" />
       <div className="tech-bg-glow" />
@@ -239,5 +240,6 @@ export default function Technologies() {
 
       </div>
     </section>
+    </>
   );
 }

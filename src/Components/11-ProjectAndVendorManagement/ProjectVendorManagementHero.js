@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './ProjectVendorManagementHero.css';
 import heroBg from './images/Pv-v1.png';
 import ProjectVendorManagementSupport from './ProjectVendorManagementSupport';
@@ -72,9 +73,11 @@ const ProjectVendorManagementHero = () => {
             </p>
 
             <div className="pvm-hero__actions" data-reveal>
+              <Link to="/ServiceBookingForm">
               <button className="pvm-hero__btn-primary">
                 <span>Get Started</span>
               </button>
+              </Link>
               <button className="pvm-hero__btn-ghost" onClick={handleLearnMore}>
                 Learn More
               </button>

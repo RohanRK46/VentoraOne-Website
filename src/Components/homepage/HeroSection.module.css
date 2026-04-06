@@ -116,10 +116,6 @@
     scale: 1.4;
 }
 
-.shield img:hover {
-    transform: scale(1.05);
-}
-
 /* ---- Tablet ---- */
 @media (max-width: 1024px) {
     .hero {
