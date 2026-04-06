@@ -1,5 +1,10 @@
 {
+  "outputDirectory": "build",
   "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
     {
       "src": "/sitemap.xml",
       "headers": {
@@ -9,7 +14,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/$1"
     }
   ]
 }
