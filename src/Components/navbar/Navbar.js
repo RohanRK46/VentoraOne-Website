@@ -59,8 +59,8 @@ export default function Navbar() {
             <ul className={`dropdown ${serviceOpen ? "show" : ""}`}>
 
               <li><Link to="/ItSystemIntegration" onClick={closeMenu}>IT Systems Integration</Link></li>
-              <li><Link to="/tenderAndBidding" onClick={closeMenu}>Tender &amp; Bid Advisory</Link></li>
-              <li><Link to="/SaasAndCustomSoftware" onClick={closeMenu}>SaaS &amp; Custom Software</Link></li>
+              <li><Link to="/tenderAndBidding" onClick={closeMenu}>Tender and Bid Advisory</Link></li>
+              <li><Link to="/SaasAndCustomSoftware" onClick={closeMenu}>SaaS and Custom Software</Link></li>
 
               {/* 4th — Cybersecurity */}
               <li className="has-submenu">
@@ -89,17 +89,17 @@ export default function Navbar() {
 
                 {/* Submenu */}
                 <ul className={`submenu ${cyberOpen ? "show" : ""}`}>
-                  <li><Link to="/CloudSecurity" onClick={closeMenu}>Cloud &amp; Hybrid Security</Link></li>
+                  <li><Link to="/CloudSecurity" onClick={closeMenu}>Cloud and Hybrid Security</Link></li>
                   <li><Link to="/NetworkDesign" onClick={closeMenu}>Network Design</Link></li>
                   <li><Link to="/FireWallSecurity" onClick={closeMenu}>Firewall Security</Link></li>
-                  <li><Link to="/BackUpAndRecovery" onClick={closeMenu}>Backup And Recovery</Link></li>
+                  <li><Link to="/BackUpAndRecovery" onClick={closeMenu}>Backup and Recovery</Link></li>
                   <li><Link to="/troubleshooting" onClick={closeMenu}>Troubleshooting</Link></li>
                 </ul>
 
               </li>
 
               <li><Link to="/DigitalTransformation" onClick={closeMenu}>Digital Transformation</Link></li>
-              <li><Link to="/ProjectVendorManagement" onClick={closeMenu}>Project &amp; Vendor Management</Link></li>
+              <li><Link to="/ProjectVendorManagement" onClick={closeMenu}>Project and Vendor Management</Link></li>
 
             </ul>
           </li>

@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ventoraone.com/</loc>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://www.ventoraone.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.ventoraone.com/services</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ventoraone.com/AboutSection</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ventoraone.com/CloudSecurity</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ventoraone.com/NetworkDesign</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ventoraone.com/FireWallSecurity</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ventoraone.com/BackUpAndRecovery</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ventoraone.com/tenderAndBidding</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ventoraone.com/SaasAndCustomSoftware</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ventoraone.com/ItSystemIntegration</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ventoraone.com/DigitalTransformation</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ventoraone.com/ProjectVendorManagement</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ventoraone.com/Technologies</loc><priority>0.8</priority></url>
+  <url><loc>https://www.ventoraone.com/VentoraOneSupport</loc><priority>0.7</priority></url>
+  <url><loc>https://www.ventoraone.com/contact</loc><priority>0.7</priority></url>
+  <url><loc>https://www.ventoraone.com/ServiceBookingForm</loc><priority>0.6</priority></url>
 </urlset>

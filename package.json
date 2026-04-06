@@ -24,6 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -57,5 +58,35 @@
   "bugs": {
     "url": "https://github.com/RohanRK46/VentoraOne-Website/issues"
   },
-  "homepage": "."
+  "homepage": "/",
+  "devDependencies": {
+    "react-snap": "^1.23.0"
+  },
+  "reactSnap": {
+    "source": "build",
+    "destination": "build",
+    "port": 45678,
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "crawl": true,
+    "skipThirdPartyRequests": true,
+    "timeout": 10000,
+    "include": [
+      "/",
+      "/services",
+      "/contact",
+      "/ServiceBookingForm",
+      "/VentoraOneSupport",
+      "/AboutSection",
+      "/CloudSecurity",
+      "/NetworkDesign",
+      "/FireWallSecurity",
+      "/BackUpAndRecovery",
+      "/tenderAndBidding",
+      "/SaasAndCustomSoftware",
+      "/ItSystemIntegration",
+      "/DigitalTransformation",
+      "/ProjectVendorManagement",
+      "/Technologies"
+    ]
+  }
 }
