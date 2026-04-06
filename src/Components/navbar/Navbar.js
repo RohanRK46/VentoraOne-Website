@@ -64,7 +64,7 @@ export default function Navbar() {
 
           {/* TECHNOLOGIES */}
           <li className="mainLi">
-            <Link className="mainA" to="/technologies" onClick={closeMenu}>
+            <Link className="mainA" to="/Technologies" onClick={closeMenu}>
               Technologies
             </Link>
           </li>

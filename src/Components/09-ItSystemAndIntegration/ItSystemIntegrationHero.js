@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import './ItSystemIntegrationHero.css';
-import heroBg from './images/it-hero-bg.jpg';
+import heroBg from './images/it-v2.png';
 import ItSystemIntegrationSupport from './ItSystemIntegrationSupport';
 import CheckOutOtherServices from "../CheckOutOtherServices/CheckOutOtherServices";
 

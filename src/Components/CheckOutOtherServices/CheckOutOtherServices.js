@@ -7,7 +7,6 @@ import imgCloud from './imagesServices/service-cloud.jpg';
 import imgNetwork from './imagesServices/service-network.jpg';
 import imgFirewall from './imagesServices/service-firewall.jpg';
 import imgBackup from './imagesServices/service-backup.jpg';
-import imgCyber from './imagesServices/service-cybersecurity.jpg';
 import imgIT from './imagesServices/service-it-integration.jpg';
 import imgTender from './imagesServices/service-tender.jpg';
 import imgSaas from './imagesServices/service-saas.jpg';
@@ -17,14 +16,13 @@ import imgProject from './imagesServices/service-management.jpg';
 const services = [
   { id: 1, category: 'CLOUD',          title: 'Cloud & Hybrid Security',      route: '/CloudSecurity',        img: imgCloud,    accent: '#00c6ff' },
   { id: 2, category: 'NETWORKING',     title: 'Network Design',                route: '/NetworkDesign',        img: imgNetwork,  accent: '#a78bfa' },
-  { id: 3, category: 'FIREWALL',       title: 'Firewall Security',             route: '/FireWallSecurity',     img: imgFirewall, accent: '#f97316' },
+  { id: 3, category: 'FIREWALL',       title: 'Firewall Security',             route: '/FireWallSecurity',     img: imgFirewall, accent: '#f43f5e' },
   { id: 4, category: 'BACKUP',         title: 'Backup & Recovery',             route: '/BackUpAndRecovery',    img: imgBackup,   accent: '#34d399' },
-  { id: 5, category: 'SECURITY',       title: 'Cybersecurity & Physical',      route: '/CloudSecurity',        img: imgCyber,    accent: '#f43f5e' },
-  { id: 6, category: 'INTEGRATION',    title: 'IT Systems Integration',        route: '/ItSystemIntegration',  img: imgIT,       accent: '#38bdf8' },
-  { id: 7, category: 'ADVISORY',       title: 'Tender & Bid Advisory',         route: '/tenderAndBidding',     img: imgTender,   accent: '#c084fc' },
-  { id: 8, category: 'SOFTWARE',       title: 'SaaS & Custom Software',        route: '/SaasAndCustomSoftware',img: imgSaas,     accent: '#fb923c' },
-  { id: 9, category: 'TRANSFORMATION', title: 'Digital Transformation',        route: '/DigitalTransformation',img: imgDigital,  accent: '#4ade80' },
-  { id: 10,category: 'MANAGEMENT',     title: 'Project & Vendor Management',   route: '/ProjectVendorManagement', img: imgProject, accent: '#facc15' },
+  { id: 5, category: 'INTEGRATION',    title: 'IT Systems Integration',        route: '/ItSystemIntegration',  img: imgIT,       accent: '#38bdf8' },
+  { id: 6, category: 'ADVISORY',       title: 'Tender & Bid Advisory',         route: '/tenderAndBidding',     img: imgTender,   accent: '#c084fc' },
+  { id: 7, category: 'SOFTWARE',       title: 'SaaS & Custom Software',        route: '/SaasAndCustomSoftware',img: imgSaas,     accent: '#fb923c' },
+  { id: 8, category: 'TRANSFORMATION', title: 'Digital Transformation',        route: '/DigitalTransformation',img: imgDigital,  accent: '#4ade80' },
+  { id: 9,category: 'MANAGEMENT',     title: 'Project & Vendor Management',   route: '/ProjectVendorManagement', img: imgProject, accent: '#facc15' },
 ];
 
 function useScrollReveal() {
