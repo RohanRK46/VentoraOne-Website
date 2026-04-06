@@ -58,9 +58,9 @@ export default function Navbar() {
 
             <ul className={`dropdown ${serviceOpen ? "show" : ""}`}>
 
-              <li><Link to="/ITSystems" onClick={closeMenu}>IT Systems Integration</Link></li>
-              <li><Link to="/TenderBid" onClick={closeMenu}>Tender &amp; Bid Advisory</Link></li>
-              <li><Link to="/SaaSSoftware" onClick={closeMenu}>SaaS &amp; Custom Software</Link></li>
+              <li><Link to="/ItSystemIntegration" onClick={closeMenu}>IT Systems Integration</Link></li>
+              <li><Link to="/tenderAndBidding" onClick={closeMenu}>Tender &amp; Bid Advisory</Link></li>
+              <li><Link to="/SaasAndCustomSoftware" onClick={closeMenu}>SaaS &amp; Custom Software</Link></li>
 
               {/* 4th — Cybersecurity */}
               <li className="has-submenu">
@@ -99,7 +99,7 @@ export default function Navbar() {
               </li>
 
               <li><Link to="/DigitalTransformation" onClick={closeMenu}>Digital Transformation</Link></li>
-              <li><Link to="/ProjectVendor" onClick={closeMenu}>Project &amp; Vendor Management</Link></li>
+              <li><Link to="/ProjectVendorManagement" onClick={closeMenu}>Project &amp; Vendor Management</Link></li>
 
             </ul>
           </li>
