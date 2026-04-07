@@ -8,6 +8,11 @@ import imgTender from "./imagesServices/card-tender.jpg";
 import imgSaas from "./imagesServices/card-saas.jpg";
 import imgDigital from "./imagesServices/card-digital.jpg";
 import imgProject from "./imagesServices/card-project.jpg";
+import imgCloud from "./imagesServices/cloud.jpg"
+import imgBackup from "./imagesServices/backup.jpg"
+import imgEnterprise from "./imagesServices/enterprise.jpg"
+import imgFirewall from "./imagesServices/firewall.jpg"
+import imgNetwork from "./imagesServices/network.jpg"
 
 const services = [
   {
@@ -55,11 +60,11 @@ const services = [
 ];
 
 const cyberSubServices = [
-  { category: "Cloud", title: "Cloud & Hybrid Security", image: imgIT, route: "/CloudSecurity" },
-  { category: "Networking", title: "Network Design", image: imgTender, route: "/NetworkDesign" },
-  { category: "Firewall", title: "Firewall Security", image: imgDigital, route: "/FireWallSecurity" },
-  { category: "Backup", title: "Backup & Recovery", image: imgSaas, route: "/BackUpAndRecovery" },
-  { category: "Security", title: "Enterprise Security", image: imgProject, route: "/cyber/enterprise" },
+  { category: "Cloud", title: "Cloud & Hybrid Security", image: imgCloud, route: "/CloudSecurity" },
+  { category: "Networking", title: "Network Design", image: imgNetwork, route: "/NetworkDesign" },
+  { category: "Firewall", title: "Firewall Security", image: imgFirewall, route: "/FireWallSecurity" },
+  { category: "Backup", title: "Backup & Recovery", image: imgBackup, route: "/BackUpAndRecovery" },
+  { category: "Security", title: "Enterprise Security", image: imgEnterprise, route: "/cyber/enterprise" },
 ];
 
 function ServiceCards() {

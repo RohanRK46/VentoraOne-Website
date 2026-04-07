@@ -3,7 +3,7 @@ import { Cloud, Shield, Network, Lock } from "lucide-react";
 import "./CloudAndHybridSecurity.css";
 import heroImage from "./images/Cloud.png";
 import { Link } from "react-router-dom";
-import Testimony from "./Testimony/Testimony";
+import SupportSection from "./SupprtSectionCHS/SupportSectionCHS"
 import CheckOutOtherServices from "../CheckOutOtherServices/CheckOutOtherServices";
 
 const features = [
@@ -112,7 +112,7 @@ export default function CloudAndHybridSecurity() {
 
       </section>
 
-      <Testimony/>
+      <SupportSection/>
       <CheckOutOtherServices/>
 
     </div>

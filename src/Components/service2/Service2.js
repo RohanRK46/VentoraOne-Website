@@ -103,10 +103,6 @@ export default function Service2() {
             We help organizations design, secure, and manage their IT environments by combining strong networking fundamentals with modern security practices. Our approach focuses on real-world security, performance, scalability, and cost-effective solutions tailored to business needs.
           </p>
 
-          <br />
-
-          <a href="/">Explore Our Service</a>
-
         </div>
 
       </div>
