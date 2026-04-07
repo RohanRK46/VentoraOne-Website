@@ -113,7 +113,7 @@
   position: relative;
   overflow: hidden;
   background-color: #45b1ccd6;
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid #47b9d5d6 ;
   color: rgba(255, 255, 255, 0.998);
   font-size: clamp(0.72rem, 0.88vw, 0.9rem);
   font-weight: 600;
