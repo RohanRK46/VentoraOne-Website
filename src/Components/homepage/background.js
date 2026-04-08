@@ -17,6 +17,7 @@ export default function Background() {
     let MAX_DIST_SQ = MAX_DIST * MAX_DIST;
 
     const SCALE = 0.7;
+    const initialHeight = window.innerHeight;
 
     function createNodes() {
       nodes = new Array(NODE_COUNT);
@@ -35,10 +36,10 @@ export default function Background() {
 
     function resize() {
       width = canvas.width = window.innerWidth * SCALE;
-      height = canvas.height = window.innerHeight * SCALE;
+      height = canvas.height = initialHeight * SCALE;
 
       canvas.style.width = window.innerWidth + "px";
-      canvas.style.height = window.innerHeight + "px";
+      canvas.style.height = initialHeight + "px";
 
       const isMobile = window.innerWidth <= 768;
       NODE_COUNT = isMobile ? 30 : 55;
@@ -133,7 +134,7 @@ export default function Background() {
     <canvas
       ref={canvasRef}
       style={{
-        position: "fixed",
+        position: "absolute",
         top: 0,
         left: 0,
         width: "100%",
