@@ -7,22 +7,55 @@ export default function Background() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    let width;
-    let height;
-    let nodes = [];
-    let gradient;
-    let animId;
-
-    let NODE_COUNT = 55;
-    let MAX_DIST = 140;
-    let MAX_DIST_SQ = MAX_DIST * MAX_DIST;
+    let width, height, nodes, gradient;
+    let NODE_COUNT, MAX_DIST, MAX_DIST_SQ;
 
     const SCALE = 0.7;
 
+    function getNodeCount(w) {
+      if (w < 480) return 22;
+      if (w < 768) return 35;
+      return 55;
+    }
+
+    function getMaxDist(w) {
+      if (w < 480) return 100;
+      if (w < 768) return 120;
+      return 140;
+    }
+
+    function resize() {
+      width = canvas.width = window.innerWidth * SCALE;
+      height = canvas.height = window.innerHeight * SCALE;
+
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+
+      NODE_COUNT = getNodeCount(window.innerWidth);
+      MAX_DIST = getMaxDist(window.innerWidth);
+      MAX_DIST_SQ = MAX_DIST * MAX_DIST;
+
+      gradient = ctx.createRadialGradient(
+        width / 2,
+        height * 0.75,
+        0,
+        width / 2,
+        height * 0.75,
+        width
+      );
+
+      gradient.addColorStop(0, "#00041e");
+      gradient.addColorStop(1, "#031329");
+
+      createNodes();
+    }
+
     function createNodes() {
       nodes = new Array(NODE_COUNT);
+
       for (let i = 0; i < NODE_COUNT; i++) {
         const depth = Math.random();
+
         nodes[i] = {
           x: Math.random() * width,
           y: Math.random() * height,
@@ -34,28 +67,6 @@ export default function Background() {
       }
     }
 
-    function resize() {
-      width = canvas.width = window.innerWidth * SCALE;
-      height = canvas.height = window.innerHeight * SCALE;
-
-      canvas.style.width = window.innerWidth + "px";
-      canvas.style.height = window.innerHeight + "px";
-
-      const isMobile = window.innerWidth <= 768;
-      NODE_COUNT = isMobile ? 30 : 55;
-      MAX_DIST = isMobile ? 120 : 140;
-      MAX_DIST_SQ = MAX_DIST * MAX_DIST;
-
-      gradient = ctx.createRadialGradient(
-        width / 2, height * 0.75, 0,
-        width / 2, height * 0.75, width
-      );
-      gradient.addColorStop(0, "#00041e");
-      gradient.addColorStop(1, "#031329");
-
-      createNodes();
-    }
-
     function drawBackground() {
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
@@ -63,10 +74,10 @@ export default function Background() {
 
     function connectNodes(time) {
       const len = nodes.length;
-      const isMobile = window.innerWidth <= 768;
 
       for (let i = 0; i < len; i++) {
         const n1 = nodes[i];
+
         for (let j = i + 1; j < len; j++) {
           const n2 = nodes[j];
 
@@ -78,14 +89,15 @@ export default function Background() {
 
           const heightFactor = (n1.y + n2.y) / (2 * height);
           const depthAvg = (n1.depth + n2.depth) * 0.5;
-          const baseAlpha = (1 - distSq / MAX_DIST_SQ) * depthAvg * heightFactor;
+
+          const baseAlpha =
+            (1 - distSq / MAX_DIST_SQ) * depthAvg * heightFactor;
 
           if (baseAlpha < 0.03) continue;
 
           const wave = 0.7 + 0.3 * Math.sin(time * 0.004 + distSq * 0.01);
-          const alphaMultiplier = isMobile ? 0.85 : 1.4;
 
-          ctx.strokeStyle = `rgba(0,220,255,${baseAlpha * wave * alphaMultiplier})`;
+          ctx.strokeStyle = `rgba(0,220,255,${baseAlpha * wave * 1.4})`;
           ctx.lineWidth = depthAvg * heightFactor * 2;
 
           ctx.beginPath();
@@ -96,19 +108,25 @@ export default function Background() {
       }
     }
 
+    let animFrameId;
+
     function animate(time) {
       ctx.clearRect(0, 0, width, height);
+
       drawBackground();
 
       for (let i = 0; i < nodes.length; i++) {
         const node = nodes[i];
+
         node.x += node.vx * node.depth;
         node.y += node.vy * node.depth;
 
         if (node.x < 0 || node.x > width) node.vx *= -1;
         if (node.y < 0 || node.y > height) node.vy *= -1;
 
-        const blink = 0.8 + 0.2 * Math.sin(time * 0.001 + node.blinkOffset);
+        const blink =
+          0.8 + 0.2 * Math.sin(time * 0.001 + node.blinkOffset);
+
         const size = 1.2 + node.depth * 2.2;
 
         ctx.beginPath();
@@ -118,16 +136,18 @@ export default function Background() {
       }
 
       connectNodes(time);
-      animId = requestAnimationFrame(animate);
+
+      animFrameId = requestAnimationFrame(animate);
     }
 
     window.addEventListener("resize", resize);
+
     resize();
-    animId = requestAnimationFrame(animate);
+    animFrameId = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("resize", resize);
-      cancelAnimationFrame(animId);
+      cancelAnimationFrame(animFrameId);
     };
   }, []);
 
@@ -135,13 +155,12 @@ export default function Background() {
     <canvas
       ref={canvasRef}
       style={{
-        position: "fixed",
+        position: "absolute",
         top: 0,
         left: 0,
-        width: "100vw",
-        height: "100vh",
-        zIndex: -1,
-        pointerEvents: "none"
+        width: "100%",
+        height: "120vh",
+        zIndex: -1
       }}
     />
   );
