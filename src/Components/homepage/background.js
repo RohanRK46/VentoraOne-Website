@@ -17,7 +17,6 @@ export default function Background() {
     let MAX_DIST_SQ = MAX_DIST * MAX_DIST;
 
     const SCALE = 0.7;
-    const initialHeight = window.innerHeight;
 
     function createNodes() {
       nodes = new Array(NODE_COUNT);
@@ -36,14 +35,14 @@ export default function Background() {
 
     function resize() {
       width = canvas.width = window.innerWidth * SCALE;
-      height = canvas.height = initialHeight * SCALE;
+      height = canvas.height = window.innerHeight * SCALE;
 
       canvas.style.width = window.innerWidth + "px";
-      canvas.style.height = initialHeight + "px";
+      canvas.style.height = window.innerHeight + "px";
 
       const isMobile = window.innerWidth <= 768;
-      NODE_COUNT = isMobile ? 30 : 55;
-      MAX_DIST = isMobile ? 120 : 140;
+      NODE_COUNT = isMobile ? 22 : 55;
+      MAX_DIST = isMobile ? 90 : 140;
       MAX_DIST_SQ = MAX_DIST * MAX_DIST;
 
       gradient = ctx.createRadialGradient(
@@ -69,7 +68,6 @@ export default function Background() {
         const n1 = nodes[i];
         for (let j = i + 1; j < len; j++) {
           const n2 = nodes[j];
-
           const dx = n1.x - n2.x;
           const dy = n1.y - n2.y;
           const distSq = dx * dx + dy * dy;
@@ -83,7 +81,7 @@ export default function Background() {
           if (baseAlpha < 0.03) continue;
 
           const wave = 0.7 + 0.3 * Math.sin(time * 0.004 + distSq * 0.01);
-          const alphaMultiplier = isMobile ? 0.85 : 1.4;
+          const alphaMultiplier = isMobile ? 0.6 : 1.4;
 
           ctx.strokeStyle = `rgba(0,220,255,${baseAlpha * wave * alphaMultiplier})`;
           ctx.lineWidth = depthAvg * heightFactor * 2;
@@ -138,7 +136,7 @@ export default function Background() {
         top: 0,
         left: 0,
         width: "100%",
-        height: "100vh",
+        height: "120vh",
         zIndex: -1
       }}
     />
