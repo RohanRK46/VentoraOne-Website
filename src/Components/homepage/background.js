@@ -9,6 +9,8 @@ export default function Background() {
 
     let width, height, nodes, gradient;
     let NODE_COUNT, MAX_DIST, MAX_DIST_SQ;
+    let animFrameId;
+    let resizeTimer;
 
     const SCALE = 0.7;
 
@@ -46,8 +48,6 @@ export default function Background() {
 
       gradient.addColorStop(0, "#00041e");
       gradient.addColorStop(1, "#031329");
-
-      createNodes();
     }
 
     function createNodes() {
@@ -65,6 +65,14 @@ export default function Background() {
           blinkOffset: Math.random() * Math.PI * 2
         };
       }
+    }
+
+    function handleResize() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        resize();
+        createNodes();
+      }, 200);
     }
 
     function drawBackground() {
@@ -108,8 +116,6 @@ export default function Background() {
       }
     }
 
-    let animFrameId;
-
     function animate(time) {
       ctx.clearRect(0, 0, width, height);
 
@@ -140,14 +146,16 @@ export default function Background() {
       animFrameId = requestAnimationFrame(animate);
     }
 
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", handleResize);
 
     resize();
+    createNodes();
     animFrameId = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animFrameId);
+      clearTimeout(resizeTimer);
     };
   }, []);
 
