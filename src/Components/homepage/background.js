@@ -133,11 +133,11 @@ export default function Background() {
     <canvas
       ref={canvasRef}
       style={{
-        position: "absolute",
+        position: "fixed",
         top: 0,
         left: 0,
         width: "100%",
-        height: "120vh",
+        height: "100vh",
         zIndex: -1
       }}
     />
