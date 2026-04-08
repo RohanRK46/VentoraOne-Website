@@ -11,6 +11,7 @@ export default function Background() {
     let height;
     let nodes = [];
     let gradient;
+    let animId;
 
     let NODE_COUNT = 55;
     let MAX_DIST = 140;
@@ -41,8 +42,8 @@ export default function Background() {
       canvas.style.height = window.innerHeight + "px";
 
       const isMobile = window.innerWidth <= 768;
-      NODE_COUNT = isMobile ? 22 : 55;
-      MAX_DIST = isMobile ? 90 : 140;
+      NODE_COUNT = isMobile ? 30 : 55;
+      MAX_DIST = isMobile ? 120 : 140;
       MAX_DIST_SQ = MAX_DIST * MAX_DIST;
 
       gradient = ctx.createRadialGradient(
@@ -68,6 +69,7 @@ export default function Background() {
         const n1 = nodes[i];
         for (let j = i + 1; j < len; j++) {
           const n2 = nodes[j];
+
           const dx = n1.x - n2.x;
           const dy = n1.y - n2.y;
           const distSq = dx * dx + dy * dy;
@@ -81,7 +83,7 @@ export default function Background() {
           if (baseAlpha < 0.03) continue;
 
           const wave = 0.7 + 0.3 * Math.sin(time * 0.004 + distSq * 0.01);
-          const alphaMultiplier = isMobile ? 0.6 : 1.4;
+          const alphaMultiplier = isMobile ? 0.85 : 1.4;
 
           ctx.strokeStyle = `rgba(0,220,255,${baseAlpha * wave * alphaMultiplier})`;
           ctx.lineWidth = depthAvg * heightFactor * 2;
@@ -116,15 +118,16 @@ export default function Background() {
       }
 
       connectNodes(time);
-      requestAnimationFrame(animate);
+      animId = requestAnimationFrame(animate);
     }
 
     window.addEventListener("resize", resize);
     resize();
-    requestAnimationFrame(animate);
+    animId = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("resize", resize);
+      cancelAnimationFrame(animId);
     };
   }, []);
 
@@ -132,12 +135,13 @@ export default function Background() {
     <canvas
       ref={canvasRef}
       style={{
-        position: "absolute",
+        position: "fixed",
         top: 0,
         left: 0,
-        width: "100%",
-        height: "120vh",
-        zIndex: -1
+        width: "100vw",
+        height: "100vh",
+        zIndex: -1,
+        pointerEvents: "none"
       }}
     />
   );
