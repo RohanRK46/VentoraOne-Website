@@ -13,7 +13,7 @@ export default function Background() {
     let resizeTimer;
 
     const SCALE = 0.7;
-    const lockedHeight = window.innerHeight; // lock height on mount, never changes
+    const lockedHeight = window.innerHeight;
 
     function getNodeCount(w) {
       if (w < 480) return 22;
@@ -139,11 +139,12 @@ export default function Background() {
     <canvas
       ref={canvasRef}
       style={{
-        position: "fixed",
+        position: "absolute",
+        top: 0,
         left: 0,
         width: "100%",
-        height: "100vh",
-        zIndex: -1,
+        height: "100%",
+        zIndex: 0,
         pointerEvents: "none"
       }}
     />

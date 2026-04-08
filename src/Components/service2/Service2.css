@@ -42,7 +42,8 @@
 }
 
 .chatbox-3 {
-    bottom: 15%;
+    height: 70px;
+    bottom: 12%;
     left: 20%;
 }
 
@@ -82,8 +83,8 @@
 }
 
 .chatbox-3 {
-    top: 52%;
-    left: 4.3%;
+    top: 44%;
+    left: 6%;
 }
 
 .chatbox-1 img {

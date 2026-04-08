@@ -2,12 +2,19 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './HeroSection.module.css';
 import Background from "./background";
-
 import logo from './herosection-imgs/logo1.png';
 import shieldImg from './herosection-imgs/shield.png';
 
 export default function HeroSection() {
   const shieldRef = useRef(null);
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    // Lock the wrapper height to initial innerHeight so vh-jump never affects it
+    if (wrapperRef.current) {
+      wrapperRef.current.style.height = window.innerHeight + "px";
+    }
+  }, []);
 
   useEffect(() => {
     let currentX = 0;
@@ -44,19 +51,16 @@ export default function HeroSection() {
   };
 
   return (
-    <>
+    <div ref={wrapperRef} style={{ position: "relative", overflow: "hidden", width: "100%" }}>
       <Background />
       <div className={styles.hero}>
         <div className={styles['hero-content']}>
           <img className={styles['hero-logo']} src={logo} alt="VentoraOne logo" loading="lazy" />
-
           <h1 className={styles['hero-heading']}>Powering Modern Enterprise Systems</h1>
           <span className={styles['hero-tagline']}>Integrate. Automate. Transform.</span>
-
           <p className={styles['hero-description']}>
             Advanced cybersecurity and enterprise-grade network infrastructure built for modern global enterprises.
           </p>
-
           <div className={styles['hero-buttons']}>
             <Link to="/VentoraOneSupport">
               <button className={styles['git-btn']}>Get In Touch</button>
@@ -64,11 +68,10 @@ export default function HeroSection() {
             <button className={styles['vs-btn']} onClick={handleViewServices}>View Services</button>
           </div>
         </div>
-
         <div className={styles.shield} ref={shieldRef}>
           <img src={shieldImg} alt="firewall logo" loading="lazy" />
         </div>
       </div>
-    </>
+    </div>
   );
 }
