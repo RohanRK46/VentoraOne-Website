@@ -14,8 +14,8 @@
 
   padding-top:    calc(var(--navbar-h) + clamp(24px, 3.5vh, 52px));
   padding-bottom: clamp(48px, 6vh, 90px);
-  padding-left:   clamp(36px, 5vw, 100px);
-  padding-right:  clamp(36px, 5vw, 100px);
+  padding-left:   clamp(52px, 1vw, 120px);
+  padding-right:  clamp(22px, 3vw, 100px);
 
   position: relative;
   z-index: 5;
@@ -36,14 +36,11 @@
 }
 
 .hero-logo {
-  width: clamp(190px, 22vw, 400px);
-  height: auto;
-  object-fit: contain;
-  margin-bottom: clamp(4px, 0.6vw, 10px);
+  display: none;
 }
 
 .hero-heading {
-  font-size: clamp(1.6rem, 2.85vw, 3rem);
+  font-size: clamp(2rem, 3.0vw, 3.2rem);
   color: #ffffff;
   margin: 0;
   font-weight: 700;
@@ -52,15 +49,16 @@
 }
 
 .hero-tagline {
-  font-size: clamp(1.05rem, 1.95vw, 2rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.8rem);
   color: #45b1cc;
   font-weight: 500;
   margin: 0;
+  white-space: nowrap;
 }
 
 .hero-description {
   font-weight: 300;
-  font-size: clamp(0.83rem, 2vw, 1rem);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
   color: rgba(255, 248, 248, 0.74);
   margin: 0;
   max-width: 44ch;
@@ -113,7 +111,7 @@
   position: relative;
   overflow: hidden;
   background-color: #45b1ccd6;
-  border: 1px solid #47b9d5d6 ;
+  border: 1px solid #47b9d5d6;
   color: rgba(255, 255, 255, 0.998);
   font-size: clamp(0.72rem, 0.88vw, 0.9rem);
   font-weight: 600;
@@ -162,27 +160,27 @@
   width: 100%;
   height: auto;
   object-fit: contain;
-  scale: 1.1;
+  scale: 1;
   transition: transform 0.3s ease;
 }
 
 @media (min-width: 1400px) {
-  .hero-heading  { font-size: clamp(2.4rem, 2.9vw, 3.2rem); }
-  .hero-tagline  { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  .hero-heading  { font-size: clamp(2.6rem, 3.0vw, 3.6rem); }
+  .hero-tagline  { font-size: clamp(1.8rem, 2.8vw, 3rem); white-space: nowrap; }
+  .hero-description { font-size: clamp(1rem, 1.25vw, 1.2rem); }
   .shield        { max-width: clamp(500px, 54vw, 900px); }
 }
 
 @media (max-width: 1279px) and (min-width: 1025px) {
   .hero {
-    padding-left:  clamp(28px, 4vw, 56px);
+    padding-left:  clamp(40px, 5vw, 72px);
     padding-right: clamp(28px, 4vw, 56px);
     gap: clamp(10px, 2vw, 28px);
   }
   .hero-content  { max-width: clamp(300px, 40vw, 520px); }
-  .hero-logo     { width: clamp(160px, 19vw, 280px); }
-  .hero-heading  { font-size: clamp(1.5rem, 2.35vw, 2.2rem); }
-  .hero-tagline  { font-size: clamp(1rem, 1.7vw, 1.55rem); }
-  .hero-description { font-size: clamp(0.8rem, 0.95vw, 0.95rem); }
+  .hero-heading  { font-size: clamp(1.7rem, 2.5vw, 2.4rem); }
+  .hero-tagline  { font-size: clamp(1.4rem, 2.0vw, 2.1rem); white-space: nowrap; }
+  .hero-description { font-size: clamp(0.88rem, 1.05vw, 1.05rem); }
   .shield        { min-width: clamp(200px, 30vw, 360px); max-width: clamp(280px, 44vw, 520px); }
   .shield img    { scale: 1; }
 }
@@ -201,10 +199,9 @@
     overflow: hidden;
   }
   .hero-content  { align-items: center; max-width: 100%; gap: clamp(12px, 2vh, 20px); }
-  .hero-logo     { width: clamp(200px, 32vw, 320px); margin-bottom: clamp(4px, 1vh, 10px); }
-  .hero-heading  { font-size: clamp(1.7rem, 4.2vw, 2.6rem); line-height: 1.2; }
-  .hero-tagline  { font-size: clamp(1.1rem, 2.8vw, 1.7rem); }
-  .hero-description { font-size: clamp(0.9rem, 1.8vw, 1.05rem); max-width: 100%; line-height: 1.75; }
+  .hero-heading  { font-size: clamp(1.9rem, 4.6vw, 2.8rem); line-height: 1.2; }
+  .hero-tagline  { font-size: clamp(1.5rem, 3.4vw, 2.2rem); white-space: nowrap; }
+  .hero-description { font-size: clamp(0.95rem, 1.9vw, 1.1rem); max-width: 100%; line-height: 1.75; }
   .hero-buttons  { justify-content: center; gap: clamp(0.6rem, 2vw, 1rem); margin-top: clamp(10px, 2vh, 20px); }
   .shield        { width: 100%; min-width: unset; max-width: 100%; }
   .shield img    { width: clamp(380px, 78vw, 640px); scale: 1.15; }
@@ -224,10 +221,10 @@
     overflow: hidden;
   }
   .hero-content  { align-items: center; max-width: 100%; gap: clamp(12px, 2.2vh, 20px); }
-  .hero-logo     { width: clamp(190px, 54vw, 290px); margin-bottom: clamp(4px, 1vh, 10px); }
+  .hero-logo     { display: none; }
   .hero-heading  { font-size: clamp(1.5rem, 5.4vw, 2.1rem); line-height: 1.2; }
-  .hero-tagline  { font-size: clamp(1.1rem, 4.1vw, 1.55rem); }
-  .hero-description { font-size: clamp(0.88rem, 3.3vw, 1.02rem); max-width: 100%; line-height: 1.75; }
+  .hero-tagline  { font-size: clamp(1.5rem, 5.8vw, 2rem); white-space: normal; }
+  .hero-description { font-size: clamp(1rem, 3.8vw, 1.15rem); max-width: 100%; line-height: 1.75; }
   .hero-buttons  { justify-content: center; gap: clamp(0.6rem, 2.8vw, 0.9rem); margin-top: clamp(10px, 2vh, 18px); }
   .git-btn, .vs-btn { font-size: clamp(0.78rem, 3.2vw, 0.92rem); padding: 0.8rem clamp(1.2rem, 5vw, 1.9rem); }
   .shield        { width: 100%; min-width: unset; max-width: 100%; }
@@ -237,9 +234,11 @@
 @media (max-width: 430px) {
   .hero          { padding-top: calc(var(--navbar-h) + clamp(24px, 4vh, 44px)); padding-left: 16px; padding-right: 16px; gap: clamp(24px, 4.5vh, 40px); }
   .hero-content  { gap: clamp(10px, 1.8vh, 16px); }
-  .hero-logo     { width: clamp(165px, 58vw, 240px); }
+  .hero-logo     { display: none; }
   .hero-heading  { font-size: clamp(1.32rem, 5.8vw, 1.75rem); }
-  .hero-tagline  { font-size: clamp(1rem, 4.3vw, 1.3rem); }
+  .hero-tagline  { font-size: clamp(1.4rem, 6vw, 1.75rem); white-space: normal; }
+  .hero-description { font-size: clamp(0.95rem, 4vw, 1.1rem); }
+  .git-btn, .vs-btn { font-size: clamp(0.78rem, 3.2vw, 0.88rem); padding: 0.8rem clamp(1.1rem, 4.5vw, 1.7rem); }
   .shield img    { width: clamp(290px, 92vw, 440px); scale: 1.25; }
 }
 

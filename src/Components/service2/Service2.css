@@ -75,14 +75,14 @@
     position: absolute;
     overflow: hidden;
     top: 30%;
-    bottom: 35%;
     right: 48%;
     width: 350px;
     height: 87px;
+    bottom: auto;
 }
 
 .chatbox-3 {
-    bottom: 46%;
+    top: 52%;
     left: 4.3%;
 }
 
@@ -111,9 +111,6 @@
     width: 38vw;
 }
 
-/* --------------------------moving everything little lower-------------------------- */
-/* Move everything 30px down */
-
 .service2-content {
     top: 40px;
 }
@@ -122,14 +119,12 @@
     top: calc(35px + 40px);
 }
 
-/* ------------------------------------------------------------ */
-
 .righttext {
     height: 100vh;
     width: 550px;
     position: absolute;
     right: 20px;
-    top: 0;
+    top: 50px;
     padding: 20px;
 }
 
@@ -143,24 +138,14 @@
     background-size: 300%;
     color: transparent;
 }
-@keyframes animate {
-    0%{
-        background-position: 0%;
-    }
-    30%{
-        background-position: 30%;
-    }
-    50%{
-        background-position: 50%;
-    }
-    70%{
-        background-position: 70%;
-    }
-    100%{
-        background-position: 100%;
-    }
-}
 
+@keyframes animate {
+    0%   { background-position: 0%; }
+    30%  { background-position: 30%; }
+    50%  { background-position: 50%; }
+    70%  { background-position: 70%; }
+    100% { background-position: 100%; }
+}
 
 .righttext p {
     font-size: 19px;
@@ -186,59 +171,184 @@
     padding-right: 10px;
 }
 
-/* -------- Tablets -------- */
+/* -------- Tablets (901px - 1024px) -------- */
 @media (max-width: 1024px) {
 
-    .mainimage img {
-        width: 45vw;
-        height: 70vh;
-        left: 60px;
+    .Service2 {
+        min-height: unset;
+        height: 520px;
+        overflow: hidden;
     }
 
-    .righttext {
-        width: 45vw;
-        right: 10px;
-    }
-
-    .righttext h3 {
-        font-size: 2.4em;
-    }
-
-    .chatbox-1,
-    .chatbox-2 {
-        width: 300px;
-        height: 80px;
-    }
-
-    .chatbox-1 img,
-    .chatbox-2 img {
+    .service2-content {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 100%;
+        height: 520px;
+        overflow: hidden;
     }
-}
 
-/* -------- Small Tablets -------- */
-@media (max-width: 900px) {
+    .mainimage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+    }
 
     .mainimage img {
-        width: 50vw;
-        height: 65vh;
+        position: absolute;
+        height: 380px;
+        width: auto;
         left: 30px;
+        top: 40px;
     }
 
     .righttext {
-        width: 45vw;
+        width: 44vw;
+        height: auto;
+        right: 10px;
+        top: 10px;
         padding: 15px;
     }
 
     .righttext h1 {
-        font-size: 2em;
+        font-size: 2.2em;
+        margin-top: 20px;
     }
 
-    .chatbox-1,
+    .righttext p {
+        font-size: 15px;
+    }
+
+    .ptags {
+        width: 100%;
+        min-width: unset;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .chatbox-1 {
+        top: 30px;
+        right: 45%;
+        width: 300px;
+        height: 80px;
+        bottom: auto;
+    }
+
     .chatbox-2 {
+        top: 130px;
+        right: 45%;
+        width: 300px;
+        height: 80px;
+        bottom: auto;
+    }
+
+    .chatbox-2 img {
+        width: 272px;
+        height: 72px;
+        left: -12px;
+        top: -3px;
+    }
+
+    .chatbox-3 {
+        top: 230px;
+        bottom: auto;
+        left: 3%;
+        width: 210px;
+    }
+}
+
+/* -------- Small Tablets (601px - 900px) -------- */
+@media (max-width: 900px) {
+
+    .Service2 {
+        min-height: unset;
+        height: 480px;
+        overflow: hidden;
+    }
+
+    .service2-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 480px;
+        overflow: hidden;
+    }
+
+    .mainimage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .mainimage img {
+        position: absolute;
+        height: 340px;
+        width: auto;
+        left: 20px;
+        top: 35px;
+    }
+
+    .righttext {
+        width: 46vw;
+        height: auto;
+        right: 8px;
+        top: 10px;
+        padding: 10px;
+    }
+
+    .righttext h1 {
+        font-size: 1.8em;
+        margin-top: 15px;
+    }
+
+    .righttext p {
+        font-size: 13px;
+    }
+
+    .ptags {
+        width: 100%;
+        min-width: unset;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .chatbox-1 {
+        top: 25px;
+        right: 47%;
         width: 260px;
-        height: 70px;
+        height: 72px;
+        bottom: auto;
+    }
+
+    .chatbox-2 {
+        top: 115px;
+        right: 47%;
+        width: 260px;
+        height: 72px;
+        bottom: auto;
+    }
+
+    .chatbox-2 img {
+        width: 236px;
+        height: 65px;
+        left: -10px;
+        top: -3px;
+    }
+
+    .chatbox-3 {
+        top: 205px;
+        bottom: auto;
+        left: 2%;
+        width: 185px;
+        font-size: 13px;
     }
 }
 
@@ -247,7 +357,6 @@
 
     .Service2 {
         min-height: 120vh;
-        /* allow stacking space */
     }
 
     .mainimage img {

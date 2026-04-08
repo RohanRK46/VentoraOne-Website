@@ -4,7 +4,6 @@ export default function Background() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
@@ -13,40 +12,16 @@ export default function Background() {
     let nodes = [];
     let gradient;
 
-    const NODE_COUNT = 55;
+    let NODE_COUNT = 55;
+    let MAX_DIST = 140;
+    let MAX_DIST_SQ = MAX_DIST * MAX_DIST;
+
     const SCALE = 0.7;
-    const MAX_DIST = 140;
-    const MAX_DIST_SQ = MAX_DIST * MAX_DIST;
-
-    function resize() {
-
-      width = canvas.width = window.innerWidth * SCALE;
-      height = canvas.height = window.innerHeight * SCALE;
-
-      canvas.style.width = window.innerWidth + "px";
-      canvas.style.height = window.innerHeight + "px";
-
-      gradient = ctx.createRadialGradient(
-        width / 2,
-        height * 0.75,
-        0,
-        width / 2,
-        height * 0.75,
-        width
-      );
-
-      gradient.addColorStop(0, "#00041e");
-      gradient.addColorStop(1, "#031329");
-    }
 
     function createNodes() {
-
       nodes = new Array(NODE_COUNT);
-
       for (let i = 0; i < NODE_COUNT; i++) {
-
         const depth = Math.random();
-
         nodes[i] = {
           x: Math.random() * width,
           y: Math.random() * height,
@@ -58,21 +33,40 @@ export default function Background() {
       }
     }
 
+    function resize() {
+      width = canvas.width = window.innerWidth * SCALE;
+      height = canvas.height = window.innerHeight * SCALE;
+
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+
+      const isMobile = window.innerWidth <= 768;
+      NODE_COUNT = isMobile ? 30 : 55;
+      MAX_DIST = isMobile ? 120 : 140;
+      MAX_DIST_SQ = MAX_DIST * MAX_DIST;
+
+      gradient = ctx.createRadialGradient(
+        width / 2, height * 0.75, 0,
+        width / 2, height * 0.75, width
+      );
+      gradient.addColorStop(0, "#00041e");
+      gradient.addColorStop(1, "#031329");
+
+      createNodes();
+    }
+
     function drawBackground() {
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
     }
 
     function connectNodes(time) {
-
       const len = nodes.length;
+      const isMobile = window.innerWidth <= 768;
 
       for (let i = 0; i < len; i++) {
-
         const n1 = nodes[i];
-
         for (let j = i + 1; j < len; j++) {
-
           const n2 = nodes[j];
 
           const dx = n1.x - n2.x;
@@ -83,15 +77,14 @@ export default function Background() {
 
           const heightFactor = (n1.y + n2.y) / (2 * height);
           const depthAvg = (n1.depth + n2.depth) * 0.5;
-
-          const baseAlpha =
-            (1 - distSq / MAX_DIST_SQ) * depthAvg * heightFactor;
+          const baseAlpha = (1 - distSq / MAX_DIST_SQ) * depthAvg * heightFactor;
 
           if (baseAlpha < 0.03) continue;
 
           const wave = 0.7 + 0.3 * Math.sin(time * 0.004 + distSq * 0.01);
+          const alphaMultiplier = isMobile ? 0.85 : 1.4;
 
-          ctx.strokeStyle = `rgba(0,220,255,${baseAlpha * wave * 1.4})`;
+          ctx.strokeStyle = `rgba(0,220,255,${baseAlpha * wave * alphaMultiplier})`;
           ctx.lineWidth = depthAvg * heightFactor * 2;
 
           ctx.beginPath();
@@ -103,24 +96,18 @@ export default function Background() {
     }
 
     function animate(time) {
-
       ctx.clearRect(0, 0, width, height);
-
       drawBackground();
 
       for (let i = 0; i < nodes.length; i++) {
-
         const node = nodes[i];
-
         node.x += node.vx * node.depth;
         node.y += node.vy * node.depth;
 
         if (node.x < 0 || node.x > width) node.vx *= -1;
         if (node.y < 0 || node.y > height) node.vy *= -1;
 
-        const blink =
-          0.8 + 0.2 * Math.sin(time * 0.001 + node.blinkOffset);
-
+        const blink = 0.8 + 0.2 * Math.sin(time * 0.001 + node.blinkOffset);
         const size = 1.2 + node.depth * 2.2;
 
         ctx.beginPath();
@@ -130,20 +117,16 @@ export default function Background() {
       }
 
       connectNodes(time);
-
       requestAnimationFrame(animate);
     }
 
     window.addEventListener("resize", resize);
-
     resize();
-    createNodes();
     requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("resize", resize);
     };
-
   }, []);
 
   return (
