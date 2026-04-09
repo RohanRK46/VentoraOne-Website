@@ -15,7 +15,7 @@
   padding-top:    calc(var(--navbar-h) + clamp(24px, 3.5vh, 52px));
   padding-bottom: clamp(48px, 6vh, 90px);
   padding-left:   clamp(52px, 1vw, 120px);
-  padding-right:  clamp(22px, 3vw, 100px);
+  padding-right:  clamp(22px, 1vw, 100px);
 
   position: relative;
   z-index: 5;

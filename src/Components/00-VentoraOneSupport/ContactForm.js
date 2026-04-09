@@ -18,7 +18,7 @@ const ContactForm = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/contact", {
+      const res = await fetch("https://ventoraone-server-production.up.railway.app/api/contact", { // ✅ CHANGED
         method: "POST",
         headers: {
           "Content-Type": "application/json",

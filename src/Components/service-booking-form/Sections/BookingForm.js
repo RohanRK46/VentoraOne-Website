@@ -1,34 +1,85 @@
-import { useState, useCallback } from "react";
-import { RefreshCw, CheckCircle, Clock } from "lucide-react";
+import { useState, useCallback, useRef, useEffect } from "react";
+import { RefreshCw, CheckCircle, Clock, ChevronDown } from "lucide-react";
 import "./BookingForm.css";
 
 const SERVICE_OPTIONS = [
-  { value: "network-design", label: "Network Design & Infrastructure Planning " },
-  { value: "firewall", label: "Firewall Security & Implementation " },
-  { value: "endpoint", label: "Endpoint Security & Threat Protection " },
-  { value: "email", label: "Email Security & Phishing Protection " },
-  { value: "cloud", label: "Cloud & Hybrid Security " },
-  { value: "backup", label: "Backup & Disaster Recovery Solutions " },
-  { value: "troubleshooting", label: "Troubleshooting & Optimization " },
-  { value: "end-to-end", label: "End-to-End Project Delivery " },
+  { value: "network-design", label: "Network Design & Infrastructure Planning" },
+  { value: "cloud", label: "Cloud & Hybrid Security" },
+  { value: "firewall", label: "Firewall Security & Implementation" },
+  { value: "endpoint", label: "Endpoint Security & Threat Protection" },
+  { value: "backup", label: "Backup & Disaster Recovery Solutions" },
+  { value: "enterprise", label: "Enterprise Security" },
+  { value: "troubleshooting", label: "Troubleshooting & Optimization" },
+  { value: "system-integration", label: "IT System Integration" },
+  { value: "bid-tender", label: "Tender & Bid Advisory" },
+  { value: "software", label: "SaaS and Custom Software" },
+  { value: "digital-transformation", label: "Digital Transformation" },
+  { value: "vender-mgmt", label: "Project & Vendor Management" },
 ];
 
 const URGENCY_OPTIONS = [
-  { value: "low", label: "Low — Within a month" },
-  { value: "medium", label: "Medium - Within 2 weeks" },
-  { value: "high", label: "High - Within a week" },
-  { value: "critical", label: "Critical - ASAP" },
+  { value: "low", label: "Low Within a month" },
+  { value: "medium", label: "Medium Within 2 weeks" },
+  { value: "high", label: "High Within a week" },
+  { value: "critical", label: "Critical ASAP" },
 ];
 
 const generateCaptcha = () => {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   let code = "";
-  for (let i = 0; i < 6; i++) {
-    code += chars[Math.floor(Math.random() * chars.length)];
-  }
+  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
   return code;
 };
 
+/* ── Custom Dropdown ── */
+const CustomSelect = ({ name, value, onChange, options, placeholder }) => {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const selected = options.find((o) => o.value === value);
+
+  const handleSelect = (val) => {
+    onChange({ target: { name, value: val } });
+    setOpen(false);
+  };
+
+  return (
+    <div className="custom-select-wrapper" ref={ref}>
+      <button
+        type="button"
+        className={`custom-select-trigger ${open ? "open" : ""} ${!value ? "placeholder" : ""}`}
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        <span>{selected ? selected.label : placeholder}</span>
+        <ChevronDown size={16} className={`select-chevron ${open ? "rotated" : ""}`} />
+      </button>
+
+      {open && (
+        <ul className="custom-select-menu">
+          {options.map((opt) => (
+            <li
+              key={opt.value}
+              className={`custom-select-option ${value === opt.value ? "selected" : ""}`}
+              onMouseDown={() => handleSelect(opt.value)}
+            >
+              {opt.label}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+/* ── Main Component ── */
 const BookingForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -54,15 +105,28 @@ const BookingForm = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (captchaInput.toUpperCase() !== captchaCode) {
       setCaptchaError("Captcha doesn't match. Please try again.");
       refreshCaptcha();
       setCaptchaInput("");
       return;
     }
-    setSubmitted(true);
+
+    try {
+      const res = await fetch("https://ventoraone-server-production.up.railway.app/api/booking", { // ✅ CHANGED
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Server error");
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Booking submit error:", err);
+      setCaptchaError("Something went wrong. Please try again.");
+    }
   };
 
   if (submitted) {
@@ -98,7 +162,7 @@ const BookingForm = () => {
               <input
                 type="text"
                 name="fullName"
-                placeholder="Rohan Yadav"
+                placeholder="Rohan"
                 value={formData.fullName}
                 onChange={handleChange}
                 required
@@ -109,7 +173,7 @@ const BookingForm = () => {
               <input
                 type="email"
                 name="email"
-                placeholder="yourcompnay@company.com"
+                placeholder="yourcompany@company.com"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -143,25 +207,23 @@ const BookingForm = () => {
           <div className="form-row">
             <div className="form-group">
               <label>Service Required</label>
-              <select name="service" value={formData.service} onChange={handleChange} required>
-                <option value="">Select a service..</option>
-                {SERVICE_OPTIONS.map((opt) => (
-                  <option key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </option>
-                ))}
-              </select>
+              <CustomSelect
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                options={SERVICE_OPTIONS}
+                placeholder="Select a service.."
+              />
             </div>
             <div className="form-group">
               <label>Urgency Level</label>
-              <select name="urgency" value={formData.urgency} onChange={handleChange} required>
-                <option value="">Select urgency..</option>
-                {URGENCY_OPTIONS.map((opt) => (
-                  <option key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </option>
-                ))}
-              </select>
+              <CustomSelect
+                name="urgency"
+                value={formData.urgency}
+                onChange={handleChange}
+                options={URGENCY_OPTIONS}
+                placeholder="Select urgency.."
+              />
             </div>
           </div>
 
@@ -175,7 +237,6 @@ const BookingForm = () => {
             />
           </div>
 
-          {/* Captcha */}
           <div className="form-group">
             <label>Security Verification</label>
             <div className="captcha-box">

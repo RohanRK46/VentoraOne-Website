@@ -250,8 +250,7 @@
   .network-hero-image-large {
     position: relative;
     top: -100px;
-    scale: 2;
-    left: -13px
+    scale: 1.6;
   }
 
 }
