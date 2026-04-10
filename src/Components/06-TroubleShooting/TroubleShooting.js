@@ -1,88 +1,89 @@
 import { motion } from "framer-motion";
-import { Wrench, AlertCircle, Monitor, Activity } from "lucide-react";
+import { Search, Wrench, MonitorCheck, Zap } from "lucide-react";
 import "./TroubleShooting.css";
-import heroImage from "./images/troubleshooting.png";
+import heroImage from "./images/troubleshoot.png";
 import { Link } from "react-router-dom";
-import PerformanceSection from "./PerformanceBar/PerformanceSection";
-import CheckOutServices from "./CheckOutServices/CheckOutServices";
+import SupportSectionTS from "./SupportSectionTS/SupportSectionTS";
+import CheckOutOtherServices from "../CheckOutOtherServices/CheckOutOtherServices";
 
 const features = [
   {
+    icon: Search,
+    title: "Issue Diagnosis",
+    desc: "Accurately identify the root cause of technical problems using advanced diagnostic tools and systematic analysis.",
+  },
+  {
     icon: Wrench,
-    title: "System Diagnostics",
-    desc: "Identify and analyze system issues quickly using advanced diagnostic tools and techniques.",
+    title: "Hardware Repair",
+    desc: "Resolve hardware failures and physical component issues with expert hands-on repair and replacement services.",
   },
   {
-    icon: AlertCircle,
-    title: "Issue Resolution",
-    desc: "Resolve technical problems efficiently to minimize downtime and ensure smooth operations.",
+    icon: MonitorCheck,
+    title: "Software Fixes",
+    desc: "Debug, patch, and resolve software conflicts, crashes, and performance issues across all platforms.",
   },
   {
-    icon: Monitor,
-    title: "Hardware & Software Fixes",
-    desc: "Troubleshoot and repair both hardware and software issues across systems and networks.",
-  },
-  {
-    icon: Activity,
-    title: "Performance Monitoring",
-    desc: "Continuously monitor systems to detect problems early and maintain optimal performance.",
+    icon: Zap,
+    title: "Performance Optimization",
+    desc: "Boost system speed and responsiveness by eliminating bottlenecks, junk files, and misconfigurations.",
   },
 ];
 
 export default function TroubleShooting() {
   return (
-    <div className="troubleshoot-page">
+    <div className="ts-page">
 
-      <section className="troubleshoot">
+      <section className="ts">
 
-        <div className="troubleshoot-glow troubleshoot-glow1"></div>
-        <div className="troubleshoot-glow troubleshoot-glow2"></div>
+        <div className="ts-glow ts-glow1"></div>
+        <div className="ts-glow ts-glow2"></div>
 
-        <div className="troubleshoot-container">
+        <div className="ts-container">
 
-          <div className="troubleshoot-revealed-state">
+          <div className="ts-revealed-state">
 
             <motion.div
-              className="troubleshoot-content-left"
+              className="ts-content-left"
               initial={{ opacity: 0, x: -80 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
             >
 
-              <p className="troubleshoot-tag">
+              <p className="ts-tag">
                 Technical Support Solutions
               </p>
 
-              <h2 className="troubleshoot-content-title">
-                Smart
+              <h2 className="ts-content-title">
+                Expert
                 <br />
-                <span>Troubleshooting</span>
+                <span>Troubleshooting & Fixes</span>
               </h2>
 
-              <p className="troubleshoot-content-desc">
-                Quickly identify, diagnose, and resolve technical issues to ensure
-                smooth system performance and uninterrupted business operations.
+              <p className="ts-content-desc">
+                Get your systems back on track with fast, reliable troubleshooting
+                services — from diagnosing root causes to delivering lasting fixes
+                for hardware, software, and performance issues.
               </p>
 
-              <div className="troubleshoot-feature-grid">
+              <div className="ts-feature-grid">
                 {features.map((feature, i) => (
                   <motion.div
                     key={feature.title}
-                    className="troubleshoot-feature-card"
+                    className="ts-feature-card"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + i * 0.1 }}
                   >
-                    <feature.icon className="troubleshoot-feature-icon" />
+                    <feature.icon className="ts-feature-icon" />
                     <h3>{feature.title}</h3>
                     <p>{feature.desc}</p>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="troubleshoot-button-group">
+              <div className="ts-button-group">
                 <Link to="/ServiceBookingForm">
-                  <button className="troubleshoot-primary-btn">
+                  <button className="ts-primary-btn">
                     Book a Service
                   </button>
                 </Link>
@@ -91,15 +92,15 @@ export default function TroubleShooting() {
             </motion.div>
 
             <motion.div
-              className="troubleshoot-content-right"
+              className="ts-content-right"
               initial={{ opacity: 0, x: 80 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
             >
               <img
                 src={heroImage}
-                alt="Troubleshooting"
-                className="troubleshoot-hero-image-large"
+                alt="Troubleshooting and Fixes"
+                className="ts-hero-image-large"
                 loading="lazy"
               />
             </motion.div>
@@ -110,8 +111,8 @@ export default function TroubleShooting() {
 
       </section>
 
-      <PerformanceSection />
-      <CheckOutServices titleColor="black" cardcolor="rgb(8 16 52)" />
+      <SupportSectionTS />
+      <CheckOutOtherServices />
 
     </div>
   );

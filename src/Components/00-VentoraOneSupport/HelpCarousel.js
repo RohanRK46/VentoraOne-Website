@@ -12,12 +12,12 @@ import {
 import "./HelpCarousel.css";
 
 const categories = [
-  { icon: Shield, title: "Account Access", desc: "Login, passwords & security", articles: 24 },
-  { icon: CreditCard, title: "Billing & Plans", desc: "Invoices, upgrades & payments", articles: 18 },
-  { icon: Code2, title: "Technical API", desc: "Integration & developer docs", articles: 42 },
-  { icon: Settings, title: "Configuration", desc: "Settings & customization", articles: 31 },
-  { icon: Users, title: "Team Management", desc: "Roles, permissions & invites", articles: 15 },
-  { icon: HelpCircle, title: "General FAQ", desc: "Common questions answered", articles: 56 },
+  { icon: Shield, title: "Account Access", desc: "Login, passwords & security"},
+  { icon: CreditCard, title: "Billing & Plans", desc: "Invoices, upgrades & payments"},
+  { icon: Code2, title: "Technical API", desc: "Integration & developer docs"},
+  { icon: Settings, title: "Configuration", desc: "Settings & customization"},
+  { icon: Users, title: "Team Management", desc: "Roles, permissions & invites"},
+  { icon: HelpCircle, title: "General FAQ", desc: "Common questions answered"},
 ];
 
 const HelpCarousel = () => {
@@ -99,7 +99,6 @@ const HelpCarousel = () => {
 
                     <h3 className="card-title">{cat.title}</h3>
                     <p className="card-desc">{cat.desc}</p>
-                    <span className="card-link">{cat.articles} articles →</span>
                   </div>
                 </div>
               );

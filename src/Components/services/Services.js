@@ -64,7 +64,7 @@ const cyberSubServices = [
   { category: "Networking", title: "Network Design", image: imgNetwork, route: "/NetworkDesign" },
   { category: "Firewall", title: "Firewall Security", image: imgFirewall, route: "/FireWallSecurity" },
   { category: "Backup", title: "Backup & Recovery", image: imgBackup, route: "/BackUpAndRecovery" },
-  { category: "Security", title: "Enterprise Security", image: imgEnterprise, route: "/cyber/enterprise" },
+  { category: "Troublshooting", title: "Troubleshooting", image: imgEnterprise, route: "/TroubleShooting" },
 ];
 
 function ServiceCards() {

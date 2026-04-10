@@ -93,7 +93,7 @@ export default function Navbar() {
                   <li><Link to="/NetworkDesign" onClick={closeMenu}>Network Design</Link></li>
                   <li><Link to="/FireWallSecurity" onClick={closeMenu}>Firewall Security</Link></li>
                   <li><Link to="/BackUpAndRecovery" onClick={closeMenu}>Backup and Recovery</Link></li>
-                  <li><Link to="/troubleshooting" onClick={closeMenu}>Troubleshooting</Link></li>
+                  <li><Link to="/TroubleShooting" onClick={closeMenu}>Troubleshooting</Link></li>
                 </ul>
 
               </li>

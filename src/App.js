@@ -18,6 +18,7 @@ const VentoraOneSupport = lazy(() => import('./Components/00-VentoraOneSupport/S
 const OurProcess = lazy(() => import('./Components/OurProcessSection/OurProcess'))
 const FireWallSecurity = lazy(() => import('./Components/04-FireWallSecurity/FireWallSecurity'))
 const BackUpAndRecovery = lazy(() => import('./Components/05-BackUpAndRecovery/BackUpAndRecovery'))
+const TroubleShooting = lazy(() => import('./Components/06-TroubleShooting/TroubleShooting'))
 const TenderAndBidAdvisoryHero = lazy(() => import('./Components/07-TenderAndBidAdvisory/TenderAndBidAdvisoryHero'))
 const SaasAndCustomSoftwareHero = lazy(() => import('./Components/08-SaasAndCustomSoftware/SaasAndCustomSoftwareHero'))
 const ItSystemIntegrationHero = lazy(() => import('./Components/09-ItSystemAndIntegration/ItSystemIntegrationHero'))
@@ -58,6 +59,7 @@ function App() {
         <Route path="/NetworkDesign" element={<NetworkDesign />} />
         <Route path="/FireWallSecurity" element={<FireWallSecurity/>} />
         <Route path="/BackUpAndRecovery" element={<BackUpAndRecovery/>} />
+        <Route path="/TroubleShooting" element={<TroubleShooting/>} />
         <Route path="/tenderAndBidding" element={<TenderAndBidAdvisoryHero/>} />
         <Route path="/SaasAndCustomSoftware" element={<SaasAndCustomSoftwareHero/>} />
         <Route path="/ItSystemIntegration" element={<ItSystemIntegrationHero/>} />
