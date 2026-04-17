@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './AbtHeroSection.css';
 
 const PARTICLES = Array.from({ length: 18 }, (_, i) => ({
@@ -10,7 +11,24 @@ const PARTICLES = Array.from({ length: 18 }, (_, i) => ({
   size: i % 3 === 0 ? 3 : i % 3 === 1 ? 2 : 1.5,
 }));
 
-const AbtHeroSection = () => {
+const CYCLING_WORDS = ['Integrate', 'Automate', 'Transform'];
+
+const AbtHeroSection = ({ onExploreServices }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [exitIndex, setExitIndex] = useState(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setExitIndex(activeIndex);
+      const next = (activeIndex + 1) % CYCLING_WORDS.length;
+      setTimeout(() => {
+        setActiveIndex(next);
+        setExitIndex(null);
+      }, 500);
+    }, 2200);
+    return () => clearInterval(interval);
+  }, [activeIndex]);
+
   return (
     <section className="hs-section">
       <div className="hs-grid" />
@@ -41,14 +59,26 @@ const AbtHeroSection = () => {
       <div className="hs-vline hs-vline--right" />
 
       <div className="hs-content">
-        <div className="hs-badge">
-          <span className="hs-badge-dot" />
-          <span className="hs-badge-text">DELIVERY SYSTEMS ACTIVE</span>
-          <span className="hs-badge-dot" />
+        <div className="hs-cycling-badge">
+          <span className="hs-cycling-dot" />
+          <div className="hs-cycling-text-wrap">
+            {CYCLING_WORDS.map((word, i) => (
+              <span
+                key={word}
+                className={
+                  'hs-cycling-word' +
+                  (i === activeIndex ? ' active' : '') +
+                  (i === exitIndex ? ' exit' : '')
+                }
+              >
+                {word}
+              </span>
+            ))}
+          </div>
+          <span className="hs-cycling-dot" />
         </div>
 
         <div className="hs-title-wrap">
-          <span className="hs-label">COMPANY</span>
           <h1 className="hs-title">
             <span className="hs-title-main">VENTORAONE</span>
           </h1>
@@ -56,17 +86,17 @@ const AbtHeroSection = () => {
         </div>
 
         <p className="hs-desc">
-          We design, secure, and deliver complex IT systems across multi-vendor environments. 
-          From cybersecurity and infrastructure to custom software and large-scale execution, 
-          we take ownership from strategy to deployment.
+          From cybersecurity and infrastructure to custom software, we design, secure, and deliver IT systems across multi-vendor environments.
         </p>
 
         <div className="hs-cta">
-          <button className="hs-btn-primary">
+          <button className="hs-btn-primary" onClick={onExploreServices}>
             <span className="hs-btn-glow" />
             Explore Services
           </button>
-          <button className="hs-btn-outline">Our Capabilities</button>
+          <Link to="/Technologies" className="hs-outline-link">
+            <button className="hs-btn-outline">Tools & Technologies</button>
+          </Link>
         </div>
       </div>
 
@@ -93,7 +123,7 @@ const AbtHeroSection = () => {
         <div className="hs-stat-div" />
         <div className="hs-stat">
           <span className="hs-stat-val">Real</span>
-          <span className="hs-stat-lbl">World Deployment</span>
+          <span className="hs-stat-lbl">Real World Deployment</span>
         </div>
       </div>
 

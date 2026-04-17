@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, forwardRef, useImperativeHandle } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CheckOutOtherServices.css';
 
@@ -13,18 +13,18 @@ import imgDigital  from './imagesServices/service-transformation.jpg';
 import imgProject  from './imagesServices/service-management.jpg';
 
 const services = [
-  { id: 1, category: 'CLOUD',          title: 'Cloud & Hybrid Security',    route: '/CloudSecurity',           img: imgCloud,    accent: '#00c6ff' },
-  { id: 2, category: 'NETWORKING',     title: 'Network Design',             route: '/NetworkDesign',           img: imgNetwork,  accent: '#a78bfa' },
-  { id: 3, category: 'FIREWALL',       title: 'Firewall Security',          route: '/FireWallSecurity',        img: imgFirewall, accent: '#f43f5e' },
-  { id: 4, category: 'BACKUP',         title: 'Backup & Recovery',          route: '/BackUpAndRecovery',       img: imgBackup,   accent: '#34d399' },
-  { id: 5, category: 'INTEGRATION',    title: 'IT Systems Integration',     route: '/ItSystemIntegration',    img: imgIT,       accent: '#38bdf8' },
-  { id: 6, category: 'ADVISORY',       title: 'Tender & Bid Advisory',      route: '/tenderAndBidding',        img: imgTender,   accent: '#c084fc' },
-  { id: 7, category: 'SOFTWARE',       title: 'SaaS & Custom Software',     route: '/SaasAndCustomSoftware',   img: imgSaas,     accent: '#fb923c' },
-  { id: 8, category: 'TRANSFORMATION', title: 'Digital Transformation',     route: '/DigitalTransformation',   img: imgDigital,  accent: '#4ade80' },
-  { id: 9, category: 'MANAGEMENT',     title: 'Project & Vendor Management',route: '/ProjectVendorManagement', img: imgProject,  accent: '#facc15' },
+  { id: 1, category: 'CLOUD',          title: 'Cloud & Hybrid Security',     route: '/CloudSecurity',           img: imgCloud,    accent: '#00c6ff' },
+  { id: 2, category: 'NETWORKING',     title: 'Network Design',              route: '/NetworkDesign',           img: imgNetwork,  accent: '#a78bfa' },
+  { id: 3, category: 'FIREWALL',       title: 'Firewall Security',           route: '/FireWallSecurity',        img: imgFirewall, accent: '#f43f5e' },
+  { id: 4, category: 'BACKUP',         title: 'Backup & Recovery',           route: '/BackUpAndRecovery',       img: imgBackup,   accent: '#34d399' },
+  { id: 5, category: 'INTEGRATION',    title: 'IT Systems Integration',      route: '/ItSystemIntegration',    img: imgIT,       accent: '#38bdf8' },
+  { id: 6, category: 'ADVISORY',       title: 'Tender & Bid Advisory',       route: '/tenderAndBidding',        img: imgTender,   accent: '#c084fc' },
+  { id: 7, category: 'SOFTWARE',       title: 'SaaS & Custom Software',      route: '/SaasAndCustomSoftware',   img: imgSaas,     accent: '#fb923c' },
+  { id: 8, category: 'TRANSFORMATION', title: 'Digital Transformation',      route: '/DigitalTransformation',   img: imgDigital,  accent: '#4ade80' },
+  { id: 9, category: 'MANAGEMENT',     title: 'Project & Vendor Management', route: '/ProjectVendorManagement', img: imgProject,  accent: '#facc15' },
 ];
 
-export default function CheckOutOtherServices({ currentRoute }) {
+const CheckOutOtherServices = forwardRef(function CheckOutOtherServices({ currentRoute }, ref) {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [cardsRevealed, setCardsRevealed] = useState(false);
@@ -45,6 +45,9 @@ export default function CheckOutOtherServices({ currentRoute }) {
     setCardsRevealed(false);
     document.body.style.overflow = '';
   }, []);
+
+  // Expose openPanel to parent via ref
+  useImperativeHandle(ref, () => ({ open: openPanel }), [openPanel]);
 
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') closePanel(); };
@@ -139,4 +142,6 @@ export default function CheckOutOtherServices({ currentRoute }) {
       </div>
     </>
   );
-}
+});
+
+export default CheckOutOtherServices;

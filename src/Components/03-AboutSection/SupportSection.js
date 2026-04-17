@@ -6,12 +6,12 @@ const capabilities = [
   {
     icon: Server,
     title: "IT Systems Integration",
-    desc: "Complex multi-vendor platform integration — ERP, POS, ticketing, access control — delivered as one unified system.",
+    desc: "Complex multi-vendor platform integration ERP, POS, ticketing, access control delivered as one unified system.",
   },
   {
     icon: Globe,
     title: "Tender & Bid Advisory",
-    desc: "Winning tender responses for government and institutional clients. Strategy, pricing, consortium formation — end to end.",
+    desc: "Winning tender responses for government and institutional clients. Strategy, pricing, consortium formation end to end.",
   },
   {
     icon: Shield,
@@ -21,7 +21,7 @@ const capabilities = [
   {
     icon: Cpu,
     title: "SaaS & Custom Software",
-    desc: "Bespoke platforms for emerging markets — offline-capable, scalable, deployable on government cloud. Flutter, Java, AI.",
+    desc: "Bespoke platforms for emerging markets offline-capable, scalable, deployable on government cloud. Flutter, Java, AI.",
   },
   {
     icon: Zap,
@@ -31,7 +31,7 @@ const capabilities = [
   {
     icon: Lock,
     title: "Project & Vendor Management",
-    desc: "We act as your delivery arm — managing vendors, subcontractors, timelines, and quality across multi-party projects.",
+    desc: "We act as your delivery arm managing vendors, subcontractors, timelines, and quality across multi-party projects.",
   },
 ];
 
@@ -39,7 +39,7 @@ const advantages = [
   {
     icon: Eye,
     title: "Vendor-Neutral",
-    desc: "Independent advice. We recommend what's right — not what earns commission.",
+    desc: "Independent advice. We recommend what's right not what earns commission.",
   },
   {
     icon: Shield,
@@ -54,7 +54,7 @@ const advantages = [
   {
     icon: Zap,
     title: "Lean & Fast",
-    desc: "No 12-week discovery. We assess, propose, and execute — speed is a feature.",
+    desc: "No 12-week discovery. We assess, propose, and execute speed is a feature.",
   },
 ];
 
