@@ -24,7 +24,7 @@
     border: 0.5px solid rgb(202, 201, 201);
     border-radius: 18px;
     box-shadow:
-        2px 0 20px black
+        2px 0 20px black,
         2px 0 15px black;
     max-width: 300px;
     font-size: 15px;
@@ -357,20 +357,40 @@
 @media (max-width: 600px) {
 
     .Service2 {
-        min-height: 120vh;
+        margin-top: 60px;
+        min-height: 80vh;
+        overflow: visible;
+    }
+
+    .service2-content {
+        position: relative;
+        height: auto;
+        overflow: visible;
+    }
+
+    .mainimage {
+        position: relative;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
     }
 
     .mainimage img {
-        width: 80vw;
+        position: relative;
+        width: 85vw;
         height: auto;
-        left: 10%;
-        top: 80px;
+        left: unset;
+        top: unset;
     }
 
     .righttext {
-        position: absolute;
-        margin-top: 60vh;
-        margin-right: 30px;
+        position: relative;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
         width: 90%;
         height: auto;
         text-align: center;
@@ -380,26 +400,29 @@
     .righttext h1 {
         position: relative;
         font-size: 1.6em;
-        left: 15px;
+        left: unset;
     }
 
     .chatbox-1 {
         width: 220px;
         height: 65px;
         right: 10%;
-        bottom: 10px;
+        top: 10px;
+        bottom: unset;
     }
 
     .chatbox-2 {
         width: 220px;
         height: 65px;
         right: 10%;
-        bottom: 10px;
+        top: 80px;
+        bottom: unset;
     }
 
     .chatbox-3 {
         left: 4%;
-        bottom: 45%;
+        top: 160px;
+        bottom: unset;
         height: 63px;
         width: 230px;
         background-color: white;
@@ -409,9 +432,14 @@
 /* -------- Very Small Devices -------- */
 @media (max-width: 480px) {
 
+    .Service2{
+        min-height: 120vh;
+    }
+
     .mainimage img {
-        width: 90vw;
-        left: 5%;
+        width: 92vw;
+        left: unset;
+        top: unset;
     }
 
     .righttext h1 {
@@ -421,7 +449,7 @@
     .righttext p {
         position: relative;
         font-size: 15px;
-        left: 15px;
+        left: -20px;
     }
 
     .chatbox-1,
@@ -432,5 +460,7 @@
 
     .ptags {
         width: 340px;
+        position: relative;
+        left: 20px;
     }
 }

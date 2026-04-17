@@ -190,7 +190,7 @@
 
 @media (max-width: 480px) {
   .section { margin-top: 27vh; gap: 30px; }
-  .ourProcess p, .whychoseventora p { font-size: 1.5em; }
+  .ourProcess p, .whychoseventora p { font-size: 1.8em; }
   .image-row { gap: 12px; }
   .image-row img { width: 85px; height: 85px; border-radius: 12px; }
   .square-wrapper { height: 28vh; }
