@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './OurProcess.css';
 import {
   Cloud, Network, Shield, HardDrive, Puzzle,
-  FileText, Layers, Cpu, BarChart3, ArrowRight, ChevronDown
+  FileText, Layers, Cpu, BarChart3, ChevronDown
 } from 'lucide-react';
 
 const steps = [
