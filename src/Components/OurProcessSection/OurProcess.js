@@ -112,9 +112,6 @@ function StepCard({ step, index }) {
           <span className="op-card-tag">{step.tag}</span>
           <h3 className="op-card-title">{step.name}</h3>
           <p className="op-card-desc">{step.desc}</p>
-          <span className="op-card-cta">
-            Learn more <ArrowRight size={13} className="op-card-cta-arrow" />
-          </span>
         </div>
       </div>
     </div>
