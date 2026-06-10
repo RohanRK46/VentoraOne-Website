@@ -4,6 +4,7 @@ import React, { Suspense, lazy } from "react";
 
 import Navbar from './Components/navbar/Navbar';
 import ScrollToTop from './Components/ScrolltoTop';
+import GTMPageTracker from './GTMPageTracker';
 
 const EntireAboutSection = lazy(() => import('./Components/03-AboutSection/EntireAboutSection'));
 const HeroSection = lazy(() => import('./Components/homepage/HeroSection'));
@@ -26,14 +27,13 @@ const DigitalTransformationHero = lazy(() => import('./Components/10-DigitalTran
 const ProjectVendorManagementHero = lazy(() => import('./Components/11-ProjectAndVendorManagement/ProjectVendorManagementHero'))
 const Technologies = lazy(() => import('./Components/12-Technologies/Technologies'))
 
-
-
 function App() {
   return (
     <Suspense fallback={<div style={{ textAlign: "center", padding: "40px" }}>Loading...</div>}>
 
       <Navbar />
       <ScrollToTop />
+      <GTMPageTracker />
 
       <Routes>
 
